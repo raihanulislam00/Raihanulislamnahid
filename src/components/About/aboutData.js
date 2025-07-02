@@ -101,82 +101,117 @@ export const skills = [
 
 export const experience = [
   {
-    title: "Associate Software Engineer",
-    company: "Cefalo Bangladesh Ltd.",
-    duration: "June 2024 - Present",
-    type: "Full-time",
-    location: "Dhaka, Bangladesh",
+    title: "Student Ambassador",
+    company: "Microsoft",
+    duration: "October 2023 – Present",
+    type: "Part-time",
+    location: "Remote",
     description: [
-      "⭐ Cefalo ATS (Applicant Tracking System)",
-      "Actively Participate in Sprint & Daily Standup",
-      "Worked on 10 Bug Fix / Improvements Task",
-      "Worked on emergency HOTFIX Bug Issue in Production",
-      "Implemented a Client Requirement Needed Feature Task (Successfully Delivered)",
+      "⭐ Microsoft Learn Student Ambassador Program",
+      "Actively promoting Microsoft technologies and cloud services among student communities",
+      "Organizing technical workshops and seminars on Azure, AI, and modern development practices",
+      "Mentoring fellow students in Microsoft technologies and career development",
+      "Contributing to open-source projects and community building initiatives",
+      "Representing Microsoft at university events and tech meetups",
     ],
     technologies: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "Nest.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "MySQL",
-      "Docker",
+      "Microsoft Azure",
+      "AI & Machine Learning",
+      "Power Platform",
+      "Microsoft 365",
+      "GitHub",
+      "Community Building",
     ],
   },
   {
-    title: "Trainee Software Engineer",
-    company: "Cefalo Bangladesh Ltd.",
-    duration: "Dec 2024 - May 2025",
-    type: "Intenship",
-    location: "Dhaka, Bangladesh",
+    title: "Campus Ambassador",
+    company: "Hackules Inc.",
+    duration: "Jan 2024 – Present",
+    type: "Part-time",
+    location: "Remote",
     description: [
-      "⭐ Backend Development",
-      "Designed, developed, and maintained a Blog Website Backend using Node.js, PostgreSQL, and Knex.js.",
-      "Built and maintained **RESTful APIs** to ensure seamless communication with frontend system.",
-      "Consistent and Quality code base following **Controller - Service - Repository** Pattern.",
-      "Applied **Axios** for making HTTP requests and **CORS origin policy** to handle cross-origin requests.",
-      "Implemented proper **error validation** to handle and log errors effectively.",
-      "Got mentored by senior developers to ensure code quality and adherence to best practices.",
-      "Implemented **unit testing with JEST** to ensure robustness and reliability of the backend system.",
-      "Optimized performance through **caching strategies** and **Dockerized** the application for efficient deployment and scalability.",
-      "Implemented **CRUD operations** for managing blog posts, comments, and user profiles.",
-      "⭐ Frontend Development",
-      "Developed the Blog Website Frontend using React, TypeScript, and Tailwind CSS.",
-      "Integrated **React Tanstack Query** for efficient data fetching and caching.",
-      "Built **reusable components** and implemented state management using **React Hooks and Context API**.",
-      "Integrated features like route protection, lazy loading, **AI support** for Image & Story Generation.",
-      "Added **multilingual language** (Norwegian) support to enhance accessibility for a global audience.",
-      "Focused on **performance optimization** to improve load times and overall user satisfaction.",
-      "Implemented **responsive design** and ensured cross-browser compatibility for an optimal user experience. **UI friendly design** to ensure an intuitive and engaging user experience",
-      "Implemented features like **newsletters** for user engagement and **story statistics** for tracking user interactions.",
-      "⭐ Collaboration & Knowledge Sharing",
-      "Actively participated in team presentations on caching strategies and best practices, contributing to team growth and knowledge sharing.",
+      "⭐ Campus Ambassador Program",
+      "Promoting Hackules platform and services within university networks",
+      "Organizing coding competitions and hackathons for student engagement",
+      "Building strong relationships with student developer communities",
+      "Facilitating workshops on competitive programming and problem-solving",
+      "Acting as a bridge between Hackules and academic institutions",
     ],
     technologies: [
-      "React",
-      "Node.js",
-      "REST API",
-      "Caching",
-      "PostgreSQL",
-      "TypeScript",
-      "Tailwind CSS",
-      "Git",
-      "Slack",
-      "Axios",
-      "CORS",
+      "Community Management",
+      "Event Organization",
+      "Competitive Programming",
+      "Student Engagement",
+      "Social Media Marketing",
     ],
   },
+
+];
+
+export const achievements = [
+  {
+    title: "Top 0.9% in Google Code Jam",
+    organization: "Google",
+    year: "2022",
+    description: "International Rank of 920th in Google Code Jam, 2022 among 93,000+ registrants",
+    type: "Competition",
+    icon: "🏆",
+    category: "Programming Competition"
+  },
+  {
+    title: "Top 2% in Meta Hacker Cup",
+    organization: "Meta (Facebook)",
+    year: "2024",
+    description: "International Rank of 1170th in Facebook Hacker Cup, 2024 among 35,000+ registrants",
+    type: "Competition",
+    icon: "🏆",
+    category: "Programming Competition"
+  },
+  {
+    title: "ICPC Participant",
+    organization: "ICPC",
+    year: "2022, 2025",
+    description: "Participated ICPC Asia Dhaka Regional Site Online Preliminary Contest in 2022 and 2025",
+    type: "Competition",
+    icon: "🏆",
+    category: "Programming Competition"
+  },
+  {
+    title: "Problem Solving Certification",
+    organization: "HackerRank",
+    year: "2023",
+    description: "It covers topics of Data Structures (such as HashMaps, Stacks and Queues) and Algorithms (such as Optimal Solutions).",
+    type: "Certification",
+    icon: "📜",
+    category: "Technical Certification"
+  },
+  {
+    title: "Beta Microsoft Student Learn Ambassador",
+    organization: "Microsoft",
+    year: "2023",
+    description: "Selected as a Beta Microsoft Student Ambassador, fostering tech skills and leadership.",
+    type: "Recognition",
+    icon: "🎖️",
+    category: "Leadership"
+  },
+  {
+    title: "Microsoft Cloud Skills Challenge Host",
+    organization: "Microsoft",
+    year: "2024",
+    description: "The badge honors Student Ambassadors who host Microsoft Learn events, fostering skill-building and community growth.",
+    type: "Recognition",
+    icon: "🎖️",
+    category: "Leadership"
+  }
 ];
 
 export const education = [
   {
     degree: "B.Sc in Computer Science & Engineering",
     institution: "American International University-Bangladesh (AIUB)",
-    duration: "2020 - Present",
+    duration: "2022 - Present",
     location: "Dhaka, Bangladesh",
     achievements: [
-      "Current CGPA: 3.85/4.00",
       "Consistently maintaining high academic performance",
       "Active participation in programming competitions and technical workshops",
       "Specialized in Software Engineering and Data Structures & Algorithms",
@@ -185,33 +220,30 @@ export const education = [
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
-    institution: "Notre Dame College",
-    duration: "2017 - 2019",
-    location: "Dhaka, Bangladesh",
+    institution: "Shahid Zia-Ur-Rahman Upokolio College",
+    duration: "2018 - 2020",
+    location: "Cox's Bazar, Bangladesh",
     achievements: [
-      "Achieved a perfect GPA: 5.00/5.00",
       "Specialized in the Science Group (Group - 5)",
       "Secured a Merit Position in College for outstanding academic performance",
     ],
   },
   {
     degree: "Secondary School Certificate (SSC)",
-    institution: "Narayanganj Ideal School",
-    duration: "2015 - 2017",
-    location: "Narayanganj, Bangladesh",
+    institution: "Pekua Government Model GMC Institution",
+    duration: "2016 - 2018",
+    location: "Cox's Bazar, Bangladesh",
     achievements: [
-      "Achieved a perfect GPA: 5.00/5.00 (Golden A+)",
-      "Ranked 2nd in the School and 4th in Narayanganj District",
-      "Awarded 2nd place in Intra-School Dewalika/Poster Presentation Competition",
+      "Ranked 4th in the School and 4th in Cox's Bazar",
     ],
   },
 ];
 
 export const stats = [
-  { label: "Problems Solved", value: "900+" },
+  { label: "Problems Solved", value: "1500+" },
   { label: "Projects Completed", value: "25+" },
   { label: "Competitions  & Achievements", value: "10+" },
-  { label: "Years Experience", value: "1+" },
+  { label: "Years Experience", value: "0" },
 ];
 
 export const aboutData = {
@@ -226,12 +258,13 @@ export const aboutData = {
 
   education: education,
 
+  achievements: achievements,
+
   interests: [
     "Web Development",
     "Open Source",
     "UI/UX Design",
     "Cloud Computing",
-    "Photography",
     "Problem Solving",
   ],
 };

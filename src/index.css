@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .img-shadow {
     filter: drop-shadow(40px 50px 25px #000000c7);

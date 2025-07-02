@@ -1,10 +1,23 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { FiExternalLink, FiTrendingUp, FiCode, FiAward } from "react-icons/fi";
+import { FiExternalLink, FiTrendingUp, FiCode, FiAward, FiTarget, FiZap, FiCpu } from "react-icons/fi";
 import { problemSolvingData } from "./problemSolvingData";
 
 const ProblemSolving = () => {
   const [activeTab, setActiveTab] = useState("platforms");
+
+  // Icon mapping function
+  const getIcon = (iconName) => {
+    const iconMap = {
+      FiCode: FiCode,
+      FiTarget: FiTarget,
+      FiZap: FiZap,
+      FiCpu: FiCpu,
+    };
+    
+    const IconComponent = iconMap[iconName];
+    return IconComponent ? <IconComponent className="text-3xl" /> : <div className="text-3xl">🏆</div>;
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -161,7 +174,7 @@ const ProblemSolving = () => {
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
                           <div className="flex items-center gap-4">
-                            <div className="text-3xl">{platform.icon || "🏆"}</div>
+                            <div>{getIcon(platform.icon)}</div>
                             <div>
                               <h3 className="text-xl font-bold text-white">{platform.name || "Platform"}</h3>
                               <p className="text-gray-400">@{platform.username || "username"}</p>

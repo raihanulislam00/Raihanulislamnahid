@@ -13,7 +13,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import { TypeAnimation } from "react-type-animation";
 import Navbar from "../Navbar/Navbar";
-import backgroundImage from "./assets/cover.jpg";
+import backgroundImage from "./assets/cover.jpeg";
 import { bannerData } from "./bannerData";
 
 const Banner = () => {

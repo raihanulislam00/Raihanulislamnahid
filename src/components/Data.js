@@ -1,7 +1,7 @@
 import { FaBookOpen } from "react-icons/fa";
 import { FaTrophy } from "react-icons/fa";
 import { FaBolt } from "react-icons/fa";
-import { FaCamera } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
@@ -41,9 +41,9 @@ export const homeAbout = [
   },
   {
     id: 4,
-    cover: <FaCamera size={60} />,
-    title: "Blogger and Photographer",
-    desc: "Occasionally write blogs on software-related topics on Medium and do casual photography.",
+    cover: <FaEdit size={60} />,
+    title: "Blogger and Content Writer",
+    desc: "Occasionally write blogs on software-related topics and technical content.",
   },
   {
     id: 5,

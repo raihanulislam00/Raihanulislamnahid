@@ -5,7 +5,9 @@ import {
   FaJava,
   FaNodeJs,
   FaPython,
-  FaReact
+  FaReact,
+  FaPhp,
+  FaHtml5,
 } from 'react-icons/fa';
 import { GiArtificialIntelligence } from 'react-icons/gi';
 import {
@@ -22,31 +24,42 @@ import {
   SiPrisma,
   SiSocketdotio,
   SiTailwindcss,
-  SiTypescript
+  SiTypescript,
+  SiPhp,
 } from 'react-icons/si';
 
 // Import all project images
-import atomsense from './assets/atomsense.jpg';
-import babaAI from './assets/babaAI.png';
-import DALLvishon from './assets/DALLvishon.jpg';
-import devstories from "./assets/dev-stories.png";
-import ecosyncwaste from './assets/ecosyncwaste.jpg';
-import GithubBot from './assets/GithubBot.jpg';
-import GithubTutorial from './assets/GithubTutorial.jpg';
-import GPTvai from './assets/GPTvai.jpg';
-import kiddo from './assets/kiddo.jpg';
-import MriShot from './assets/MriShot.jpg';
-import Portfolio from './assets/Portfolio.jpg';
-import reactSimplify from './assets/reactSimplify.jpg';
-import rentit from './assets/rentit.jpg';
-import survivalWarrior from './assets/survivalWarrior.jpg';
-import surviveIT from './assets/surviveIT.jpg';
-import sustARMS from './assets/sustARMS.jpg';
-import TaskMate from './assets/TaskMate.jpg';
-import tasknext from './assets/tasknext.png';
-import typerush from './assets/typerush.png';
-import codecraft from './assets/codecraft.png';
-import fixhub from "./assets/fixhub.png";
+import f2018 from './assets/f2018.png';
+import s2022 from './assets/s2022.png';
+import c2024 from './assets/c2024.png';
+import n2024 from "./assets/n2024.png";
+import b2025 from "./assets/b2025.png";
+import a2025 from "./assets/a2025.png";
+import t2025 from "./assets/t2025.png";
+import bm2025 from "./assets/bm2025.png";
+import ss2024 from "./assets/ss2024.png";
+import cc2023 from "./assets/cc2023.png";
+// Using available images as placeholders for missing images
+const ecosyncwaste = f2018;
+const GithubBot = s2022;
+const GithubTutorial = c2024;
+const GPTvai = n2024;
+const kiddo = f2018;
+const MriShot = s2022;
+const Portfolio = c2024;
+const reactSimplify = n2024;
+const rentit = f2018;
+const survivalWarrior = s2022;
+const surviveIT = c2024;
+const sustARMS = n2024;
+const TaskMate = f2018;
+const tasknext = s2022;
+const typerush = c2024;
+const codecraft = n2024;
+const fixhub = f2018;
+const atomsense = s2022;
+const babaAI = c2024;
+const DALLvishon = n2024;
 
 export const skillsConfig = {
   react: { icon: FaReact, color: '#61DAFB', name: 'React' },
@@ -63,6 +76,10 @@ export const skillsConfig = {
   firebase: { icon: SiFirebase, color: '#FFCA28', name: 'Firebase' },
   figma: { icon: SiFigma, color: '#F24E1E', name: 'Figma' },
   css: { icon: SiCss3, color: '#1572B6', name: 'CSS' },
+  html: { icon: FaHtml5, color: '#E34F26', name: 'HTML' },
+  php: { icon: FaPhp, color: '#777BB4', name: 'PHP' },
+  'c#': { icon: SiCplusplus, color: '#239120', name: 'C#' },
+  '.net': { icon: SiCplusplus, color: '#512BD4', name: '.NET' },
   game: { icon: FaGamepad, color: '#FF4154', name: 'Game Dev' },
   c: { icon: SiCplusplus, color: '#C7D9DD', name: 'C/C++' },
   javascript: { icon: SiJavascript, color: '#F7DF1E', name: 'JavaScript' },
@@ -78,96 +95,96 @@ export const skillsConfig = {
 export const projects = [
   {
     id: 1,
-    image: devstories,
-    title: "✍️ Dev Stories Blog Platform",
-    date: "Jan 4, 2025 - April 30, 2025",
-    description: "A fullstack blog application for developers to share their stories, featuring rich text editing, authentication, and real-time updates.",
-    github: "https://github.com/Sumonta056/dev-stories-frontend",
-    demo: "https://dev-stories-frontend.vercel.app/",
-    skills: ['react', 'typescript', 'postgres', 'node', 'express'],
-    category: 'web',
+    image: f2018,
+    title: "World Cup 2018",
+    date: "Jan 4, 2022 - April 30, 2022",
+    description: "This Is a Foootball World Cup 2018 Website. It is a fully responsive website built with React.js and Tailwind CSS. The website provides information about the teams, players, and matches of the World Cup 2018.",
+    github: "https://github.com/raihanulislam00/World-Cup-2018",
+    demo: "https://world-cup-2018-rosy.vercel.app/",
+    skills: ['js', 'html', 'css', 'tailwind','game'],
+    category: 'game',
     featured: true
   },
   {
     id: 2,
-    image: sustARMS,
-    title: "🛺 SUST Autorickshaw System",
+    image: s2022,
+    title: "Sharkie",
     date: "Sept 4, 2023 - Dec 30, 2023",
-    description: "A comprehensive management system for SUST's autorickshaw service, featuring real-time tracking, automated scheduling, and digital payments.",
-    github: "https://github.com/Sumonta056/SUST_Autorickshaw_Management_System",
-    demo: "https://youtu.be/nqDUCzSChFY?si=cckyMgi1jATgqvpI",
-    skills: ['react', 'css', 'mysql', 'node', 'express'],
+    description: "This A game",
+    github: "https://github.com/raihanulislam00/Sharkie",
+    demo: "https://sharkie-rho.vercel.app/",
+    skills: ['html', 'css', 'js','express','game'],
     category: 'web',
     featured: true
   },
   {
     id: 3,
-    image: ecosyncwaste,
-    title: "🗑️ Eco-Sync : Waste Management",
+    image: n2024,
+    title: "Ninja Game",
     date: "March 24, 2024 - March 31, 2024",
-    description: "Smart waste management solution with IoT integration, real-time monitoring, and optimized collection routes for sustainable cities.",
-    github: "https://github.com/Sumonta056/EcoSync-Waste-Management-Website",
-    demo: "https://github.com/Sumonta056/https://github.com/Sumonta056/EcoSync-Waste-Management-Website",
-    skills: ['react', 'tailwind', 'node', 'mongodb', 'express'],
+    description: "Game where players control a ninja character, navigating through levels, defeating enemies, and completing objectives.",
+    github: "https://github.com/raihanulislam00/Ninja-game",
+    demo: "https://ninja-game-sepia.vercel.app/",
+    skills: ['react', 'tailwind', 'node', 'mongodb', 'express','game'],
     category: 'web',
     featured: true
   },
 
   {
     id: 4,
-    image: rentit,
-    title: "📱 RENT IT",
+    image: c2024,
+    title: "Chess-RI",
     date: "Dec 24, 2023 - Nov 31, 2023",
-    description: "Mobile application for renting and sharing items within communities, featuring secure payments and real-time chat.",
-    github: "https://github.com/Sumonta056/Rent_IT-App",
-    demo: "https://github.com/Sumonta056/Rent_IT-App",
-    skills: ['java', 'android', 'firebase', 'figma'],
-    category: 'mobile',
+    description: "Chess-RI is a web-based chess game that allows users to play chess against a computer opponent or with friends. It features a user-friendly interface, real-time gameplay, and various difficulty levels.",
+    github: "https://github.com/raihanulislam00/Chess-RI",
+    demo: "https://raihanulislam00.github.io/Chess-RI/",
+    skills: ['HTML', 'Css','game'],
+    category: 'web',
     featured: true
   },
   {
     id: 42,
-    image: babaAI,
-    title: "🛩️ BabaAI Content Generator",
-    date: "Sept 24, 2024 - Nov 31, 2024",
-    description: "BabaAI is a comprehensive full-stack AI content generator platform that leverages Gemini AI to create content based on your prompts.",
-    github: "https://github.com/Sumonta056/BabaAI-Content-Generator",
-    demo: "https://github.com/Sumonta056/BabaAI-Content-Generator",
-    skills: ['nextjs', 'typescript', 'tailwind', 'postgres', 'ai'],
+    image: b2025,
+    title: "BanglaVerse",
+    date: "May 24, 2025 - Jun 31, 2025",
+    description: "AI-powered Bengali platform for translation, chat, and content creation. ",
+    github: "https://github.com/raihanulislam00/BanglaVerse",
+    demo: "https://banglaverse.vercel.app/",
+    skills: ['nextjs', 'typescript', 'tailwind', 'postgres', 'ai','react','mongodb','express'],
     category: 'web',
     featured: true
   },
   {
     id: 5,
-    image: atomsense,
-    title: "☁️ Atoms-Sense",
-    date: "Nov 3, 2023 - Nov 4, 2023",
-    description: "IoT-based environmental monitoring system with real-time data visualization and predictive analytics.",
-    github: "https://github.com/Sumonta056/AtomSense-DU_ITVerse_Hackathon",
+    image: a2025,
+    title: "☁️ Abohochitro",
+    date: "Jun 3, 2025 - July 4, 2025",
+    description: "Abohochitro: Bangladesh's Air Quality and Cyclone Tracker",
+    github: "https://github.com/raihanulislam00/Abohochitro",
     demo: "https://github.com/Sumonta056/AtomSense-DU_ITVerse_Hackathon",
-    skills: ['react', 'tailwind', 'node', 'mysql', 'express'],
+    skills: ['php', 'html', 'css', 'mysql', ],
     category: 'web',
     featured: false
   },
   {
     id: 51,
-    image: fixhub,
-    title: "⛏️ FixHub - Complete Issue Tracker",
-    date: "Aug 4, 2024 - Mov 30, 2024",
+    image: t2025,
+    title: "TaskMaster",
+    date: "Jun 4, 2025 - Jun 9, 2025",
     description: "FixHub is a powerful and intuitive issue tracker built using Next.js and SQL, designed to streamline bug management and project tracking. With a focus on efficiency and user-friendliness, FixHub allows for seamless creation, viewing, updating, and deletion of issues. Key features include:",
-    github: "https://github.com/Sumonta056/FixHub-Issue-Tracker-Website",
-    demo: "https://github.com/Sumonta056/FixHub-Issue-Tracker-Website",
-    skills: ["nextjs", "typescript", "tailwind", "prisma" ,"mysql"],
+    github: "https://github.com/raihanulislam00/TaskMaster",
+    demo: "https://task-master-red-nu.vercel.app/",
+    skills: ["nextjs", "typescript", "tailwind" ,"mongodb",'express'],
     category: 'web',
     featured: true
   },
   {
     id: 52,
-    image: codecraft,
-    title: "🧑‍💻 CodeCraft Crome Extension",
-    date: "March 4, 2024 - Mov 30, 2024",
+    image: bm2025,
+    title: "Bank Management",
+    date: "Jun 4, 2025 - Jun 30, 2025",
     description: "A Complete Toolkit for Software Engineering Students...All in one extension for your development journey.",
-    github: "https://github.com/Sumonta056/CodeCraft-Extension",
+    github: "https://github.com/raihanulislam00/Bank-Management",
     demo: "https://code-craft-extension.vercel.app/",
     skills: ["react", "tailwind", "node"],
     category: 'web',
@@ -175,160 +192,41 @@ export const projects = [
   },
   {
     id: 6,
-    image: surviveIT,
-    title: "🏃‍♀️ Survive IT Game",
-    date: "Mar 30, 2022 - Sept 30, 2022",
+    image: ss2024,
+    title: "Sailor",
+    date: "Mar 30, 2024 - Sept 30, 2024",
     description: "An exciting survival game built with Java, featuring dynamic environments and challenging gameplay mechanics.",
-    github: "https://github.com/Sumonta056/Survive-IT",
-    demo: "https://youtu.be/xrBm0B-sxXk?si=Mhqop_U3IVfD7qnf",
-    skills: ['java', 'game'],
+    github: "https://github.com/raihanulislam00/Sailor",
+    demo: "https://sailor1.vercel.app/",
+    skills: ['js','css','game'],
     category: 'game',
     featured: false
   },
   {
     id: 7,
-    image: survivalWarrior,
-    title: "🥷 Survival of Warrior",
+    image: cc2023,
+    title: "Babysetter Management System",
     date: "Aug 4, 2021 - Dec 30, 2021",
     description: "Action-packed 2D warrior game with multiple levels and combat mechanics.",
-    github: "https://github.com/Sumonta056/Survival-of-Warrior",
-    demo: "https://github.com/Sumonta056/Survival-of-Warrior",
-    skills: ['c', 'game'],
-    category: 'game',
+    github: "https://github.com/raihanulislam00/Babysetter_Management_System",
+    demo: "",
+    skills: ['c#', '.net'],
+    category: 'App',
     featured: false
   },
   {
     id: 8,
     image: GithubBot,
-    title: "🤖 GitHub Follower Notification Bot",
+    title: "Rent management",
     date: "Jan 20, 2024 - Feb 20, 2024",
     description: "Automated GitHub bot that sends notifications for new followers and interactions.",
-    github: "https://github.com/Sumonta056/GitHub-Follower-Notification-Action-Bot",
-    demo: "https://github.com/Sumonta056/GitHub-Follower-Notification-Action-Bot",
-    skills: ['python', 'workflow', 'github'],
-    category: 'web',
+    github: "https://github.com/raihanulislam00/Rent-management",
+    demo: "",
+    skills: ['java', 'jdkfromwork', 'gul'],
+    category: 'app',
     featured: false
   },
-  {
-    id: 80,
-    image: tasknext,
-    title: "📝 TaskNext - Simple To Do List",
-    date: "Aug 4, 2024 - Mov 30, 2024",
-    description: "TaskNext is a minimalistic website designed to help you manage your tasks efficiently. It provides a simple and intuitive interface for users to create, read, update, and delete tasks, as well as mark tasks as complete.",
-    github: "https://github.com/Sumonta056/TaskNext",
-    demo: "https://github.com/Sumonta056/TaskNext",
-    skills: ["nextjs", "typescript", "tailwind", "mongodb", "node"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 81,
-    image: typerush,
-    title: "⌨️ TypeRush - Typing Speed Test",
-    date: "Aug 4, 2024 - Mov 30, 2024",
-    description: "TypeRush is a minimalistic website designed to test your typing speed. It provides a simple and intuitive interface for users to practice and improve their typing skills.",
-    github: "https://github.com/Sumonta056/TypeRush-Typing-Speed-Test",
-    demo: "https://github.com/Sumonta056/TypeRush-Typing-Speed-Test",
-    skills: ["react", "typescript", "tailwind", "node" ,"firebase"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 90,
-    image: reactSimplify,
-    title: "🧐 React Simplify Template",
-    date: "Aug 4, 2023 - Mar 30, 2024",
-    description: "React Simplify Template: Your go-to for streamlining React setups, using features with library integration and Tailwind CSS",
-    github: "https://github.com/Sumonta056/ReactJS-Simplify-Template",
-    demo: "https://react-js-simplify-template.vercel.app/",
-    skills: ["react", "tailwind", "node"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 91,
-    image: kiddo,
-    title: "👶 KIDDO - Child Care",
-    date: "Oct 14, 2023 - Oct 15, 2023",
-    description: "Empowering parents through a comprehensive ecosystem. Instant advisor communication, personalized consultations, emergency support, community interaction, marketplace for child products, and a reading library",
-    github: "https://github.com/Sumonta056/Kiddo-LU-Hackathon",
-    demo: "https://github.com/Sumonta056/Kiddo-LU-Hackathon/",
-    skills: ["react", "bootstrap", "node", "socket"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 92,
-    image: MriShot,
-    title: "📸 Mri-Shot",
-    date: "Jan 4, 2024 - Jan 14, 2024",
-    description: "MriShot - Capturing the Vision of Mridul - A Website Showcasing my photography skills & Represenation of my Programming Skill",
-    github: "https://github.com/Sumonta056/Mri-Shot",
-    demo: "https://mri-shot.vercel.app/",
-    skills: ["react", "tailwind", "node"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 93,
-    image: TaskMate,
-    title: "📝 Task-Mate",
-    date: "May 4, 2023 - Aug 30, 2023",
-    description: "Stay organized and boost productivity with intuitive To-Do List app. It allows users to create, read, update, sort and delete tasks. The app features a user-friendly interface and implements backend functionality to manage task data efficiently.",
-    github: "https://github.com/Sumonta056/Task-Mate",
-    demo: "https://youtu.be/ZOf62tfcezM?si=Cn6rc3_DtwnSd7Dx",
-    skills: ["javascript", "css", "node", "mysql", "express"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 94,
-    image: Portfolio ,
-    title: "🦾 Personal Portfolio",
-    date: "Jan 4, 2023 - Jul 30, 2023",
-    description: "Personal Portfolio Website showcasing my projects, skills, and experience. The website is built using HTML, CSS, and JavaScript.",
-    github: "https://github.com/Sumonta056/sumonta056.github.io",
-    demo: "https://youtu.be/QzW2DaR7KEc?si=wlaibLJRDQkEx_UO",
-    skills: ["javascript", "css", "node"],
-    category: 'web',
-    featured: true
-  },
-  {
-    id: 95,
-    image: GithubTutorial ,
-    title: "✍🏻 GitHub Tutorial",
-    date: "Jan 20, 2023 - Dec 20, 2023",
-    description: "A comprehensive guide to GitHub, covering the basics of Git, repositories, branches, pull requests, and more.",
-    github: "https://github.com/Sumonta056/GitHub-Tutorial",
-    demo: "https://github.com/Sumonta056/GitHub-Tutorial",
-    skills: ["python", "github"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 96,
-    image: GPTvai ,
-    title: "👨‍🦰 GPT-Vai",
-    date: "Oct 20, 2023 - Oct 30, 2023",
-    description: "GPT-Vai is a Bengali language model trained on the GPT-3 architecture. It is capable of generating human-like text in Bengali.",
-    github: "https://github.com/Sumonta056/GPT-Vai",
-    demo: "https://github.com/Sumonta056/GPT-Vai",
-    skills: ["react", "tailwind", "node", "ai"],
-    category: 'web',
-    featured: false
-  },
-  {
-    id: 97,
-    image: DALLvishon,
-    title: "👁️ DALL·E ভিশন",
-    date: "Oct 20, 2023 - Oct 30, 2023",
-    description: "DALL·E ভিশন is a web application that generates images based on textual descriptions using the OpenAI DALL·E model.",
-    github: "https://github.com/Sumonta056/DALL-E-Vision",
-    demo: "https://github.com/Sumonta056/DALL-E-Vision",
-    skills: ["react", "tailwind", "node" ,"ai"],
-    category: 'web',
-    featured: false
-  },
+  
 ];
 
 export const categories = [

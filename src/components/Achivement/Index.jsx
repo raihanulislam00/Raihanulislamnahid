@@ -7,6 +7,7 @@ import {
   FiCamera,
   FiCode,
   FiTarget,
+  FiExternalLink,
 } from "react-icons/fi";
 import { roadmap } from "./Data";
 
@@ -21,13 +22,11 @@ const Achievement = () => {
     "Academic",
     "Professional",
     "Competition",
-    "Photography",
   ];
   const categoryIcons = {
     Academic: FiBook,
     Professional: FiBriefcase,
     Competition: FiTarget,
-    Photography: FiCamera,
   };
 
   const getCategoryStats = () => {
@@ -120,26 +119,14 @@ const Achievement = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 gap-6 mb-16 md:grid-cols-3"
+          className="grid grid-cols-1 gap-6 mb-16 md:grid-cols-1"
         >
           {[
             {
               icon: FiAward,
-              number: "10+",
+              number: "5+",
               label: "Awards & Recognitions",
               color: "from-yellow-400 to-orange-500",
-            },
-            {
-              icon: FiCode,
-              number: "800+",
-              label: "Problems Solved",
-              color: "from-cyan-400 to-blue-500",
-            },
-            {
-              icon: FiTarget,
-              number: "15+",
-              label: "Competitions",
-              color: "from-green-400 to-emerald-500",
             },
           ].map((stat, index) => (
             <motion.div
@@ -195,7 +182,10 @@ const Achievement = () => {
                     whileHover={{ scale: 1.02 }}
                     onHoverStart={() => setHoveredIndex(index)}
                     onHoverEnd={() => setHoveredIndex(null)}
-                    className="relative rounded-xl overflow-hidden group h-[400px] bg-gray-800/30 backdrop-blur-sm"
+                    onClick={() => achievement.link && window.open(achievement.link, '_blank')}
+                    className={`relative rounded-xl overflow-hidden group h-[400px] bg-gray-800/30 backdrop-blur-sm ${
+                      achievement.link ? 'cursor-pointer' : ''
+                    }`}
                   >
                     {/* Background Image */}
                     <div className="absolute inset-0">
@@ -223,16 +213,23 @@ const Achievement = () => {
                       <p className="mb-4 text-sm text-gray-300 transition-all duration-300 line-clamp-2 group-hover:line-clamp-none">
                         {achievement.text}
                       </p>
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={`px-3 py-1 text-xs font-medium rounded-full backdrop-blur-sm
-                              text-yellow-400 bg-yellow-400/10`}
-                        >
-                          {achievement.status}
-                        </span>
-                        <span className="px-3 py-1 text-xs font-medium rounded-full text-cyan-400 bg-cyan-400/10 backdrop-blur-sm">
-                          {achievement.category}
-                        </span>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`px-3 py-1 text-xs font-medium rounded-full backdrop-blur-sm
+                                text-yellow-400 bg-yellow-400/10`}
+                          >
+                            {achievement.status}
+                          </span>
+                          <span className="px-3 py-1 text-xs font-medium rounded-full text-cyan-400 bg-cyan-400/10 backdrop-blur-sm">
+                            {achievement.category}
+                          </span>
+                        </div>
+                        {achievement.link && (
+                          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm">
+                            <FiExternalLink className="w-4 h-4 text-white" />
+                          </div>
+                        )}
                       </div>
 
                       {/* Hover Overlay */}

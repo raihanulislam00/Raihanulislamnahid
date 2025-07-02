@@ -125,7 +125,7 @@ const Blog = () => {
         {/* Blog Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
             {paginatedBlogs.length === 0 ? (
@@ -151,7 +151,7 @@ const Blog = () => {
                   className="overflow-hidden transition-all duration-300 bg-gray-800/50 backdrop-blur-sm rounded-xl group hover:bg-gray-800/70"
                 >
                   {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-40 md:h-48 overflow-hidden">
                     <img
                       src={blog.image}
                       alt={blog.title}
@@ -164,14 +164,14 @@ const Blog = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-5">
                     {/* Author & Date */}
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <img
                           src={blog.author.avatar}
                           alt={blog.author.name}
-                          className="w-8 h-8 rounded-full"
+                          className="w-6 h-6 rounded-full"
                         />
                         <div>
                           <p className="text-sm font-medium text-white">
@@ -189,19 +189,19 @@ const Blog = () => {
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="mb-2 text-xl font-semibold text-white transition-colors duration-300 line-clamp-2 group-hover:text-cyan-400">
+                    <h3 className="mb-2 text-lg font-semibold text-white transition-colors duration-300 line-clamp-2 group-hover:text-cyan-400">
                       {blog.title}
                     </h3>
-                    <p className="mb-4 text-sm text-gray-400 line-clamp-2">
+                    <p className="mb-3 text-sm text-gray-400 line-clamp-2">
                       {blog.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       {blog.tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 text-xs font-medium rounded-full text-cyan-400 bg-cyan-400/10"
+                          className="px-2 py-1 text-xs font-medium rounded-lg text-cyan-400 bg-cyan-400/10"
                         >
                           {tag}
                         </span>

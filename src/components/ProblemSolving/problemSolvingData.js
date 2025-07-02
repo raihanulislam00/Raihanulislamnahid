@@ -19,7 +19,7 @@ export const problemSolvingData = {
         contestRating: 1842,
         globalRank: "Top 15%"
       },
-      icon: "🧠",
+      icon: "FiCode",
       color: "from-orange-500 to-red-500",
       achievements: [
         "750+ Problems Solved", 
@@ -43,7 +43,8 @@ export const problemSolvingData = {
         contribution: "+15",
         friendsOf: 89
       },
-      icon: "🏆",
+      icon: "FiTarget",
+      iconBg: "from-blue-500 to-indigo-600",
       color: "from-blue-500 to-purple-500",
       achievements: [
         "Expert Rating Achieved", 
@@ -67,7 +68,8 @@ export const problemSolvingData = {
         globalRank: 15420,
         countryRank: 1205
       },
-      icon: "👨‍🍳",
+      icon: "FiZap",
+      iconBg: "from-amber-500 to-orange-600",
       color: "from-amber-500 to-orange-500",
       achievements: [
         "4★ Expert Rating",
@@ -79,29 +81,6 @@ export const problemSolvingData = {
     },
     {
       id: 4,
-      name: "HackerRank",
-      username: "raihanulislam00",
-      profileUrl: "https://hackerrank.com/raihanulislam00",
-      stats: {
-        stars: 5,
-        badges: 12,
-        rank: "Gold",
-        domains: ["Algorithms", "Data Structures", "Python", "SQL", "Mathematics"],
-        problemsSolved: 285,
-        certifications: 3
-      },
-      icon: "⭐",
-      color: "from-green-500 to-teal-500",
-      achievements: [
-        "5-Star Gold Badge", 
-        "Python Expert Certified", 
-        "SQL Advanced Certified",
-        "Problem Solving Gold",
-        "12+ Domain Badges"
-      ]
-    },
-    {
-      id: 5,
       name: "AtCoder",
       username: "raihanulislam00",
       profileUrl: "https://atcoder.jp/users/raihanulislam00",
@@ -113,7 +92,8 @@ export const problemSolvingData = {
         problems: 145,
         performance: 892
       },
-      icon: "🎯",
+      icon: "FiCpu",
+      iconBg: "from-purple-500 to-pink-600",
       color: "from-purple-500 to-pink-500",
       achievements: [
         "Brown Coder (7 kyu)",
@@ -241,22 +221,22 @@ export const problemSolvingData = {
     },
     {
       id: 6,
-      title: "Matrix Chain Multiplication",
-      platform: "HackerRank",
-      difficulty: "Medium",
+      title: "Binary Tree Maximum Path Sum",
+      platform: "LeetCode",
+      difficulty: "Hard",
       solved: true,
-      topics: ["Dynamic Programming", "Optimization"],
+      topics: ["Tree", "Dynamic Programming", "Recursion"],
       solutionUrl: "#",
-      timeComplexity: "O(n³)",
-      spaceComplexity: "O(n²)",
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(h)",
       solvedDate: "2025-06-26"
     }
   ],
 
   statistics: {
-    totalProblems: 2733,
-    totalContests: 191,
-    averageRating: 1665,
+    totalProblems: 2448,
+    totalContests: 144,
+    averageRating: 1569,
     strongestTopics: ["Dynamic Programming", "Graph Algorithms", "Data Structures"],
     weeklyActivity: {
       problemsSolved: 15,
