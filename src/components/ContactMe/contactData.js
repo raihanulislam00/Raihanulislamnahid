@@ -1,8 +1,8 @@
 import { FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 
 export const contactInfo = {
-  email: "sumontasaha80@gmail.com",
-  phone: "+880 1845359479",
+  email: "raihanulislamnahid22@gmail.com",
+  phone: "+880 1827491977",
   location: "Dhaka, Bangladesh",
   description: "I'm always open to new opportunities and collaborations. Feel free to reach out if you'd like to discuss a project or just want to connect!"
 };
@@ -12,35 +12,35 @@ export const socialLinks = [
     id: 1,
     icon: FiGithub,
     name: "GitHub",
-    url: "https://github.com/Sumonta056",
+    url: "https://github.com/raihanulislam00",
     color: "hover:text-gray-300"
   },
   {
     id: 2,
     icon: FiLinkedin,
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/sumonta-saha-mridul-b6b57b197/",
+    url: "https://www.linkedin.com/in/raihanulislam00/",
     color: "hover:text-blue-400"
   },
   {
     id: 3,
     icon: FiTwitter,
     name: "Twitter",
-    url: "https://twitter.com/sumonta056",
+    url: "https://twitter.com/Roll__Num__44",
     color: "hover:text-blue-500"
   },
   {
     id: 4,
     icon: FiFacebook,
     name: "Facebook",
-    url: "https://www.facebook.com/sumonta.mridul",
+    url: "https://www.facebook.com/raihanulislam00",
     color: "hover:text-blue-600"
   },
   {
     id: 5,
     icon: FiInstagram,
     name: "Instagram",
-    url: "https://www.instagram.com/sumonta.mridul",
+    url: "https://www.instagram.com/raihanulislam00",
     color: "hover:text-pink-500"
   }
 ];

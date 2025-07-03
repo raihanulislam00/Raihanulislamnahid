@@ -168,7 +168,7 @@ export const blog = [
     title: "17 VS Code Extensions for Enhanced Productivity Work",
     desc: "Enhance Your Coding Journey: 17 VS Code Extensions for Enhanced Time Savings and Productivity.",
     cover: Blog7,
-    link: "https://dev.to/sumonta056/enhance-your-coding-journey-17-must-try-vs-code-extensions-for-enhanced-productivity-and-time-savings-3lo1",
+    link: "https://dev.to/raihanulislam00/enhance-your-coding-journey-17-must-try-vs-code-extensions-for-enhanced-productivity-and-time-savings-3lo1",
   },
 
   {

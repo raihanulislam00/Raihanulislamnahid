@@ -161,7 +161,7 @@ export const projects = [
     date: "Jun 3, 2025 - July 4, 2025",
     description: "Abohochitro: Bangladesh's Air Quality and Cyclone Tracker",
     github: "https://github.com/raihanulislam00/Abohochitro",
-    demo: "https://github.com/Sumonta056/AtomSense-DU_ITVerse_Hackathon",
+    demo: "https://youtu.be/LfcAvnbAchM?si=HmYpvEQRRMRRtW7x",
     skills: ['php', 'html', 'css', 'mysql', ],
     category: 'web',
     featured: false
@@ -174,7 +174,7 @@ export const projects = [
     description: "FixHub is a powerful and intuitive issue tracker built using Next.js and SQL, designed to streamline bug management and project tracking. With a focus on efficiency and user-friendliness, FixHub allows for seamless creation, viewing, updating, and deletion of issues. Key features include:",
     github: "https://github.com/raihanulislam00/TaskMaster",
     demo: "https://task-master-red-nu.vercel.app/",
-    skills: ["nextjs", "typescript", "tailwind" ,"mongodb",'express'],
+    skills: ['html',"nextjs", "typescript", "tailwind" ,"mongodb",'express'],
     category: 'web',
     featured: true
   },
@@ -198,7 +198,7 @@ export const projects = [
     description: "An exciting survival game built with Java, featuring dynamic environments and challenging gameplay mechanics.",
     github: "https://github.com/raihanulislam00/Sailor",
     demo: "https://sailor1.vercel.app/",
-    skills: ['js','css','game'],
+    skills: ['html','js','css','game'],
     category: 'game',
     featured: false
   },
@@ -226,6 +226,19 @@ export const projects = [
     category: 'app',
     featured: false
   },
+  {
+    id: 8,
+    image: GithubBot,
+    title: "Rent management",
+    date: "Jan 20, 2024 - Feb 20, 2024",
+    description: "Automated GitHub bot that sends notifications for new followers and interactions.",
+    github: "https://github.com/raihanulislam00/Rent-management",
+    demo: "",
+    skills: ['java', 'jdkfromwork', 'gul'],
+    category: 'app',
+    featured: false
+  },
+
   
 ];
 

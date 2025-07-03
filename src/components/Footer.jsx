@@ -8,27 +8,22 @@ const Footer = () => {
     {
       id: 1,
       icon: FiGithub,
-      url: 'https://github.com/Sumonta056',
+      url: 'https://github.com/raihanulislam00',
       color: 'hover:text-gray-300'
     },
     {
       id: 2,
       icon: FiLinkedin,
-      url: 'https://www.linkedin.com/in/sumonta-saha-mridul-b6b57b197/',
+      url: 'https://www.linkedin.com/in/raihanulislam00/',
       color: 'hover:text-blue-400'
     },
     {
       id: 3,
       icon: FiInstagram,
-      url: 'https://www.instagram.com/sumonta.mridul',
+      url: 'https://www.instagram.com/raihanulislam00',
       color: 'hover:text-pink-500'
     },
-    {
-      id: 4,
-      icon: FaDev,
-      url: 'https://dev.to/sumonta056',
-      color: 'hover:text-purple-400'
-    }
+
   ];
 
   const currentYear = new Date().getFullYear();
@@ -82,13 +77,13 @@ const Footer = () => {
               </motion.div>
               <span>by</span>
               <motion.a
-                href="https://github.com/Sumonta056"
+                href="https://github.com/raihanulislam00"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium"
                 whileHover={{ scale: 1.05 }}
               >
-                @Sumonta056
+                raihanulislam00
               </motion.a>
             </div>
             <p className="text-gray-500 text-xs">
