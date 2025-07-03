@@ -45,7 +45,7 @@ const Photo = () => {
               Visit MriShot
             </motion.a>
             <motion.a
-              href="https://unsplash.com/@sumonta056"
+              href="https://unsplash.com/@raihanulislam00"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
