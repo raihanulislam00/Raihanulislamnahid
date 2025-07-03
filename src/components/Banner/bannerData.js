@@ -5,7 +5,7 @@ export const bannerData = {
     "Junior Software Engineer",
     "💻 Full-Stack Web Developer",
     "🎓 B.Sc. in Software Engineering (AIUB)",
-    "✍️ Blog Writer & Photographer",
+    "✍️ Blog Writer",
   ],
   description: " A passionate **software engineer**, exploring new technologies and building software solutions. **[Check out my CV](https://drive.google.com/file/d/1MAtJjLgIn7ZznP7HfwimfYJyDlqCHmLv/view?usp=drive_link)**",
   ctaButtons: [
@@ -29,7 +29,7 @@ export const bannerData = {
     },
     {
       name: "Youtube",
-      url: "https://www.youtube.com/@LearnCodewithPS5638",
+      url: "https://www.youtube.com/@roll_num_44",
       icon: "FaYoutube"
     },
     {

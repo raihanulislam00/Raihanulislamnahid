@@ -81,17 +81,17 @@ const ProblemSolving = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6"
+            transition={{ duration: .5, delay: 0.2 }}
+            className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6"
           >
-            <FiCode className="text-cyan-400" />
-            <span className="text-cyan-400 font-semibold">Problem Solving</span>
+            <FiCode className="text-cyan-400 text-3xl" />
+            <span className="text-cyan-400 font-bold text-3xl">Problem Solving</span>
           </motion.div>
           
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent mb-4">
-            {problemSolvingData?.title || "Competitive Programming & Problem Solving"}
+          <h2 className="text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent mb-4">
+            {problemSolvingData?.title || ""}
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
             {problemSolvingData?.description || "Passionate about algorithmic problem solving and competitive programming"}
           </p>
         </motion.div>

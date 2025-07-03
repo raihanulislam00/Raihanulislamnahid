@@ -1,5 +1,5 @@
 export const problemSolvingData = {
-  title: "Problem Solving Excellence",
+  title: "",
   subtitle: "Competitive Programming & Algorithm Mastery",
   description: "Demonstrating algorithmic prowess and problem-solving expertise across multiple competitive programming platforms with consistent performance and continuous growth.",
   
@@ -10,10 +10,10 @@ export const problemSolvingData = {
       username: "raihanulislam00",
       profileUrl: "https://leetcode.com/raihanulislam00",
       stats: {
-        problems: 750,
-        easy: 245,
-        medium: 380,
-        hard: 125,
+        problems: '50+',
+        easy: '20+',
+        medium: '20+',
+        hard: '20+',
         rating: 1956,
         rank: "Guardian",
         contestRating: 1842,
@@ -57,13 +57,13 @@ export const problemSolvingData = {
     {
       id: 3,
       name: "CodeChef",
-      username: "raihanulislam00", 
+      username: "raihan44", 
       profileUrl: "https://codechef.com/users/raihanulislam00",
       stats: {
         rating: 1845,
         maxRating: 1967,
         rank: "4★ (Expert)",
-        contests: 42,
+        contests: '10+',
         problems: 387,
         globalRank: 15420,
         countryRank: 1205
@@ -88,7 +88,7 @@ export const problemSolvingData = {
         rating: 856,
         maxRating: 987,
         rank: "7 kyu (Brown)",
-        contests: 18,
+        contests: '10+',
         problems: 145,
         performance: 892
       },

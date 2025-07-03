@@ -33,7 +33,7 @@ const Banner = () => {
 
   const handleNewsletterSubscribe = () => {
     window.open(
-      "https://www.linkedin.com/newsletters/learn-code-weekly-7309186050084544512/",
+      "https://www.linkedin.com/in/raihanulislam00/recent-activity/all/",
       "_blank"
     );
   };

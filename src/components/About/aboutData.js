@@ -93,8 +93,6 @@ export const skills = [
       "Figma",
       "Canva",
       "Responsive Design",
-      "Adobe Photoshop",
-      "Adobe Lightroom",
     ],
   },
 ];

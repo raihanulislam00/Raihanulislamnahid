@@ -12,7 +12,6 @@ const Blog = lazy(() => import("./components/Blog/Blog.jsx"));
 const About = lazy(() => import("./components/About/About.jsx"));
 const Footer = lazy(() => import("./components/Footer.jsx"));
 const Contact = lazy(() => import("./components/ContactMe/index.jsx"));
-const Image = lazy(() => import("./components/Swiper/Photo.jsx"));
 
 function App() {
   const [showScrollUp, setShowScrollUp] = React.useState(false);
@@ -73,12 +72,6 @@ function App() {
       <div id="blog">
         <Suspense fallback={<div className="min-h-screen bg-gray-900 flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
           <Blog />
-        </Suspense>
-      </div>
-
-      <div id="photo">
-        <Suspense fallback={<div className="min-h-screen bg-gray-900 flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
-          <Image />
         </Suspense>
       </div>
 
