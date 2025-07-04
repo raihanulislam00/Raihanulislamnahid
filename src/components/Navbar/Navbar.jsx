@@ -40,7 +40,7 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-gray-900/95 backdrop-blur-2xl shadow-2xl shadow-black/20 border-b border-gray-800/50"
+          ? "bg-gray-900/80 backdrop-blur-xl shadow-lg shadow-cyan-500/5 border-b border-cyan-500/10"
           : "bg-transparent"
       }`}
     >
@@ -132,7 +132,7 @@ const Navbar = () => {
           >
             {/* Desktop Navigation Links */}
             <div className="items-center hidden lg:flex">
-              <div className="flex items-center space-x-1 p-1.5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
+              <div className="flex items-center space-x-1.5 p-2 rounded-2xl bg-white/5 backdrop-blur-xl border border-cyan-500/10 shadow-lg shadow-cyan-500/5">
                 {navItems.map((item, index) => (
                   <Link
                     key={item.name}
@@ -142,7 +142,7 @@ const Navbar = () => {
                     offset={-100}
                     duration={500}
                     onSetActive={() => setActiveSection(item.to)}
-                    className="relative px-3 py-2 cursor-pointer group rounded-xl transition-all duration-300"
+                    className="relative px-4 py-2 cursor-pointer group rounded-xl transition-all duration-300"
                   >
                     <motion.span
                       className={`relative z-10 text-sm font-medium transition-all duration-300
@@ -159,14 +159,25 @@ const Navbar = () => {
                       {item.name}
                     </motion.span>
                     
-                    {/* Active indicator */}
-                    {activeSection === item.to && (
+                    {/* Active indicator */}                        {activeSection === item.to && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500"
+                        className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-90"
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      />
+                      >
+                        <motion.div
+                          className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"
+                          animate={{
+                            opacity: [0.5, 0.8, 0.5],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                      </motion.div>
                     )}
                     
                     {/* Hover effect */}
@@ -191,7 +202,7 @@ const Navbar = () => {
               transition={{ delay: 0.7, duration: 0.6, type: "spring", bounce: 0.3 }}
             >
               <motion.div
-                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 relative overflow-hidden border border-emerald-400/30 shadow-lg"
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 relative overflow-hidden border border-cyan-400/30 shadow-lg shadow-cyan-500/20"
               >
                 <span className="relative z-20 text-sm font-bold text-white flex items-center gap-2">
                   <motion.svg 

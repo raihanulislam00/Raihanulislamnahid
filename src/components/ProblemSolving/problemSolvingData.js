@@ -7,7 +7,6 @@ export const problemSolvingData = {
     {
       id: 1,
       name: "LeetCode",
-      logo: "https://assets.leetcode.com/static_assets/public/webpack_bundles/images/logo-dark.e99485d9b.svg",
       username: "raihanulislam00",
       profileUrl: "https://leetcode.com/raihanulislam00",
       stats: {
@@ -23,17 +22,15 @@ export const problemSolvingData = {
       icon: "FiCode",
       color: "from-orange-500 to-red-500",
       achievements: [
-        "750+ Problems Solved", 
+        "50+ Problems Solved", 
         "Guardian Rank Achieved", 
         "Weekly Contest Participant", 
-        "100+ Day Streak",
-        "Algorithm Expert Badge"
+        "50+ Day Streak",
       ]
     },
     {
       id: 2,
       name: "Codeforces",
-      logo: "https://codeforces.org/s/0/images/codeforces-logo-with-telegram.png",
       username: "Roll_Num_44",
       profileUrl: "https://codeforces.com/profile/Roll_Num_44",
       stats: {
@@ -59,7 +56,6 @@ export const problemSolvingData = {
     {
       id: 3,
       name: "CodeChef",
-      logo: "https://www.codechef.com/misc/fb-image.jpg",
       username: "raihan44", 
       profileUrl: "https://codechef.com/users/raihanulislam00",
       stats: {
@@ -85,7 +81,6 @@ export const problemSolvingData = {
     {
       id: 4,
       name: "AtCoder",
-      logo: "https://atcoder.jp/images/top/img_title.png",
       username: "raihanulislam00",
       profileUrl: "https://atcoder.jp/users/raihanulislam00",
       stats: {

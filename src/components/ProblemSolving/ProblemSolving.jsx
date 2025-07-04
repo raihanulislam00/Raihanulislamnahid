@@ -1,21 +1,18 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { FiExternalLink, FiCode, FiAward } from "react-icons/fi";
-import { FiTarget, FiZap, FiCpu } from "react-icons/fi";
+import { FiExternalLink, FiAward } from "react-icons/fi";
 import { problemSolvingData } from "./problemSolvingData";
 
 const ProblemSolving = () => {
-  // Icon mapping function
-  const getIcon = (iconName) => {
-    const iconMap = {
-      FiCode: FiCode,
-      FiTarget: FiTarget,
-      FiZap: FiZap,
-      FiCpu: FiCpu,
+  // Platform logos mapping
+  const getPlatformLogo = (platformName) => {
+    const logos = {
+      LeetCode: "https://leetcode.com/static/images/LeetCode_logo_rvs.png",
+      Codeforces: "https://sta.codeforces.com/s/50395/images/codeforces-logo-with-telegram.png",
+      CodeChef: "https://cdn.codechef.com/sites/default/files/uploads/pictures/811b20a47eac52b10c90ab82e0628e21.png",
+      AtCoder: "https://img.atcoder.jp/assets/atcoder.png"
     };
-    
-    const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent className="text-3xl" /> : <div className="text-3xl">🏆</div>;
+    return logos[platformName] || "";
   };
 
   const getDifficultyColor = (difficulty) => {
@@ -58,7 +55,6 @@ const ProblemSolving = () => {
             transition={{ duration: .5, delay: 0.2 }}
             className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6"
           >
-            <FiCode className="text-cyan-400 text-3xl" />
             <span className="text-cyan-400 font-bold text-3xl">Problem Solving</span>
           </motion.div>
           
@@ -79,11 +75,29 @@ const ProblemSolving = () => {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           <motion.div
-            className="px-6 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden text-white bg-gradient-to-r from-cyan-500 to-blue-500 shadow-lg shadow-cyan-500/25"
-            whileHover={{ scale: 1.05, y: -2 }}
+            className="inline-flex flex-col items-center gap-2"
           >
-            <span className="relative z-10">Platforms</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl" />
+            <motion.div
+              className="px-8 py-4 rounded-2xl font-bold text-xl transition-all duration-300 relative overflow-hidden text-white bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/25 border border-white/10"
+              whileHover={{ scale: 1.05, y: -2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="relative z-10">Problem Solving Platforms</span>
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-75"
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "linear"
+                }}
+              />
+            </motion.div>
+            <div className="w-24 h-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
           </motion.div>
         </motion.div>
 
@@ -106,19 +120,39 @@ const ProblemSolving = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="group relative h-full"
               >
-                <div className={`h-full p-8 rounded-3xl bg-gradient-to-br ${platform.color || 'from-gray-700 to-gray-800'} bg-opacity-10 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-500 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)]`}>
-                  {/* Background Glow */}
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${platform.color || 'from-gray-500 to-gray-600'} rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-500`} />
+                <div className={`h-full p-8 rounded-3xl bg-gradient-to-br ${
+                  platform.name === "LeetCode" ? "from-orange-500/10 to-red-600/10" :
+                  platform.name === "Codeforces" ? "from-blue-500/10 to-indigo-600/10" :
+                  platform.name === "CodeChef" ? "from-amber-500/10 to-orange-600/10" :
+                  "from-purple-500/10 to-pink-600/10"
+                } border border-white/10 backdrop-blur-lg hover:border-white/20 transition-all duration-500 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] hover:bg-opacity-20`}>
+                  {/* Background Glow Effects */}
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${
+                    platform.name === "LeetCode" ? "from-orange-500 to-red-600" :
+                    platform.name === "Codeforces" ? "from-blue-500 to-indigo-600" :
+                    platform.name === "CodeChef" ? "from-amber-500 to-orange-600" :
+                    "from-purple-500 to-pink-600"
+                  } rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-500`} />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-45 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700" />
                   
                   {/* Content */}
                   <div className="relative z-10">
                     {/* Header */}
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between mb-8">
                       <div className="flex items-center gap-4">
-                        <div>{getIcon(platform.icon)}</div>
+                        <div className="w-12 h-12 flex items-center justify-center p-2.5 bg-white/5 rounded-xl border border-white/10 shadow-inner">
+                          <img 
+                            src={getPlatformLogo(platform.name)}
+                            alt={platform.name}
+                            className={`w-full h-full object-contain ${platform.name === "Codeforces" ? "scale-150" : ""}`}
+                            style={{
+                              filter: platform.name === "Codeforces" ? "brightness(1.2) contrast(1.1)" : "none"
+                            }}
+                          />
+                        </div>
                         <div>
-                          <h3 className="text-xl font-bold text-white">{platform.name || "Platform"}</h3>
-                          <p className="text-gray-400">@{platform.username || "username"}</p>
+                          <h3 className="text-2xl font-bold text-white tracking-wide">{platform.name || "Platform"}</h3>
+                          <p className="text-gray-400 font-medium">@{platform.username || "username"}</p>
                         </div>
                       </div>
                       <motion.a
@@ -134,11 +168,11 @@ const ProblemSolving = () => {
                     </div>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-2 gap-6 mb-8">
                       {platform.stats ? Object.entries(platform.stats).slice(0, 4).map(([key, value]) => (
-                        <div key={key} className="text-center">
-                          <div className="text-lg font-bold text-white">{value}</div>
-                          <div className="text-sm text-gray-400 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                        <div key={key} className="text-center p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                          <div className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">{value}</div>
+                          <div className="text-sm text-gray-400 capitalize mt-1 font-medium">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
                         </div>
                       )) : (
                         <div className="col-span-2 text-center text-gray-400">No stats available</div>
@@ -146,14 +180,14 @@ const ProblemSolving = () => {
                     </div>
 
                     {/* Achievements */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
-                        <FiAward className="text-yellow-400" />
-                        <span className="font-medium">Achievements</span>
+                    <div className="space-y-3 bg-white/5 rounded-xl p-4 border border-white/10">
+                      <div className="flex items-center gap-2 text-sm text-white mb-3">
+                        <FiAward className="text-yellow-400 text-lg" />
+                        <span className="font-semibold tracking-wide">Achievements</span>
                       </div>
                       {platform.achievements?.length > 0 ? platform.achievements.map((achievement, idx) => (
-                        <div key={idx} className="text-sm text-gray-400 flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
+                        <div key={idx} className="text-sm text-gray-300 flex items-center gap-3 hover:text-white transition-colors duration-300">
+                          <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
                           {achievement}
                         </div>
                       )) : (
