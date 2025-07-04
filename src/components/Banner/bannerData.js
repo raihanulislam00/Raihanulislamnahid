@@ -7,7 +7,7 @@ export const bannerData = {
     "🎓 B.Sc. in Software Engineering (AIUB)",
     "✍️ Blog Writer",
   ],
-  description: " A passionate **software engineer**, exploring new technologies and building software solutions. **[Check out my CV](https://drive.google.com/file/d/1MAtJjLgIn7ZznP7HfwimfYJyDlqCHmLv/view?usp=drive_link)**",
+  description: " A passionate **software engineer**, exploring new technologies and building software solutions. **[Check out my CV](https://drive.google.com/file/d/13fscRa5tjxm2Z-JMb847QXkaDgA_GS4M/view?usp=sharing)**",
   ctaButtons: [
     {
       text: "View Projects",
