@@ -181,8 +181,8 @@ const Navbar = () => {
 
             {/* Compact CV Download Button */}
             <motion.a
-              href="/assets/Sumonta_CV.pdf"
-              download="Raihanul_Islam_CV.pdf"
+              href="/assets/Raihan_CV.pdf"
+              download="Raihan_CV.pdf"
               className="relative group overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
