@@ -1,6 +1,6 @@
 export const bannerData = {
   title: "Hi! I am",
-  name: "Raihnaul Islam",
+  name: "Raihanul Islam",
   roles: [
     "Junior Software Engineer",
     "💻 Full-Stack Web Developer",
