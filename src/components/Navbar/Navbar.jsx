@@ -300,8 +300,8 @@ const Navbar = () => {
                 {/* Compact mobile CV download button */}
                 <div className="flex justify-center mt-4">
                   <motion.a
-                    href="/assets/Sumonta_CV.pdf"
-                    download="Raihanul_Islam_CV.pdf"
+                    href="/assets/Raihan_CV.pdf"
+                    download="Raihan_CV.pdf"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
