@@ -56,8 +56,8 @@ export const problemSolvingData = {
     {
       id: 3,
       name: "CodeChef",
-      username: "raihan44", 
-      profileUrl: "https://codechef.com/users/raihanulislam00",
+      username: "raihanulislam0", 
+      profileUrl: "https://codechef.com/users/raihanulislam0",
       stats: {
         rating: 1845,
         maxRating: 1967,
