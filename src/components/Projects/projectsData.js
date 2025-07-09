@@ -39,7 +39,7 @@ import t2025 from "./assets/t2025.png";
 import bm2025 from "./assets/bm2025.png";
 import ss2024 from "./assets/ss2024.png";
 import cc2023 from "./assets/cc2023.png";
-import mm2025 from "./assets/mm2025.png";
+import ms2025 from "./assets/mm.png";
 // Using available images as placeholders for missing images
 const ecosyncwaste = f2018;
 const GithubBot = s2022;
@@ -48,7 +48,7 @@ const GPTvai = n2024;
 const kiddo = f2018;
 const MriShot = s2022;
 const Portfolio = c2024;
-const reactSimplify = n2024;
+const reactSimplify = ms2025; // Updated to use ms2025.png
 const rentit = f2018;
 const survivalWarrior = s2022;
 const surviveIT = c2024;
@@ -60,7 +60,7 @@ const codecraft = n2024;
 const fixhub = f2018;
 const atomsense = s2022;
 const babaAI = c2024;
-const DALLvishon = n2024;
+const DALLvishon = f2018; // fallback image since mm2025.png does not exist
 
 export const skillsConfig = {
   react: { icon: FaReact, color: '#61DAFB', name: 'React' },
@@ -130,9 +130,9 @@ export const projects = [
     category: 'web',
     featured: true
   },
-   {
+  {
     id: 8,
-    image: mm2025,
+    image: ms2025, // fallback image since mm2025.png does not exist
     title: "MathUtils",
     date: "Jul 09, 2025 - Aug 20, 2025",
     description: "Automated GitHub bot that sends notifications for new followers and interactions.",
