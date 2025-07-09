@@ -114,7 +114,7 @@ export const projects = [
     description: "Abohochitro: Bangladesh's Air Quality and Cyclone Tracker",
     github: "https://github.com/raihanulislam00/Abohochitro",
     demo: "https://youtu.be/LfcAvnbAchM?si=HmYpvEQRRMRRtW7x",
-    skills: ['php', 'html', 'css', 'mysql'],
+    skills: ['php', 'html', 'css','javascript', 'mysql'],
     category: 'web',
     featured: false
   },
@@ -138,7 +138,7 @@ export const projects = [
     description: "Automated GitHub bot that sends notifications for new followers and interactions.",
     github: "https://github.com/raihanulislam00/MathUtils",
     demo: "https://mathutils.vercel.app/",
-    skills: ['java', 'jdkfromwork', 'gul'],
+    skills: ['html', 'css', 'javascript'],
     category: 'app',
     featured: false
   },
