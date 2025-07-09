@@ -39,6 +39,7 @@ import t2025 from "./assets/t2025.png";
 import bm2025 from "./assets/bm2025.png";
 import ss2024 from "./assets/ss2024.png";
 import cc2023 from "./assets/cc2023.png";
+import mm2025 from "./assets/mm2025.png";
 // Using available images as placeholders for missing images
 const ecosyncwaste = f2018;
 const GithubBot = s2022;
@@ -94,79 +95,6 @@ export const skillsConfig = {
 
 export const projects = [
   {
-    id: 1,
-    image: f2018,
-    title: "World Cup 2018",
-    date: "Jan 4, 2022 - April 30, 2022",
-    description: "This Is a Foootball World Cup 2018 Website. It is a fully responsive website built with React.js and Tailwind CSS. The website provides information about the teams, players, and matches of the World Cup 2018.",
-    github: "https://github.com/raihanulislam00/World-Cup-2018",
-    demo: "https://world-cup-2018-rosy.vercel.app/",
-    skills: ['js', 'html', 'css', 'tailwind','game'],
-    category: 'game',
-    featured: true
-  },
-  {
-    id: 2,
-    image: s2022,
-    title: "Sharkie",
-    date: "Sept 4, 2023 - Dec 30, 2023",
-    description: "This A game",
-    github: "https://github.com/raihanulislam00/Sharkie",
-    demo: "https://sharkie-rho.vercel.app/",
-    skills: ['html', 'css', 'js','express','game'],
-    category: 'web',
-    featured: true
-  },
-  {
-    id: 3,
-    image: n2024,
-    title: "Ninja Game",
-    date: "March 24, 2024 - March 31, 2024",
-    description: "Game where players control a ninja character, navigating through levels, defeating enemies, and completing objectives.",
-    github: "https://github.com/raihanulislam00/Ninja-game",
-    demo: "https://ninja-game-sepia.vercel.app/",
-    skills: ['react', 'tailwind', 'node', 'mongodb', 'express','game'],
-    category: 'web',
-    featured: true
-  },
-
-  {
-    id: 4,
-    image: c2024,
-    title: "Chess-RI",
-    date: "Dec 24, 2023 - Nov 31, 2023",
-    description: "Chess-RI is a web-based chess game that allows users to play chess against a computer opponent or with friends. It features a user-friendly interface, real-time gameplay, and various difficulty levels.",
-    github: "https://github.com/raihanulislam00/Chess-RI",
-    demo: "https://raihanulislam00.github.io/Chess-RI/",
-    skills: ['HTML', 'Css','game'],
-    category: 'web',
-    featured: true
-  },
-  {
-    id: 42,
-    image: b2025,
-    title: "BanglaVerse",
-    date: "May 24, 2025 - Jun 31, 2025",
-    description: "AI-powered Bengali platform for translation, chat, and content creation. ",
-    github: "https://github.com/raihanulislam00/BanglaVerse",
-    demo: "https://banglaverse.vercel.app/",
-    skills: ['nextjs', 'typescript', 'tailwind', 'postgres', 'ai','react','mongodb','express'],
-    category: 'web',
-    featured: true
-  },
-  {
-    id: 5,
-    image: a2025,
-    title: "☁️ Abohochitro",
-    date: "Jun 3, 2025 - July 4, 2025",
-    description: "Abohochitro: Bangladesh's Air Quality and Cyclone Tracker",
-    github: "https://github.com/raihanulislam00/Abohochitro",
-    demo: "https://youtu.be/LfcAvnbAchM?si=HmYpvEQRRMRRtW7x",
-    skills: ['php', 'html', 'css', 'mysql', ],
-    category: 'web',
-    featured: false
-  },
-  {
     id: 51,
     image: t2025,
     title: "TaskMaster",
@@ -179,6 +107,42 @@ export const projects = [
     featured: true
   },
   {
+    id: 5,
+    image: a2025,
+    title: "☁️ Abohochitro",
+    date: "Jun 3, 2025 - July 4, 2025",
+    description: "Abohochitro: Bangladesh's Air Quality and Cyclone Tracker",
+    github: "https://github.com/raihanulislam00/Abohochitro",
+    demo: "https://youtu.be/LfcAvnbAchM?si=HmYpvEQRRMRRtW7x",
+    skills: ['php', 'html', 'css', 'mysql'],
+    category: 'web',
+    featured: false
+  },
+  {
+    id: 42,
+    image: b2025,
+    title: "BanglaVerse",
+    date: "May 24, 2025 - Jun 31, 2025",
+    description: "AI-powered Bengali platform for translation, chat, and content creation.",
+    github: "https://github.com/raihanulislam00/BanglaVerse",
+    demo: "https://banglaverse.vercel.app/",
+    skills: ['nextjs', 'typescript', 'tailwind', 'postgres', 'ai','react','mongodb','express'],
+    category: 'web',
+    featured: true
+  },
+   {
+    id: 8,
+    image: mm2025,
+    title: "MathUtils",
+    date: "Jul 09, 2025 - Aug 20, 2025",
+    description: "Automated GitHub bot that sends notifications for new followers and interactions.",
+    github: "https://github.com/raihanulislam00/MathUtils",
+    demo: "https://mathutils.vercel.app/",
+    skills: ['java', 'jdkfromwork', 'gul'],
+    category: 'app',
+    featured: false
+  },
+  {
     id: 52,
     image: bm2025,
     title: "Bank Management",
@@ -187,6 +151,42 @@ export const projects = [
     github: "https://github.com/raihanulislam00/Bank-Management",
     demo: "https://code-craft-extension.vercel.app/",
     skills: ["react", "tailwind", "node"],
+    category: 'web',
+    featured: true
+  },
+  {
+    id: 7,
+    image: cc2023,
+    title: "Babysetter Management System",
+    date: "Aug 4, 2023 - Dec 30, 2023",
+    description: "Action-packed 2D warrior game with multiple levels and combat mechanics.",
+    github: "https://github.com/raihanulislam00/Babysetter_Management_System",
+    demo: "",
+    skills: ['c#', '.net'],
+    category: 'App',
+    featured: false
+  },
+  {
+    id: 8,
+    image: GithubBot,
+    title: "Rent management",
+    date: "Jan 20, 2022 - Feb 20, 2022",
+    description: "Automated GitHub bot that sends notifications for new followers and interactions.",
+    github: "https://github.com/raihanulislam00/Rent-management",
+    demo: "",
+    skills: ['java', 'jdkfromwork', 'gul'],
+    category: 'app',
+    featured: false
+  },
+  {
+    id: 3,
+    image: n2024,
+    title: "Ninja Game",
+    date: "March 24, 2024 - March 31, 2024",
+    description: "Game where players control a ninja character, navigating through levels, defeating enemies, and completing objectives.",
+    github: "https://github.com/raihanulislam00/Ninja-game",
+    demo: "https://ninja-game-sepia.vercel.app/",
+    skills: ['react', 'tailwind', 'node', 'mongodb', 'express','game'],
     category: 'web',
     featured: true
   },
@@ -203,43 +203,41 @@ export const projects = [
     featured: false
   },
   {
-    id: 7,
-    image: cc2023,
-    title: "Babysetter Management System",
-    date: "Aug 4, 2021 - Dec 30, 2021",
-    description: "Action-packed 2D warrior game with multiple levels and combat mechanics.",
-    github: "https://github.com/raihanulislam00/Babysetter_Management_System",
-    demo: "",
-    skills: ['c#', '.net'],
-    category: 'App',
-    featured: false
+    id: 4,
+    image: c2024,
+    title: "Chess-RI",
+    date: "Dec 24, 2023 - Nov 31, 2023",
+    description: "Chess-RI is a web-based chess game that allows users to play chess against a computer opponent or with friends. It features a user-friendly interface, real-time gameplay, and various difficulty levels.",
+    github: "https://github.com/raihanulislam00/Chess-RI",
+    demo: "https://raihanulislam00.github.io/Chess-RI/",
+    skills: ['HTML', 'Css','game'],
+    category: 'web',
+    featured: true
   },
   {
-    id: 8,
-    image: GithubBot,
-    title: "Rent management",
-    date: "Jan 20, 2024 - Feb 20, 2024",
-    description: "Automated GitHub bot that sends notifications for new followers and interactions.",
-    github: "https://github.com/raihanulislam00/Rent-management",
-    demo: "",
-    skills: ['java', 'jdkfromwork', 'gul'],
-    category: 'app',
-    featured: false
+    id: 2,
+    image: s2022,
+    title: "Sharkie",
+    date: "Sept 4, 2023 - Dec 30, 2023",
+    description: "This A game",
+    github: "https://github.com/raihanulislam00/Sharkie",
+    demo: "https://sharkie-rho.vercel.app/",
+    skills: ['html', 'css', 'js','express','game'],
+    category: 'web',
+    featured: true
   },
   {
-    id: 8,
-    image: GithubBot,
-    title: "Rent management",
-    date: "Jan 20, 2024 - Feb 20, 2024",
-    description: "Automated GitHub bot that sends notifications for new followers and interactions.",
-    github: "https://github.com/raihanulislam00/Rent-management",
-    demo: "",
-    skills: ['java', 'jdkfromwork', 'gul'],
-    category: 'app',
-    featured: false
+    id: 1,
+    image: f2018,
+    title: "World Cup 2018",
+    date: "Jan 4, 2022 - April 30, 2022",
+    description: "This Is a Foootball World Cup 2018 Website. It is a fully responsive website built with React.js and Tailwind CSS. The website provides information about the teams, players, and matches of the World Cup 2018.",
+    github: "https://github.com/raihanulislam00/World-Cup-2018",
+    demo: "https://world-cup-2018-rosy.vercel.app/",
+    skills: ['js', 'html', 'css', 'tailwind','game'],
+    category: 'game',
+    featured: true
   },
-
-  
 ];
 
 export const categories = [
