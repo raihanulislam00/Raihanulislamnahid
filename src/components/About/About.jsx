@@ -91,11 +91,10 @@ const About = () => {
             
             <div className="space-y-5 text-gray-400 text-base leading-relaxed">
               <p>
-                Currently working as a <span className="text-gray-300 font-semibold">Associate Software Engineer I</span> at Cefalo Bangladesh Ltd.
+                I&apos;m a passionate <span className="text-gray-300 font-semibold">Computer Science and Engineering student</span> at AIUB (American International University-Bangladesh) with a deep fascination for technology and problem-solving. Currently serving as a <span className="text-gray-300 font-semibold">Junior Software Engineer</span>, I thrive on tackling complex challenges and creating innovative solutions.
               </p>
               <p>
-                I also run a <span className="text-gray-300 font-semibold">YouTube channel</span>{" "}
-                <a href="#" className="text-cyan-400 font-semibold hover:underline">Learn and Code</a> where I share knowledge and inspire others in their coding journey.
+                I&apos;m particularly passionate about <span className="text-gray-300 font-semibold">competitive programming</span> and actively participate on platforms like <span className="text-cyan-400 font-semibold">Codeforces, CodeChef, and AtCoder</span>. My journey in software development is driven by curiosity, continuous learning, and the desire to create meaningful impact through technology.
               </p>
             </div>
 
