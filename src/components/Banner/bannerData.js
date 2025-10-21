@@ -11,7 +11,7 @@ export const bannerData = {
   ctaButtons: [
     {
       text: "View Projects",
-      href: "#projects",
+      href: "#project",
       primary: true
     },
     {
