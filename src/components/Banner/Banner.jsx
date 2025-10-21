@@ -31,25 +31,17 @@ const Banner = () => {
     },
   };
 
-  const handleNewsletterSubscribe = () => {
-    window.open(
-      "https://www.linkedin.com/in/raihanulislam00/recent-activity/all/",
-      "_blank"
-    );
-  };
-
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-gray-900 to-black">
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f]">
+      {/* Modern minimalist background */}
+      <div className="absolute inset-0 z-0">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        
+        {/* Gradient orbs - more subtle and purple-focused */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-0 left-1/3 w-[350px] h-[350px] bg-violet-500/10 rounded-full blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Navbar */}
@@ -57,139 +49,58 @@ const Banner = () => {
         <Navbar />
       </div>
 
-      {/* Enhanced Newsletter Subscribe Button - With improved animations */}
-      <motion.button
-        onClick={handleNewsletterSubscribe}
-        className="fixed z-30 flex items-center gap-2 px-3 py-2.5 text-white border rounded-lg shadow-2xl bottom-8 left-8 bg-gradient-to-r from-blue-600 to-blue-800 border-blue-400/30 backdrop-blur-sm md:px-4 md:py-3 md:gap-3 xs:left-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-          delay: 0.5,
-        }}
-        whileHover={{
-          scale: 1.05,
-          boxShadow: "0 0 20px rgba(37, 99, 235, 0.6)",
-          transition: {
-            type: "spring",
-            stiffness: 400,
-            damping: 10,
-          },
-        }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {/* LinkedIn Icon with Pulse Effect */}
-        <motion.div
-          className="relative flex items-center justify-center p-2 bg-white rounded-md"
-          animate={{
-            boxShadow: [
-              "0 0 0 0 rgba(59, 130, 246, 0.7)",
-              "0 0 0 8px rgba(59, 130, 246, 0)",
-            ],
-          }}
-          transition={{
-            duration: 1.8,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatDelay: 0.5,
-          }}
-        >
-          <FaLinkedin className="text-blue-600" size={20} />
-          <motion.span
-            className="absolute w-2 h-2 bg-red-500 rounded-full -top-1 -right-1"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.7, 1, 0.7],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </motion.div>
-
-        {/* Text with Animated Underline - Hidden on mobile */}
-        <div className="hidden md:flex md:flex-col">
-          <span className="text-sm font-bold lg:text-base">
-            Weekly Newsletter
-          </span>
-          <motion.div className="relative h-1">
-            <motion.span
-              className="absolute bottom-0 left-0 h-0.5 bg-blue-300 rounded"
-              initial={{ width: "0%" }}
-              animate={{ width: ["0%", "100%"] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-            />
-          </motion.div>
-        </div>
-
-        {/* "New" Badge */}
-        <motion.div
-          className="flex items-center justify-center px-2 py-0.5 text-xs font-bold text-white bg-red-500 rounded-full"
-          animate={{
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          NEW
-        </motion.div>
-      </motion.button>
-
-      {/* Content Container */}
+      {/* Content Container - Centered and Clean */}
       <motion.div
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="container relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-10 pb-20 mx-auto text-center"
+        className="container relative z-10 flex flex-col items-center justify-center min-h-screen px-6 mx-auto text-center"
       >
-        {/* Main Heading */}
-        <motion.h2
+        {/* Modern Badge */}
+        <motion.div
           variants={fadeInUp}
-          className="mb-4 text-xl font-medium text-blue-400 md:text-2xl"
+          className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm"
+        >
+          <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+          <span className="text-sm font-medium text-purple-300">Available for opportunities</span>
+        </motion.div>
+
+        {/* Clean Greeting */}
+        <motion.p
+          variants={fadeInUp}
+          className="mb-4 text-lg font-medium text-gray-400"
         >
           {bannerData.title}
-        </motion.h2>
+        </motion.p>
 
-        {/* Name */}
+        {/* Large Name */}
         <motion.h1
           variants={fadeInUp}
-          className="mb-6 text-4xl font-bold text-white md:text-6xl lg:text-7xl"
+          className="mb-6 text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight"
         >
           {bannerData.name}
         </motion.h1>
 
-        {/* Animated Roles */}
-        <motion.div variants={fadeInUp} className="h-16 mb-8 md:h-20">
+        {/* Typing Animation for Roles */}
+        <motion.div variants={fadeInUp} className="h-20 mb-8">
           <TypeAnimation
             sequence={[...bannerData.roles.flatMap((role) => [role, 2000])]}
             wrapper="h2"
             cursor={true}
             repeat={Infinity}
-            className="text-xl text-gray-300 md:text-3xl"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent"
           />
         </motion.div>
 
-        {/* Description */}
+        {/* Simple Description */}
         <motion.p
           variants={fadeInUp}
-          className="max-w-2xl mb-12 text-lg text-gray-400"
+          className="max-w-2xl mb-12 text-lg text-gray-400 leading-relaxed"
         >
           <ReactMarkdown>{bannerData.description}</ReactMarkdown>
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* Clean CTA Buttons */}
         <motion.div
           variants={fadeInUp}
           className="flex flex-wrap justify-center gap-4 mb-16"
@@ -198,22 +109,21 @@ const Banner = () => {
             <motion.a
               key={index}
               href={button.href}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-8 py-3 rounded-full text-lg font-medium transition-all duration-300
-                ${
-                  button.primary
-                    ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-blue-500/25"
-                    : "bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700"
-                }`}
+              className={`px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 ${
+                button.primary
+                  ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40"
+                  : "bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:border-purple-500/30 backdrop-blur-sm"
+              }`}
             >
               {button.text}
             </motion.a>
           ))}
         </motion.div>
 
-        {/* Social Links */}
-        <motion.div variants={fadeInUp} className="flex gap-6">
+        {/* Minimal Social Links */}
+        <motion.div variants={fadeInUp} className="flex gap-4">
           {bannerData.socialLinks.map((link, index) => {
             const Icon = {
               FaGithub,
@@ -233,26 +143,26 @@ const Banner = () => {
                 href={link.url}
                 target={link.name === "Email" ? "_self" : "_blank"}
                 rel={link.name === "Email" ? "" : "noopener noreferrer"}
-                whileHover={{ scale: 1.2, y: -5 }}
-                className="text-gray-400 transition-colors duration-300 hover:text-blue-400"
+                whileHover={{ scale: 1.1, y: -3 }}
+                className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 backdrop-blur-sm text-gray-400 transition-all duration-300 hover:text-purple-400 hover:bg-white/10 border border-white/10 hover:border-purple-500/30"
               >
-                <Icon className="w-6 h-6 md:w-7 md:h-7" />
+                <Icon className="w-5 h-5" />
               </motion.a>
             );
           })}
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Simple Scroll Indicator */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="absolute transform -translate-x-1/2 bottom-8 left-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <div className="flex justify-center w-6 h-10 p-2 border-2 border-gray-500 rounded-full">
+          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center p-2">
             <motion.div
-              animate={{ y: [0, 12, 0] }}
+              animate={{ y: [0, 12, 0], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-blue-400"
+              className="w-1.5 h-1.5 rounded-full bg-purple-400"
             />
           </div>
         </motion.div>

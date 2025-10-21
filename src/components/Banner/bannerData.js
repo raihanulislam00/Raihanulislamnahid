@@ -4,7 +4,7 @@ export const bannerData = {
   roles: [
     "Junior Software Engineer",
     "💻 Full-Stack Web Developer",
-    "🎓 B.Sc. in Software Engineering (AIUB)",
+    "🎓 B.Sc. in Computer science and engineering (AIUB)",
     "✍️ Blog Writer",
   ],
   description: " A passionate **software engineer**, exploring new technologies and building software solutions. **[Check out my CV](https://drive.google.com/file/d/1r-aLYgGkEsrlFZO-LhgnO1T0Ja1cOyZZ/view?usp=sharing)**",
@@ -39,7 +39,7 @@ export const bannerData = {
     },
     {
       name: "Email",
-      url: "mailto:sumontasaha80@gmail.com",
+      url: "mailto:raihanulislamnahid22@gmail.com",
       icon: "FaEnvelope"
     },
     {
@@ -55,7 +55,7 @@ export const bannerData = {
     
     {
       name: "WhatsApp",
-      url: "https://wa.me/01845359479",
+      url: "https://wa.me/01827491977",
       icon: "FaWhatsapp"
     }
   ]

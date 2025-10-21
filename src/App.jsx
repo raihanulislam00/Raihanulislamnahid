@@ -4,7 +4,10 @@ import ScrollProgressBar from "react-scroll-progress-bar";
 import "./app.css";
 import Banner from "./components/Banner/Banner";
 import Navbar from "./components/Navbar/Navbar";
-// import Particle from "./components/Particle";
+import CustomCursor from "./components/CustomCursor";
+import LoadingScreen from "./components/LoadingScreen";
+import AnimatedBackground from "./components/AnimatedBackground";
+import FloatingActions from "./components/FloatingActions";
 const Project = lazy(() => import("./components/Projects/Projects.jsx"));
 const ProblemSolving = lazy(() => import("./components/ProblemSolving/ProblemSolving.jsx"));
 const Achievement = lazy(() => import("./components/Achivement/Index.jsx"));
@@ -15,6 +18,7 @@ const Contact = lazy(() => import("./components/ContactMe/index.jsx"));
 
 function App() {
   const [showScrollUp, setShowScrollUp] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +31,26 @@ function App() {
     };
   }, []);
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="bg-bodyColor">
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      </AnimatePresence>
+
+      {!isLoading && (
+        <div className="bg-bodyColor">
+          {/* Animated Background */}
+          <AnimatedBackground />
+
+          {/* Custom Cursor */}
+          <CustomCursor />
+
+          {/* Floating Actions */}
+          <FloatingActions />
       {/* Fixed Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
@@ -85,35 +107,37 @@ function App() {
         <Footer />
       </Suspense>
 
-      {/* Custom Scroll Up Button */}
-      <AnimatePresence>
-        {showScrollUp && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed z-50 flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 rounded-full shadow-lg bottom-8 right-8 bg-gradient-to-r from-cyan-500 to-blue-500 shadow-cyan-500/25 hover:scale-110"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 10l7-7m0 0l7 7m-7-7v18"
-              />
-            </svg>
-          </motion.button>
-        )}
-      </AnimatePresence>
-    </div>
+          {/* Custom Scroll Up Button */}
+          <AnimatePresence>
+            {showScrollUp && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="fixed z-50 flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-2xl bottom-8 right-8 bg-gradient-to-br from-blue-500 to-cyan-500 hover:scale-110 border-2 border-cyan-400/30"
+                whileHover={{ y: -5, boxShadow: "0 25px 50px rgba(6, 182, 212, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 10l7-7m0 0l7 7m-7-7v18"
+                  />
+                </svg>
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
+    </>
   );
 }
 

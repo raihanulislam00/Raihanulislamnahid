@@ -55,23 +55,46 @@ const Blog = () => {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen py-20 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container px-4 mx-auto">
-        {/* Header */}
+    <div className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-16 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container px-4 mx-auto relative z-10">
+        {/* Enhanced Header */}
         <div className="mb-16 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 text-4xl font-bold text-white md:text-5xl"
+            className="mb-6 text-5xl md:text-6xl font-bold relative inline-block"
           >
-            Latest Blog Posts
+            <motion.span
+              className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{ duration: 5, repeat: Infinity }}
+              style={{ backgroundSize: "200% 100%" }}
+            >
+              Latest Blog Posts
+            </motion.span>
+            <motion.div 
+              className="absolute -inset-4 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 blur-2xl -z-10"
+              animate={{
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-lg text-gray-400"
+            className="max-w-3xl mx-auto text-lg text-gray-300 leading-relaxed"
           >
             Sharing my thoughts, experiences, and knowledge about software
             development, technology, and career growth.
@@ -147,34 +170,53 @@ const Blog = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="overflow-hidden transition-all duration-300 bg-gray-800/50 backdrop-blur-sm rounded-xl group hover:bg-gray-800/70"
+                  whileHover={{ scale: 1.03, y: -8 }}
+                  className="relative overflow-hidden transition-all duration-500 bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl group hover:shadow-2xl hover:shadow-cyan-500/20 border-2 border-gray-700/50 hover:border-cyan-500/30"
                 >
-                  {/* Image */}
-                  <div className="relative h-40 md:h-48 overflow-hidden">
-                    <img
+                  {/* Enhanced Glow Effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1))',
+                    }}
+                  />
+
+                  {/* Enhanced Image */}
+                  <div className="relative h-48 md:h-56 overflow-hidden">
+                    <motion.img
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ duration: 0.6 }}
                       src={blog.image}
                       alt={blog.title}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover w-full h-full transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
-                    <span className="absolute px-3 py-1 text-xs font-medium rounded-full bottom-4 left-4 text-cyan-400 bg-cyan-400/10 backdrop-blur-sm">
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
+                    
+                    {/* Floating Category Badge */}
+                    <motion.span 
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="absolute px-4 py-2 text-sm font-semibold rounded-2xl bottom-4 left-4 text-cyan-400 bg-cyan-400/15 backdrop-blur-md border border-cyan-400/30 shadow-lg"
+                    >
                       {blog.category}
-                    </span>
+                    </motion.span>
+                    
+                    {/* Corner Decoration */}
+                    <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/20 backdrop-blur-sm border border-white/10" />
                   </div>
 
-                  {/* Content */}
-                  <div className="p-5">
+                  {/* Enhanced Content */}
+                  <div className="p-6">
                     {/* Author & Date */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <img
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <motion.img
+                          whileHover={{ scale: 1.1 }}
                           src={blog.author.avatar}
                           alt={blog.author.name}
-                          className="w-6 h-6 rounded-full"
+                          className="w-10 h-10 rounded-full border-2 border-cyan-400/30"
                         />
                         <div>
-                          <p className="text-sm font-medium text-white">
+                          <p className="text-sm font-semibold text-white">
                             {blog.author.name}
                           </p>
                           <p className="text-xs text-gray-400">
@@ -182,42 +224,52 @@ const Blog = () => {
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-400">
-                        <FiClock className="w-4 h-4" />
-                        <span>{blog.readTime}</span>
+                      <div className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 bg-gray-800/50 rounded-xl backdrop-blur-sm">
+                        <FiClock className="w-4 h-4 text-cyan-400" />
+                        <span className="font-medium">{blog.readTime}</span>
                       </div>
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="mb-2 text-lg font-semibold text-white transition-colors duration-300 line-clamp-2 group-hover:text-cyan-400">
+                    <motion.h3 
+                      whileHover={{ x: 5 }}
+                      className="mb-3 text-xl font-bold text-white transition-all duration-300 line-clamp-2 group-hover:text-cyan-400"
+                    >
                       {blog.title}
-                    </h3>
-                    <p className="mb-3 text-sm text-gray-400 line-clamp-2">
+                    </motion.h3>
+                    <p className="mb-4 text-sm text-gray-300 line-clamp-2 leading-relaxed">
                       {blog.description}
                     </p>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    {/* Enhanced Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {blog.tags.map((tag, index) => (
-                        <span
+                        <motion.span
                           key={index}
-                          className="px-2 py-1 text-xs font-medium rounded-lg text-cyan-400 bg-cyan-400/10"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          className="px-3 py-1.5 text-xs font-semibold rounded-xl text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 hover:bg-cyan-400/20 transition-all duration-300"
                         >
                           {tag}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
 
-                    {/* Read More Link */}
-                    <a
+                    {/* Enhanced Read More Link */}
+                    <motion.a
                       href={blog.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 transition-colors duration-300 text-cyan-400 hover:text-cyan-300"
+                      whileHover={{ x: 5 }}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30"
                     >
                       Read More
-                      <FiArrowRight className="w-4 h-4" />
-                    </a>
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <FiArrowRight className="w-4 h-4" />
+                      </motion.div>
+                    </motion.a>
                   </div>
                 </motion.article>
               ))

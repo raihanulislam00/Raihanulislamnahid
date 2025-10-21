@@ -40,7 +40,7 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-gray-900/80 backdrop-blur-xl shadow-lg shadow-cyan-500/5 border-b border-cyan-500/10"
+          ? "bg-[#0a0a0f]/90 backdrop-blur-xl shadow-lg shadow-purple-500/5 border-b border-purple-500/10"
           : "bg-transparent"
       }`}
     >
@@ -50,9 +50,9 @@ const Navbar = () => {
         animate={{
           opacity: scrolled ? 1 : 0,
           background: [
-            "linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(79, 70, 229, 0.05) 100%)",
-            "linear-gradient(90deg, rgba(79, 70, 229, 0.05) 0%, rgba(6, 182, 212, 0.05) 50%, rgba(59, 130, 246, 0.05) 100%)",
-            "linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(79, 70, 229, 0.05) 100%)",
+            "linear-gradient(90deg, rgba(168, 85, 247, 0.03) 0%, rgba(99, 102, 241, 0.03) 50%, rgba(139, 92, 246, 0.03) 100%)",
+            "linear-gradient(90deg, rgba(139, 92, 246, 0.03) 0%, rgba(168, 85, 247, 0.03) 50%, rgba(99, 102, 241, 0.03) 100%)",
+            "linear-gradient(90deg, rgba(168, 85, 247, 0.03) 0%, rgba(99, 102, 241, 0.03) 50%, rgba(139, 92, 246, 0.03) 100%)",
           ],
         }}
         transition={{
@@ -80,7 +80,7 @@ const Navbar = () => {
             >
               {/* Compact Avatar */}
               <motion.div
-                className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-lg relative overflow-hidden"
+                className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-400 via-purple-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-lg relative overflow-hidden"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
@@ -103,7 +103,7 @@ const Navbar = () => {
               {/* Compact Info */}
               <div className="flex flex-col">
                 <motion.h1
-                  className="text-lg font-bold bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent tracking-tight"
+                  className="text-lg font-bold bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent tracking-tight"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                   }}
@@ -112,6 +112,7 @@ const Navbar = () => {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
+                  style={{ backgroundSize: "200% 100%" }}
                 >
                   raihanulislam00
                 </motion.h1>
@@ -162,14 +163,14 @@ const Navbar = () => {
                     {/* Active indicator */}                        {activeSection === item.to && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-90"
+                        className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 opacity-90"
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       >
                         <motion.div
-                          className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"
+                          className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600"
                           animate={{
-                            opacity: [0.5, 0.8, 0.5],
+                            opacity: [0.5, 0.9, 0.5],
                           }}
                           transition={{
                             duration: 2,
@@ -202,7 +203,7 @@ const Navbar = () => {
               transition={{ delay: 0.7, duration: 0.6, type: "spring", bounce: 0.3 }}
             >
               <motion.div
-                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 relative overflow-hidden border border-cyan-400/30 shadow-lg shadow-cyan-500/20"
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 relative overflow-hidden border border-purple-400/30 shadow-lg shadow-purple-500/20"
               >
                 <span className="relative z-20 text-sm font-bold text-white flex items-center gap-2">
                   <motion.svg 

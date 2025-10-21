@@ -49,9 +49,16 @@ const Achievement = () => {
   const categoryStats = getCategoryStats();
 
   return (
-    <div className="min-h-screen py-16 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container px-4 mx-auto">
-        {/* Header with Search */}
+    <div className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-16 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/3 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container px-4 mx-auto relative z-10">
+        {/* Enhanced Header with Search */}
         <div className="relative mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,10 +66,26 @@ const Achievement = () => {
             viewport={{ once: true }}
             className="mb-8 text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
-              Achievements & Milestones
-            </h2>
-            <p className="text-lg text-gray-400">
+            <motion.h2 className="mb-6 text-5xl md:text-6xl font-bold relative inline-block">
+              <motion.span
+                className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 5, repeat: Infinity }}
+                style={{ backgroundSize: "200% 100%" }}
+              >
+                Achievements & Milestones
+              </motion.span>
+              <motion.div 
+                className="absolute -inset-4 bg-gradient-to-r from-yellow-400/10 to-red-400/10 blur-2xl -z-10"
+                animate={{
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+            </motion.h2>
+            <p className="text-lg text-gray-300 leading-relaxed">
               My journey of success and accomplishments
             </p>
           </motion.div>
@@ -179,65 +202,90 @@ const Achievement = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.03, y: -8 }}
                     onHoverStart={() => setHoveredIndex(index)}
                     onHoverEnd={() => setHoveredIndex(null)}
                     onClick={() => achievement.link && window.open(achievement.link, '_blank')}
-                    className={`relative rounded-xl overflow-hidden group h-[400px] bg-gray-800/30 backdrop-blur-sm ${
+                    className={`relative rounded-3xl overflow-hidden group h-[450px] bg-gray-800/40 backdrop-blur-xl border-2 border-gray-700/50 hover:border-cyan-400/30 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 ${
                       achievement.link ? 'cursor-pointer' : ''
                     }`}
                   >
-                    {/* Background Image */}
+                    {/* Enhanced Background Image */}
                     <div className="absolute inset-0">
-                      <img
+                      <motion.img
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ duration: 0.6 }}
                         src={achievement.imageUrl}
                         alt={achievement.title}
-                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover w-full h-full transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/90 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-900/60" />
+                      
+                      {/* Glow Effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-t from-cyan-500/0 via-cyan-500/0 to-cyan-500/0 group-hover:from-cyan-500/20 group-hover:via-cyan-500/5 group-hover:to-transparent transition-all duration-500"
+                      />
                     </div>
 
-                    {/* Content */}
-                    <div className="relative z-10 flex flex-col justify-end h-full p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-blue-400/20 backdrop-blur-sm">
-                          <CategoryIcon className="w-6 h-6 text-white" />
-                        </div>
-                        <span className="px-3 py-1 text-sm text-gray-300 rounded-full bg-gray-800/50 backdrop-blur-sm">
+                    {/* Enhanced Content */}
+                    <div className="relative z-10 flex flex-col justify-end h-full p-8">
+                      <div className="flex items-start justify-between mb-6">
+                        <motion.div 
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          className="p-4 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-400/20 backdrop-blur-md border-2 border-white/20 shadow-lg"
+                        >
+                          <CategoryIcon className="w-7 h-7 text-white" />
+                        </motion.div>
+                        <motion.span 
+                          whileHover={{ scale: 1.05 }}
+                          className="px-4 py-2 text-sm font-semibold text-gray-200 rounded-2xl bg-gray-800/60 backdrop-blur-md border border-gray-600/50 shadow-lg"
+                        >
                           {achievement.date}
-                        </span>
+                        </motion.span>
                       </div>
-                      <h3 className="mb-2 text-xl font-semibold text-white transition-colors duration-300 group-hover:text-cyan-400 line-clamp-2">
+                      
+                      <motion.h3 
+                        whileHover={{ x: 5 }}
+                        className="mb-3 text-2xl font-bold text-white transition-all duration-300 group-hover:text-cyan-400 line-clamp-2"
+                      >
                         {achievement.title}
-                      </h3>
-                      <p className="mb-4 text-sm text-gray-300 transition-all duration-300 line-clamp-2 group-hover:line-clamp-none">
+                      </motion.h3>
+                      
+                      <p className="mb-5 text-base text-gray-200 transition-all duration-300 line-clamp-2 group-hover:line-clamp-3 leading-relaxed">
                         {achievement.text}
                       </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span
-                            className={`px-3 py-1 text-xs font-medium rounded-full backdrop-blur-sm
-                                text-yellow-400 bg-yellow-400/10`}
+                      
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <motion.span
+                            whileHover={{ scale: 1.05 }}
+                            className="px-4 py-2 text-sm font-semibold rounded-2xl backdrop-blur-md text-yellow-300 bg-yellow-400/20 border border-yellow-400/30 shadow-lg"
                           >
                             {achievement.status}
-                          </span>
-                          <span className="px-3 py-1 text-xs font-medium rounded-full text-cyan-400 bg-cyan-400/10 backdrop-blur-sm">
+                          </motion.span>
+                          <motion.span 
+                            whileHover={{ scale: 1.05 }}
+                            className="px-4 py-2 text-sm font-semibold rounded-2xl text-cyan-300 bg-cyan-400/20 backdrop-blur-md border border-cyan-400/30 shadow-lg"
+                          >
                             {achievement.category}
-                          </span>
+                          </motion.span>
                         </div>
                         {achievement.link && (
-                          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm">
-                            <FiExternalLink className="w-4 h-4 text-white" />
-                          </div>
+                          <motion.div 
+                            whileHover={{ scale: 1.1, rotate: 15 }}
+                            className="flex items-center justify-center w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 shadow-lg"
+                          >
+                            <FiExternalLink className="w-5 h-5 text-white" />
+                          </motion.div>
                         )}
                       </div>
 
-                      {/* Hover Overlay */}
+                      {/* Enhanced Hover Overlay */}
                       <motion.div
                         animate={{
                           opacity: hoveredIndex === index ? 1 : 0,
                         }}
-                        className="absolute inset-0 pointer-events-none bg-gradient-to-t from-cyan-400/20 to-transparent"
+                        className="absolute inset-0 pointer-events-none bg-gradient-to-t from-cyan-400/10 via-blue-400/5 to-transparent"
                       />
                     </div>
                   </motion.div>

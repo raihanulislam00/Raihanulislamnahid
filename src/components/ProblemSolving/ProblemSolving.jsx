@@ -125,15 +125,53 @@ const ProblemSolving = () => {
                   platform.name === "Codeforces" ? "from-blue-500/10 to-indigo-600/10" :
                   platform.name === "CodeChef" ? "from-amber-500/10 to-orange-600/10" :
                   "from-purple-500/10 to-pink-600/10"
-                } border border-white/10 backdrop-blur-lg hover:border-white/20 transition-all duration-500 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)] hover:bg-opacity-20`}>
-                  {/* Background Glow Effects */}
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${
+                } border-2 border-white/10 backdrop-blur-lg hover:border-white/30 transition-all duration-500 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)]`}>
+                  {/* Enhanced Background Glow Effects */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${
                     platform.name === "LeetCode" ? "from-orange-500 to-red-600" :
                     platform.name === "Codeforces" ? "from-blue-500 to-indigo-600" :
                     platform.name === "CodeChef" ? "from-amber-500 to-orange-600" :
                     "from-purple-500 to-pink-600"
-                  } rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-500`} />
-                  <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-45 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700" />
+                  } rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition duration-500`} />
+                  <motion.div 
+                    className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700"
+                    animate={{
+                      rotate: [45, 405],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                  
+                  {/* Floating Particles */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute rounded-full"
+                      style={{
+                        width: Math.random() * 60 + 20,
+                        height: Math.random() * 60 + 20,
+                        background: platform.name === "LeetCode" ? 'rgba(249, 115, 22, 0.1)' :
+                          platform.name === "Codeforces" ? 'rgba(59, 130, 246, 0.1)' :
+                          platform.name === "CodeChef" ? 'rgba(251, 191, 36, 0.1)' :
+                          'rgba(139, 92, 246, 0.1)',
+                        filter: 'blur(20px)',
+                      }}
+                      animate={{
+                        x: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
+                        y: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
+                        scale: [1, 1.3, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                      }}
+                      transition={{
+                        duration: Math.random() * 8 + 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  ))}
                   
                   {/* Content */}
                   <div className="relative z-10">
