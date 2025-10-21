@@ -34,12 +34,12 @@ export const problemSolvingData = {
       username: "Roll_Num_44",
       profileUrl: "https://codeforces.com/profile/Roll_Num_44",
       stats: {
-        rating: 1577,
-        maxRating: 1761,
+        rating: 1751,
+        maxRating: 1781,
         rank: "Expert",
-        contests: 66,
+        contests: "100+",
         problems: 1166,
-        contribution: "+15",
+        contribution: "+5",
         friendsOf: 89
       },
       icon: "FiTarget",
@@ -59,13 +59,13 @@ export const problemSolvingData = {
       username: "raihanulislam0", 
       profileUrl: "https://codechef.com/users/raihanulislam0",
       stats: {
-        rating: 1845,
-        maxRating: 1967,
-        rank: "4★ (Expert)",
+        rating: 2169,
+        maxRating: 2169,
+        rank: "5★ (Expert)",
         contests: '10+',
         problems: 387,
-        globalRank: 15420,
-        countryRank: 1205
+        globalRank: 584,
+        countryRank: 17
       },
       icon: "FiZap",
       iconBg: "from-amber-500 to-orange-600",
@@ -84,8 +84,8 @@ export const problemSolvingData = {
       username: "raihanulislam00",
       profileUrl: "https://atcoder.jp/users/raihanulislam00",
       stats: {
-        rating: 856,
-        maxRating: 987,
+        rating: 1526,
+        maxRating: 1710,
         rank: "7 kyu (Brown)",
         contests: '10+',
         problems: 145,

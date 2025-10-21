@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { FiExternalLink, FiAward } from "react-icons/fi";
+import { FiExternalLink, FiAward, FiTrendingUp, FiCode, FiActivity } from "react-icons/fi";
 import { problemSolvingData } from "./problemSolvingData";
 
 const ProblemSolving = () => {
@@ -15,100 +15,108 @@ const ProblemSolving = () => {
     return logos[platformName] || "";
   };
 
-  const getDifficultyColor = (difficulty) => {
-    switch (difficulty.toLowerCase()) {
-      case "easy":
-        return "text-green-400 bg-green-500/10 border-green-500/20";
-      case "medium":
-        return "text-yellow-400 bg-yellow-500/10 border-yellow-500/20";
-      case "hard":
-        return "text-red-400 bg-red-500/10 border-red-500/20";
-      default:
-        return "text-gray-400 bg-gray-500/10 border-gray-500/20";
-    }
+  const getPlatformGradient = (platformName) => {
+    const gradients = {
+      LeetCode: "from-orange-500/20 via-yellow-500/20 to-red-500/20",
+      Codeforces: "from-blue-500/20 via-indigo-500/20 to-purple-500/20",
+      CodeChef: "from-amber-500/20 via-orange-500/20 to-brown-500/20",
+      AtCoder: "from-purple-500/20 via-pink-500/20 to-red-500/20"
+    };
+    return gradients[platformName] || "from-gray-500/20 to-gray-600/20";
+  };
+
+  const getPlatformBorderGradient = (platformName) => {
+    const gradients = {
+      LeetCode: "from-orange-500 via-yellow-500 to-red-500",
+      Codeforces: "from-blue-500 via-indigo-500 to-purple-500",
+      CodeChef: "from-amber-500 via-orange-500 to-brown-500",
+      AtCoder: "from-purple-500 via-pink-500 to-red-500"
+    };
+    return gradients[platformName] || "from-gray-500 to-gray-600";
   };
 
 
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-500" />
+    <section className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+
+      {/* Glowing orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: .5, delay: 0.2 }}
-            className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 mb-8 backdrop-blur-sm"
           >
-            <span className="text-cyan-400 font-bold text-3xl">Problem Solving</span>
+            <FiCode className="text-cyan-400 text-xl" />
+            <span className="text-cyan-400 font-semibold text-lg">Competitive Programming</span>
           </motion.div>
           
-          <h2 className="text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent mb-4">
-            {problemSolvingData?.title || ""}
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            Problem Solving Journey
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            {problemSolvingData?.description || "Passionate about algorithmic problem solving and competitive programming"}
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Mastering algorithms and data structures across multiple competitive programming platforms
           </p>
-        </motion.div>
 
-        {/* Tab Navigation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+          {/* Overall Stats Banner */}
           <motion.div
-            className="inline-flex flex-col items-center gap-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="mt-12 max-w-4xl mx-auto"
           >
-            <motion.div
-              className="px-8 py-4 rounded-2xl font-bold text-xl transition-all duration-300 relative overflow-hidden text-white bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 shadow-lg shadow-cyan-500/25 border border-white/10"
-              whileHover={{ scale: 1.05, y: -2 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="relative z-10">Problem Solving Platforms</span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-75"
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{ 
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "linear"
-                }}
-              />
-            </motion.div>
-            <div className="w-24 h-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+                <FiActivity className="text-cyan-400 text-2xl mb-2 mx-auto" />
+                <div className="text-3xl font-bold text-white mb-1">{problemSolvingData.statistics?.totalProblems || '2448'}</div>
+                <div className="text-sm text-gray-400">Total Problems</div>
+              </div>
+              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+                <FiTrendingUp className="text-green-400 text-2xl mb-2 mx-auto" />
+                <div className="text-3xl font-bold text-white mb-1">{problemSolvingData.statistics?.totalContests || '144'}</div>
+                <div className="text-sm text-gray-400">Contests</div>
+              </div>
+              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+                <FiAward className="text-yellow-400 text-2xl mb-2 mx-auto" />
+                <div className="text-3xl font-bold text-white mb-1">4</div>
+                <div className="text-sm text-gray-400">Platforms</div>
+              </div>
+              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+                <FiCode className="text-purple-400 text-2xl mb-2 mx-auto" />
+                <div className="text-3xl font-bold text-white mb-1">{problemSolvingData.statistics?.averageRating || '1569'}</div>
+                <div className="text-sm text-gray-400">Avg Rating</div>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
 
-        {/* Platforms Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 xl:gap-12"
-        >
+        {/* Platforms Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {problemSolvingData?.platforms?.length > 0 ? (
             problemSolvingData.platforms.map((platform, index) => (
               <motion.div
@@ -116,133 +124,120 @@ const ProblemSolving = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative h-full"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative"
               >
-                <div className={`h-full p-8 rounded-3xl bg-gradient-to-br ${
-                  platform.name === "LeetCode" ? "from-orange-500/10 to-red-600/10" :
-                  platform.name === "Codeforces" ? "from-blue-500/10 to-indigo-600/10" :
-                  platform.name === "CodeChef" ? "from-amber-500/10 to-orange-600/10" :
-                  "from-purple-500/10 to-pink-600/10"
-                } border-2 border-white/10 backdrop-blur-lg hover:border-white/30 transition-all duration-500 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.4)]`}>
-                  {/* Enhanced Background Glow Effects */}
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${
-                    platform.name === "LeetCode" ? "from-orange-500 to-red-600" :
-                    platform.name === "Codeforces" ? "from-blue-500 to-indigo-600" :
-                    platform.name === "CodeChef" ? "from-amber-500 to-orange-600" :
-                    "from-purple-500 to-pink-600"
-                  } rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition duration-500`} />
-                  <motion.div 
-                    className="absolute -inset-1 bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700"
+                {/* Gradient Border Effect */}
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${getPlatformBorderGradient(platform.name)} rounded-2xl opacity-0 group-hover:opacity-75 blur transition duration-500`}></div>
+                
+                {/* Card */}
+                <div className={`relative h-full bg-gradient-to-br ${getPlatformGradient(platform.name)} backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 overflow-hidden transition-all duration-500 group-hover:border-gray-600/70`}>
+                  
+                  {/* Animated shine effect */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)'
+                    }}
                     animate={{
-                      rotate: [45, 405],
+                      x: ['-100%', '200%']
                     }}
                     transition={{
-                      duration: 8,
+                      duration: 1.5,
                       repeat: Infinity,
-                      ease: "linear"
+                      repeatDelay: 2
                     }}
                   />
-                  
-                  {/* Floating Particles */}
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute rounded-full"
-                      style={{
-                        width: Math.random() * 60 + 20,
-                        height: Math.random() * 60 + 20,
-                        background: platform.name === "LeetCode" ? 'rgba(249, 115, 22, 0.1)' :
-                          platform.name === "Codeforces" ? 'rgba(59, 130, 246, 0.1)' :
-                          platform.name === "CodeChef" ? 'rgba(251, 191, 36, 0.1)' :
-                          'rgba(139, 92, 246, 0.1)',
-                        filter: 'blur(20px)',
-                      }}
-                      animate={{
-                        x: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
-                        y: [Math.random() * 100, Math.random() * -100, Math.random() * 100],
-                        scale: [1, 1.3, 1],
-                        opacity: [0.3, 0.6, 0.3],
-                      }}
-                      transition={{
-                        duration: Math.random() * 8 + 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  ))}
-                  
-                  {/* Content */}
-                  <div className="relative z-10">
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 flex items-center justify-center p-2.5 bg-white/5 rounded-xl border border-white/10 shadow-inner">
+
+                  {/* Platform Header */}
+                  <div className="relative z-10 flex items-start justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                      {/* Logo with glow */}
+                      <div className="relative">
+                        <div className={`absolute inset-0 bg-gradient-to-r ${getPlatformBorderGradient(platform.name)} rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity`}></div>
+                        <div className="relative w-14 h-14 flex items-center justify-center p-3 bg-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-700/50">
                           <img 
                             src={getPlatformLogo(platform.name)}
                             alt={platform.name}
                             className={`w-full h-full object-contain ${platform.name === "Codeforces" ? "scale-150" : ""}`}
-                            style={{
-                              filter: platform.name === "Codeforces" ? "brightness(1.2) contrast(1.1)" : "none"
-                            }}
                           />
                         </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-white tracking-wide">{platform.name || "Platform"}</h3>
-                          <p className="text-gray-400 font-medium">@{platform.username || "username"}</p>
-                        </div>
                       </div>
-                      <motion.a
-                        href={platform.profileUrl || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-                        whileHover={{ scale: 1.1, rotate: 15 }}
-                        whileTap={{ scale: 0.9 }}
+                      
+                      {/* Platform Info */}
+                      <div>
+                        <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
+                          {platform.name}
+                        </h3>
+                        <p className="text-gray-400 text-sm">@{platform.username}</p>
+                      </div>
+                    </div>
+
+                    {/* External Link */}
+                    <motion.a
+                      href={platform.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-cyan-500/50 transition-all duration-300"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FiExternalLink className="text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                    </motion.a>
+                  </div>
+
+                  {/* Stats Grid */}
+                  <div className="relative z-10 grid grid-cols-4 gap-3 mb-6">
+                    {platform.stats ? Object.entries(platform.stats).slice(0, 4).map(([key, value], idx) => (
+                      <motion.div
+                        key={key}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 + idx * 0.05, duration: 0.3 }}
+                        className="bg-gray-900/60 backdrop-blur-sm border border-gray-700/50 rounded-xl p-3 text-center group-hover:bg-gray-900/80 transition-all duration-300"
                       >
-                        <FiExternalLink className="text-gray-400" />
-                      </motion.a>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-6 mb-8">
-                      {platform.stats ? Object.entries(platform.stats).slice(0, 4).map(([key, value]) => (
-                        <div key={key} className="text-center p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                          <div className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">{value}</div>
-                          <div className="text-sm text-gray-400 capitalize mt-1 font-medium">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                        <div className={`text-lg font-bold bg-gradient-to-r ${getPlatformBorderGradient(platform.name)} bg-clip-text text-transparent`}>
+                          {value}
                         </div>
-                      )) : (
-                        <div className="col-span-2 text-center text-gray-400">No stats available</div>
-                      )}
-                    </div>
-
-                    {/* Achievements */}
-                    <div className="space-y-3 bg-white/5 rounded-xl p-4 border border-white/10">
-                      <div className="flex items-center gap-2 text-sm text-white mb-3">
-                        <FiAward className="text-yellow-400 text-lg" />
-                        <span className="font-semibold tracking-wide">Achievements</span>
-                      </div>
-                      {platform.achievements?.length > 0 ? platform.achievements.map((achievement, idx) => (
-                        <div key={idx} className="text-sm text-gray-300 flex items-center gap-3 hover:text-white transition-colors duration-300">
-                          <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
-                          {achievement}
+                        <div className="text-[10px] text-gray-500 uppercase tracking-wider mt-1">
+                          {key.replace(/([A-Z])/g, ' $1').trim()}
                         </div>
-                      )) : (
-                        <div className="text-sm text-gray-400">No achievements listed</div>
-                      )}
+                      </motion.div>
+                    )) : null}
+                  </div>
+
+                  {/* Achievements Section */}
+                  <div className="relative z-10 bg-gray-900/60 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <FiAward className="text-yellow-400 text-lg" />
+                      <span className="text-white font-semibold text-sm">Key Achievements</span>
+                    </div>
+                    <div className="space-y-2.5">
+                      {platform.achievements?.slice(0, 3).map((achievement, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 + idx * 0.05, duration: 0.4 }}
+                          className="flex items-start gap-3 text-sm text-gray-300 group-hover:text-white transition-colors"
+                        >
+                          <div className={`w-1 h-1 rounded-full bg-gradient-to-r ${getPlatformBorderGradient(platform.name)} mt-2 flex-shrink-0`}></div>
+                          <span className="leading-relaxed">{achievement}</span>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </div>
               </motion.div>
             ))
           ) : (
-            <div className="col-span-full text-center text-gray-400">
-              <p className="text-xl mb-4">No platforms data available</p>
-              <p className="text-sm">Please check the problemSolvingData.js file</p>
+            <div className="col-span-full text-center text-gray-400 py-20">
+              <p className="text-xl">No platforms data available</p>
             </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
