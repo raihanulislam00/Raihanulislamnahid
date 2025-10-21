@@ -9,6 +9,10 @@ import {
   FiGrid,
   FiSearch,
   FiTerminal,
+  FiBookOpen,
+  FiTrendingUp,
+  FiUser,
+  FiCalendar,
 } from "react-icons/fi";
 import { blogs, categories } from "./blogData";
 
@@ -19,6 +23,7 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   const categoryIcons = {
     FiGrid,
@@ -56,99 +61,180 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
-      {/* Enhanced Background Effects */}
+      {/* Animated Background with Grid Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          animation: 'gridMove 20s linear infinite'
+        }} />
+      </div>
+
+      {/* Floating Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-16 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-16 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
       </div>
 
       <div className="container px-4 mx-auto relative z-10">
-        {/* Enhanced Header */}
-        <div className="mb-16 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+        {/* Modern Header with Stats */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-6 text-5xl md:text-6xl font-bold relative inline-block"
+            className="text-center mb-12"
           >
-            <motion.span
-              className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-              style={{ backgroundSize: "200% 100%" }}
+            {/* Icon Badge */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 mb-8 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 backdrop-blur-sm"
             >
-              Latest Blog Posts
-            </motion.span>
-            <motion.div 
-              className="absolute -inset-4 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 blur-2xl -z-10"
-              animate={{
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-          </motion.h2>
-          <motion.p
+              <FiBookOpen className="text-cyan-400 text-xl" />
+              <span className="text-cyan-400 font-semibold">Blog & Articles</span>
+            </motion.div>
+
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+              Latest Writings
+            </h2>
+            <p className="max-w-2xl mx-auto text-lg text-gray-400 leading-relaxed">
+              Insights on algorithms, data structures, and competitive programming
+            </p>
+          </motion.div>
+
+          {/* Blog Stats */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-lg text-gray-300 leading-relaxed"
+            transition={{ delay: 0.4 }}
+            className="max-w-3xl mx-auto grid grid-cols-3 gap-6 mb-12"
           >
-            Sharing my thoughts, experiences, and knowledge about software
-            development, technology, and career growth.
-          </motion.p>
+            <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5 text-center">
+              <FiBookOpen className="text-cyan-400 text-2xl mb-2 mx-auto" />
+              <div className="text-3xl font-bold text-white mb-1">{blogs.length}</div>
+              <div className="text-sm text-gray-400">Articles</div>
+            </div>
+            <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5 text-center">
+              <FiTrendingUp className="text-green-400 text-2xl mb-2 mx-auto" />
+              <div className="text-3xl font-bold text-white mb-1">{categories.length - 1}</div>
+              <div className="text-sm text-gray-400">Categories</div>
+            </div>
+            <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5 text-center">
+              <FiUser className="text-purple-400 text-2xl mb-2 mx-auto" />
+              <div className="text-3xl font-bold text-white mb-1">10K+</div>
+              <div className="text-sm text-gray-400">Readers</div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Search and Categories */}
-        <div className="mb-12 space-y-8">
-          {/* Search Bar */}
-          <div className="max-w-md mx-auto">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search blogs..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setIsSearchFocused(false)}
-                className={`w-full px-6 py-3 pl-12 rounded-full bg-gray-800/50 text-white placeholder-gray-400 outline-none border-2 transition-all duration-300 ${
-                  isSearchFocused ? "border-cyan-400/50" : "border-transparent"
-                }`}
-              />
-              <FiSearch className="absolute text-gray-400 transform -translate-y-1/2 left-4 top-1/2" />
+        {/* Modern Search and Filter Section */}
+        <div className="mb-16 space-y-8">
+          {/* Search Bar with Glass Effect */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="relative group">
+              <div className={`absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-0 transition duration-500 ${
+                isSearchFocused ? 'opacity-50' : 'group-hover:opacity-30'
+              }`}></div>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search articles by title, description, or tags..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => setIsSearchFocused(false)}
+                  className="w-full px-6 py-4 pl-14 pr-6 rounded-2xl bg-gray-800/60 backdrop-blur-xl text-white placeholder-gray-400 outline-none border border-gray-700/50 focus:border-cyan-500/50 transition-all duration-300"
+                />
+                <FiSearch className={`absolute left-5 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
+                  isSearchFocused ? 'text-cyan-400' : 'text-gray-400'
+                }`} size={20} />
+                {searchQuery && (
+                  <motion.button
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                  >
+                    ×
+                  </motion.button>
+                )}
+              </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => {
+          {/* Modern Category Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-3"
+          >
+            {categories.map((category, index) => {
               const Icon = categoryIcons[category.icon];
+              const isActive = selectedCategory === category.name;
               return (
                 <motion.button
                   key={category.name}
                   onClick={() => setSelectedCategory(category.name)}
-                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-6 py-3 rounded-full flex items-center gap-2 transition-all duration-300 ${
-                    selectedCategory === category.name
-                      ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25"
-                      : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/50"
+                  className={`relative px-6 py-3 rounded-xl flex items-center gap-2 font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "text-white"
+                      : "text-gray-400 hover:text-white"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span>{category.name}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeCategory"
+                      className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  {!isActive && (
+                    <div className="absolute inset-0 bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl" />
+                  )}
+                  <Icon className="w-4 h-4 relative z-10" />
+                  <span className="relative z-10 text-sm">{category.name}</span>
                 </motion.button>
               );
             })}
-          </div>
+          </motion.div>
+
+          {/* Results Counter */}
+          {searchQuery && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-gray-400 text-sm"
+            >
+              Found {filteredBlogs.length} article{filteredBlogs.length !== 1 ? 's' : ''}
+            </motion.div>
+          )}
         </div>
 
-        {/* Blog Grid */}
+        {/* Masonry-style Blog Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
             {paginatedBlogs.length === 0 ? (
@@ -158,118 +244,124 @@ const Blog = () => {
                 exit={{ opacity: 0 }}
                 className="py-20 text-center col-span-full"
               >
-                <p className="text-lg text-gray-400">
-                  No blog posts found matching your criteria.
+                <FiSearch className="w-16 h-16 mx-auto mb-4 text-gray-600" />
+                <p className="text-xl text-gray-400 mb-2">
+                  No articles found
+                </p>
+                <p className="text-sm text-gray-500">
+                  Try adjusting your search or filters
                 </p>
               </motion.div>
             ) : (
-              paginatedBlogs.map((blog) => (
+              paginatedBlogs.map((blog, index) => (
                 <motion.article
                   key={blog.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  whileHover={{ scale: 1.03, y: -8 }}
-                  className="relative overflow-hidden transition-all duration-500 bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl group hover:shadow-2xl hover:shadow-cyan-500/20 border-2 border-gray-700/50 hover:border-cyan-500/30"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onHoverStart={() => setHoveredCard(blog.id)}
+                  onHoverEnd={() => setHoveredCard(null)}
+                  className="group relative"
                 >
-                  {/* Enhanced Glow Effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1))',
-                    }}
-                  />
+                  {/* Animated Border Gradient */}
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-60 transition duration-500`}></div>
+                  
+                  {/* Main Card */}
+                  <div className="relative h-full bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-cyan-500/30">
+                    {/* Image Section with Overlay */}
+                    <div className="relative h-52 overflow-hidden">
+                      <motion.img
+                        animate={hoveredCard === blog.id ? { scale: 1.1 } : { scale: 1 }}
+                        transition={{ duration: 0.6 }}
+                        src={blog.image}
+                        alt={blog.title}
+                        className="object-cover w-full h-full"
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
+                      
+                      {/* Date Badge */}
+                      <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-gray-900/80 backdrop-blur-md rounded-lg border border-gray-700/50">
+                        <FiCalendar className="w-3 h-3 text-cyan-400" />
+                        <span className="text-xs text-gray-300 font-medium">{blog.date}</span>
+                      </div>
 
-                  {/* Enhanced Image */}
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <motion.img
-                      whileHover={{ scale: 1.15 }}
-                      transition={{ duration: 0.6 }}
-                      src={blog.image}
-                      alt={blog.title}
-                      className="object-cover w-full h-full transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
-                    
-                    {/* Floating Category Badge */}
-                    <motion.span 
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="absolute px-4 py-2 text-sm font-semibold rounded-2xl bottom-4 left-4 text-cyan-400 bg-cyan-400/15 backdrop-blur-md border border-cyan-400/30 shadow-lg"
-                    >
-                      {blog.category}
-                    </motion.span>
-                    
-                    {/* Corner Decoration */}
-                    <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/20 backdrop-blur-sm border border-white/10" />
-                  </div>
+                      {/* Read Time Badge */}
+                      <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-gray-900/80 backdrop-blur-md rounded-lg border border-gray-700/50">
+                        <FiClock className="w-3 h-3 text-cyan-400" />
+                        <span className="text-xs text-gray-300 font-medium">{blog.readTime}</span>
+                      </div>
 
-                  {/* Enhanced Content */}
-                  <div className="p-6">
-                    {/* Author & Date */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <motion.img
-                          whileHover={{ scale: 1.1 }}
-                          src={blog.author.avatar}
-                          alt={blog.author.name}
-                          className="w-10 h-10 rounded-full border-2 border-cyan-400/30"
-                        />
-                        <div>
-                          <p className="text-sm font-semibold text-white">
-                            {blog.author.name}
-                          </p>
-                          <p className="text-xs text-gray-400">
-                            {blog.author.role}
-                          </p>
+                      {/* Category Tag at Bottom */}
+                      <div className="absolute bottom-4 left-4">
+                        <span className="px-4 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg">
+                          {blog.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-6">
+                      {/* Title */}
+                      <h3 className="mb-3 text-xl font-bold text-white line-clamp-2 group-hover:text-cyan-400 transition-colors duration-300">
+                        {blog.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="mb-4 text-sm text-gray-400 line-clamp-3 leading-relaxed">
+                        {blog.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {blog.tags.slice(0, 3).map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="px-3 py-1 text-xs font-medium rounded-lg bg-gray-800/50 text-gray-400 border border-gray-700/50"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Divider */}
+                      <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-5"></div>
+
+                      {/* Bottom Section */}
+                      <div className="flex items-center justify-between">
+                        {/* Author */}
+                        <div className="flex items-center gap-3">
+                          <img
+                            src={blog.author.avatar}
+                            alt={blog.author.name}
+                            className="w-8 h-8 rounded-full border-2 border-cyan-500/30"
+                          />
+                          <div>
+                            <p className="text-sm font-semibold text-white">
+                              {blog.author.name}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {blog.author.role}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 bg-gray-800/50 rounded-xl backdrop-blur-sm">
-                        <FiClock className="w-4 h-4 text-cyan-400" />
-                        <span className="font-medium">{blog.readTime}</span>
-                      </div>
-                    </div>
 
-                    {/* Title & Description */}
-                    <motion.h3 
-                      whileHover={{ x: 5 }}
-                      className="mb-3 text-xl font-bold text-white transition-all duration-300 line-clamp-2 group-hover:text-cyan-400"
-                    >
-                      {blog.title}
-                    </motion.h3>
-                    <p className="mb-4 text-sm text-gray-300 line-clamp-2 leading-relaxed">
-                      {blog.description}
-                    </p>
-
-                    {/* Enhanced Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {blog.tags.map((tag, index) => (
-                        <motion.span
-                          key={index}
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          className="px-3 py-1.5 text-xs font-semibold rounded-xl text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 hover:bg-cyan-400/20 transition-all duration-300"
+                        {/* Read More Button */}
+                        <motion.a
+                          href={blog.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, x: 5 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
                         >
-                          {tag}
-                        </motion.span>
-                      ))}
+                          Read
+                          <FiArrowRight className="w-4 h-4" />
+                        </motion.a>
+                      </div>
                     </div>
-
-                    {/* Enhanced Read More Link */}
-                    <motion.a
-                      href={blog.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ x: 5 }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30"
-                    >
-                      Read More
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <FiArrowRight className="w-4 h-4" />
-                      </motion.div>
-                    </motion.a>
                   </div>
                 </motion.article>
               ))
@@ -277,25 +369,39 @@ const Blog = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Pagination */}
-        {filteredBlogs.length > 0 && (
-          <div className="flex justify-center gap-2">
+        {/* Modern Pagination */}
+        {filteredBlogs.length > 0 && totalPages > 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center justify-center gap-3"
+          >
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <motion.button
                 key={page}
                 onClick={() => setCurrentPage(page)}
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                whileTap={{ scale: 0.95 }}
+                className={`relative w-12 h-12 rounded-xl flex items-center justify-center font-semibold transition-all duration-300 ${
                   currentPage === page
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25"
-                    : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/50"
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
-                {page}
+                {currentPage === page && (
+                  <motion.div
+                    layoutId="activePage"
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                {currentPage !== page && (
+                  <div className="absolute inset-0 bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl" />
+                )}
+                <span className="relative z-10">{page}</span>
               </motion.button>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
