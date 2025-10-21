@@ -10,7 +10,16 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
-    sourcemap: true
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'framer-motion'],
+          icons: ['react-icons']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
