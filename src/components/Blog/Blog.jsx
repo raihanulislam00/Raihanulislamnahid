@@ -89,49 +89,12 @@ const Blog = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            {/* Icon Badge */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-3 px-6 py-3 mb-8 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 backdrop-blur-sm"
-            >
-              <FiBookOpen className="text-cyan-400 text-xl" />
-              <span className="text-cyan-400 font-semibold">Blog & Articles</span>
-            </motion.div>
-
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               Latest Writings
             </h2>
             <p className="max-w-2xl mx-auto text-lg text-gray-400 leading-relaxed">
               Insights on algorithms, data structures, and competitive programming
             </p>
-          </motion.div>
-
-          {/* Blog Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="max-w-3xl mx-auto grid grid-cols-3 gap-6 mb-12"
-          >
-            <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5 text-center">
-              <FiBookOpen className="text-cyan-400 text-2xl mb-2 mx-auto" />
-              <div className="text-3xl font-bold text-white mb-1">{blogs.length}</div>
-              <div className="text-sm text-gray-400">Articles</div>
-            </div>
-            <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5 text-center">
-              <FiTrendingUp className="text-green-400 text-2xl mb-2 mx-auto" />
-              <div className="text-3xl font-bold text-white mb-1">{categories.length - 1}</div>
-              <div className="text-sm text-gray-400">Categories</div>
-            </div>
-            <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5 text-center">
-              <FiUser className="text-purple-400 text-2xl mb-2 mx-auto" />
-              <div className="text-3xl font-bold text-white mb-1">10K+</div>
-              <div className="text-sm text-gray-400">Readers</div>
-            </div>
           </motion.div>
         </div>
 
