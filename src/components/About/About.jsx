@@ -65,18 +65,6 @@ const About = () => {
     },
   };
 
-  const textShimmerVariants = {
-    hidden: { backgroundPosition: "-200% 0" },
-    visible: {
-      backgroundPosition: "200% 0",
-      transition: {
-        duration: 2,
-        ease: "linear",
-        repeat: Infinity,
-      },
-    },
-  };
-
   return (
     <div className="min-h-screen py-20 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 relative">
       {/* Background decorative elements */}
@@ -87,307 +75,163 @@ const About = () => {
       </div>
       
       <div className="container px-4 mx-auto relative z-10">
-        {/* Enhanced Header with improved particle effect */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-          }}
-          className="relative mb-20 text-center"
-        >
-          {/* Enhanced floating particles background */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(12)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full"
-                style={{
-                  width: Math.random() * 6 + 4,
-                  height: Math.random() * 6 + 4,
-                  background: i % 3 === 0 ? '#06b6d4' : i % 3 === 1 ? '#3b82f6' : '#8b5cf6',
-                  opacity: 0.3,
-                }}
-                initial={{
-                  x: Math.random() * 100 + "%",
-                  y: Math.random() * 100 + "%",
-                  scale: 0,
-                }}
-                animate={{
-                  y: [
-                    Math.random() * 100 + "%", 
-                    Math.random() * 100 + "%",
-                    Math.random() * 100 + "%"
-                  ],
-                  x: [
-                    Math.random() * 100 + "%", 
-                    Math.random() * 100 + "%",
-                    Math.random() * 100 + "%"
-                  ],
-                  scale: [0, 1, 0.5, 1, 0],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: Math.random() * 5 + 6,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: i * 0.3,
-                }}
-              />
-            ))}
-          </div>
-
-          <motion.h2
-            className="relative z-10 mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl"
-            variants={textShimmerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            style={{
-              background:
-                "linear-gradient(90deg, #ffffff 20%, #06b6d4 40%, #3b82f6 60%, #ffffff 80%)",
-              backgroundSize: "300% 100%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              filter: "drop-shadow(0 0 20px rgba(6, 182, 212, 0.3))",
-            }}
-          >
-            About Me
-          </motion.h2>
-          
+        {/* About Me and Skills Section - Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-start">
+          {/* Left Column - About Me */}
           <motion.div
-            className="relative z-10 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col space-y-8"
           >
-            <div className="relative p-8 bg-gray-800/30 backdrop-blur-xl rounded-2xl border border-gray-700/50 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-blue-500/5 rounded-2xl"></div>
-              <p className="relative text-lg leading-relaxed text-gray-300 mb-4">
-                I'm a passionate <span className="font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Software Engineering student</span> at 
-                <span className="font-bold text-white"> AIUB (American International University-Bangladesh)</span> with a deep fascination for technology and problem-solving. 
-                Currently serving as a <span className="font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Junior Software Engineer</span>, 
-                I thrive on tackling complex challenges and creating innovative solutions.
+            <h2 className="text-6xl font-bold text-white">
+              About Me
+            </h2>
+            
+            <div className="space-y-5 text-gray-400 text-base leading-relaxed">
+              <p>
+                Currently working as a <span className="text-gray-300 font-semibold">Associate Software Engineer I</span> at Cefalo Bangladesh Ltd.
               </p>
-              <p className="relative text-lg leading-relaxed text-gray-300">
-                I'm particularly passionate about <span className="font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">competitive programming</span> and actively participate on platforms like{" "}
-                <motion.span
-                  className="relative font-bold text-cyan-400"
-                  whileHover={{
-                    scale: 1.05,
-                    textShadow: "0 0 20px rgba(6, 182, 212, 0.8)",
-                  }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  Codeforces, CodeChef, and AtCoder
-                  <motion.span 
-                    className="absolute -inset-1 bg-cyan-400/20 rounded blur-sm -z-10"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                  />
-                </motion.span>. 
-                My journey in software development is driven by curiosity, continuous learning, and the desire to create meaningful impact through technology.
+              <p>
+                I also run a <span className="text-gray-300 font-semibold">YouTube channel</span>{" "}
+                <a href="#" className="text-cyan-400 font-semibold hover:underline">Learn and Code</a> where I share knowledge and inspire others in their coding journey.
               </p>
             </div>
-          </motion.div>
-        </motion.div>
 
-        {/* Enhanced Stats with improved design */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 gap-8 mb-20 md:grid-cols-4"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={cardHoverVariants.hover}
-              className="relative p-8 overflow-hidden text-center transition-all duration-500 cursor-pointer bg-gray-800/40 backdrop-blur-xl rounded-2xl group border border-gray-700/50 shadow-xl"
-            >
-              {/* Enhanced animated background gradient */}
-              <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                initial={false}
-                animate={{
-                  background: [
-                    "linear-gradient(45deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15))",
-                    "linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15))",
-                    "linear-gradient(225deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.15))",
-                    "linear-gradient(315deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15))",
-                  ],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
-
-              {/* Glowing border effect */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: "linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.3), transparent, rgba(59, 130, 246, 0.3), transparent)",
-                  backgroundSize: "400% 400%",
-                }}
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-
-              <motion.div
-                className="flex justify-center mb-6"
-                variants={iconFloatVariants}
-                animate="animate"
-              >
-                <div className="relative">
-                  <FiAward className="relative z-10 w-10 h-10 transition-all duration-500 text-cyan-400 group-hover:text-cyan-300 group-hover:scale-110" />
-                  <motion.div 
-                    className="absolute inset-0 bg-cyan-400/20 rounded-full blur-xl"
-                    initial={{ scale: 0 }}
-                    whileHover={{ scale: 1.5 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              </motion.div>
-              <motion.h3
-                className="relative z-10 mb-3 text-4xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-500"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                {stat.value}
-              </motion.h3>
-              <p className="relative z-10 text-gray-400 group-hover:text-gray-300 font-medium transition-colors duration-500">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Enhanced Skills Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <motion.h3 
-            className="mb-12 text-3xl font-bold text-center text-white"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Skills & Expertise
-            </span>
-            <motion.div 
-              className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto mt-4 rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            />
-          </motion.h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {skills.map((skill, index) => {
-              const Icon = skill.icon;
-              return (
+            {/* Stats Grid under About Me */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              {stats.map((stat, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  whileHover={{ 
-                    y: -8, 
-                    transition: { type: "spring", stiffness: 300 } 
-                  }}
-                  className="relative p-8 transition-all duration-500 bg-gray-800/40 backdrop-blur-xl rounded-2xl group hover:bg-gray-800/60 border border-gray-700/50 shadow-xl overflow-hidden"
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="relative p-6 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-gray-700/30 text-center group hover:bg-gray-800/50 transition-all duration-300"
                 >
-                  {/* Hover glow effect */}
-                  <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      background: `linear-gradient(135deg, ${skill.color.includes('cyan') ? 'rgba(6, 182, 212, 0.1)' : 
-                        skill.color.includes('blue') ? 'rgba(59, 130, 246, 0.1)' : 
-                        skill.color.includes('green') ? 'rgba(34, 197, 94, 0.1)' :
-                        skill.color.includes('purple') ? 'rgba(139, 92, 246, 0.1)' :
-                        skill.color.includes('pink') ? 'rgba(236, 72, 153, 0.1)' :
-                        'rgba(6, 182, 212, 0.1)'}, transparent)`
-                    }}
-                  />
-                  
-                  <div className="flex items-center gap-6 mb-6">
-                    <motion.div
-                      className={`relative p-4 rounded-xl bg-gradient-to-br ${skill.color} bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-500`}
-                      whileHover={{ rotate: 5, scale: 1.1 }}
-                    >
-                      <Icon className="w-8 h-8 text-white relative z-10" />
-                      <motion.div 
-                        className="absolute inset-0 bg-white/10 rounded-xl blur-xl"
-                        initial={{ scale: 0 }}
-                        whileHover={{ scale: 1.2 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </motion.div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
-                        {skill.name}
-                      </h4>
-                      <p className="text-gray-400 text-sm mt-1">
-                        {skill.level}% Proficiency
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="h-3 bg-gray-700/50 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.1 }}
-                        className={`h-full rounded-full bg-gradient-to-r ${skill.color} relative overflow-hidden`}
-                      >
-                        <motion.div
-                          className="absolute inset-0 bg-white/20"
-                          animate={{
-                            x: ["-100%", "100%"],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                        />
-                      </motion.div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {skill.technologies.map((tech, techIndex) => (
-                      <motion.span
-                        key={techIndex}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: (index * 0.1) + (techIndex * 0.05), duration: 0.3 }}
-                        whileHover={{ scale: 1.05 }}
-                        className="px-3 py-2 text-xs font-medium rounded-lg text-cyan-400 bg-cyan-400/10 hover:bg-cyan-400/20 transition-all duration-300 border border-cyan-400/20"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
+                  <div className="flex flex-col items-center justify-center space-y-2">
+                    <FiAward className="w-10 h-10 text-blue-400 mb-2" />
+                    <h3 className="text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                      {stat.value}
+                    </h3>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                      {stat.label}
+                    </p>
                   </div>
                 </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Skills Terminal */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative bg-[#0f1419] backdrop-blur-sm border border-gray-800 rounded-xl shadow-2xl overflow-hidden">
+              {/* Terminal Content - No Header */}
+              <div className="p-5 font-mono text-[13px] leading-relaxed">
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-purple-500 text-lg">●</span>
+                    <span className="text-gray-300 font-semibold">Skills@expertise:~$</span>
+                  </div>
+                  <div className="text-gray-600 text-[11px]">
+                    {new Date().toLocaleDateString('en-US', { 
+                      month: '2-digit', 
+                      day: '2-digit', 
+                      year: 'numeric' 
+                    })}, {new Date().toLocaleTimeString('en-US', { 
+                      hour: '2-digit', 
+                      minute: '2-digit', 
+                      second: '2-digit',
+                      hour12: true 
+                    })}
+                  </div>
+                </div>
+                
+                {/* Skills List */}
+                <div className="space-y-4">
+                  {skills.map((skill, index) => {
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.08, duration: 0.4 }}
+                        className="space-y-1"
+                      >
+                        {/* Service Name and Status */}
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-2.5 flex-1 min-w-0">
+                            <span className="text-cyan-400 text-base flex-shrink-0">●</span>
+                            <span className="text-white font-medium text-[13px] flex-shrink-0">
+                              {skill.name.toLowerCase().replace(/\s+/g, '_').replace(/\//g, '_').replace(/&/g, 'and').replace(/ui_ux/g, 'ui/ux')}.service
+                            </span>
+                            <span className="text-cyan-400 text-[11px] whitespace-nowrap flex-shrink-0">
+                              active ({skill.level}% loaded)
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2.5 flex-shrink-0">
+                            <div className="w-20 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${skill.level}%` }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.2, delay: index * 0.08, ease: "easeOut" }}
+                                className="h-full bg-blue-500 rounded-full"
+                              />
+                            </div>
+                            <span className="text-gray-500 text-[11px] w-7 text-right">{skill.level}%</span>
+                          </div>
+                        </div>
+                        
+                        {/* Dependencies */}
+                        <div className="pl-6 text-gray-600 text-[11px] leading-relaxed">
+                          <span className="text-gray-700">dependencies:</span>{" "}
+                          {skill.technologies.map((tech, i) => (
+                            <span key={i}>
+                              {tech.toLowerCase()}
+                              {i < skill.technologies.length - 1 ? ', ' : ''}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* Command Line */}
+                <div className="mt-6 space-y-1.5">
+                  <div className="text-purple-500 text-[12px]">
+                    $ cat /proc/skills
+                  </div>
+                  <div className="text-cyan-400 text-[12px]">
+                    Loading skill services...
+                  </div>
+                  <div className="text-purple-500 text-[12px]">
+                    $ systemctl status skills
+                  </div>
+                  <div className="text-gray-600 text-[11px]">
+                    ✓ {skills.length} services loaded, {skills.length} active, 0 failed
+                  </div>
+                  <div className="mt-3 flex items-center gap-1">
+                    <span className="text-purple-500 text-[12px]">$</span>
+                    <span className="text-white animate-pulse text-[12px]">_</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+
+
+
 
         {/* Enhanced Experience/Education Switcher */}
         <motion.div 

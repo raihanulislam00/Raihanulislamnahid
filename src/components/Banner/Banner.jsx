@@ -56,15 +56,6 @@ const Banner = () => {
         animate="animate"
         className="container relative z-10 flex flex-col items-center justify-center min-h-screen px-6 mx-auto text-center"
       >
-        {/* Modern Badge */}
-        <motion.div
-          variants={fadeInUp}
-          className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm"
-        >
-          <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-          <span className="text-sm font-medium text-purple-300">Available for opportunities</span>
-        </motion.div>
-
         {/* Clean Greeting */}
         <motion.p
           variants={fadeInUp}

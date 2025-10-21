@@ -88,83 +88,18 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Enhanced Header Section */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-16 text-center relative z-10"
+        className="mb-8 text-center relative z-10"
       >
-        <motion.div
-          className="relative inline-block p-4 rounded-3xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-gray-700/30"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Animated border glow */}
-          <motion.div
-            className="absolute inset-0 rounded-3xl"
-            style={{
-              background: "linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.3), transparent, rgba(139, 92, 246, 0.3), transparent)",
-              backgroundSize: "400% 400%",
-            }}
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          />
-          
-          <div className="relative z-10 flex items-center justify-center gap-6 px-8 py-4">
-            <motion.div
-              animate={{ 
-                rotate: [0, 360],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                scale: { duration: 2, repeat: Infinity }
-              }}
-            >
-              <FaCode className="text-5xl text-blue-400" />
-            </motion.div>
-            
-            <motion.h1
-              className="text-6xl font-bold text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text md:text-7xl"
-              style={{
-                backgroundSize: "200% 100%",
-              }}
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              My Projects
-            </motion.h1>
-            
-            <motion.div
-              animate={{ 
-                y: [0, -10, 0],
-                rotate: [0, 15, -15, 0]
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <HiOutlineSparkles className="text-5xl text-purple-400" />
-            </motion.div>
-          </div>
-        </motion.div>
-        
-        <motion.p
-          className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          Explore my collection of projects showcasing modern web development, 
-          innovative solutions, and creative problem-solving across various technologies.
-        </motion.p>
+        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+          Featured Projects
+        </h1>
+        <p className="max-w-3xl mx-auto text-lg text-gray-300">
+          A collection of my recent work showcasing various technologies and creative solutions
+        </p>
       </motion.div>
 
       {/* Enhanced Filters Section */}

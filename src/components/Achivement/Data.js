@@ -12,22 +12,25 @@ export const roadmap = [
     title: "Top 0.9% in Google Code Jam 2022",
     text: "International Rank of 920th in Google Code Jam, 2022 among 93,000+ registrants",
     date: "2022",
-    status: "Programming Competition",
+    status: "API Hackathon",
     category: "Competition",
-    imageUrl: roadmap4, // Using existing image, you can replace with Google logo
+    imageUrl: roadmap4,
     colorful: true,
     link: "https://drive.google.com/file/d/1Qlu69vsWVMK1DTmi1ZhafJbWPONnhPb6/view?usp=sharing",
+    impactLevel: 5,
   },
   {
     id: "14",
     title: "Top 2% in Meta Hacker Cup 2024",
     text: "International Rank of 1170th in Facebook Hacker Cup, 2024 among 35,000+ registrants",
-    date: "2024",
-    status: "Programming Competition",
+    date: "May 2024",
+    status: "Competition",
     category: "Competition",
-    imageUrl: roadmap1, // Using existing image, you can replace with Meta logo
+    imageUrl: roadmap1,
     colorful: true,
     link: "https://www.facebook.com/codingcompetitions/hacker-cup/2024/certificate/1122802128509450",
+    impactLevel: 5,
+    ranking: "#02",
   },
   {
     id: "15",
@@ -38,6 +41,7 @@ export const roadmap = [
     category: "Competition",
     imageUrl: roadmap2,
     link: "https://icpc.global/ICPCID/Z43P4LEAJXMN",
+    impactLevel: 4,
   },
   {
     id: "16",
@@ -48,6 +52,7 @@ export const roadmap = [
     category: "Competition",
     imageUrl: roadmap3,
     link: "https://www.hackerrank.com/certificates/a158f7cd12a9",
+    impactLevel: 4,
   },
   {
     id: "17",
@@ -58,6 +63,7 @@ export const roadmap = [
     category: "Professional",
     imageUrl: roadmap6,
     link: "https://mvp.microsoft.com/studentambassadors/certificate/b75fc251-3ad8-4ef2-8913-128a69462fd8",
+    impactLevel: 5,
   },
   {
     id: "18",
@@ -67,5 +73,6 @@ export const roadmap = [
     status: "Microsoft Badge",
     category: "Professional",
     imageUrl: roadmap5,
+    impactLevel: 4,
   },
 ];
