@@ -40,6 +40,7 @@ import bm2025 from "./assets/bm2025.png";
 import ss2024 from "./assets/ss2024.png";
 import cc2023 from "./assets/cc2023.png";
 import ms2025 from "./assets/mm.png";
+import dbs2025 from "./assets/dbs2025.png";
 // Using available images as placeholders for missing images
 const ecosyncwaste = f2018;
 const GithubBot = s2022;
@@ -94,6 +95,18 @@ export const skillsConfig = {
 };
 
 export const projects = [
+  {
+    id: 53,
+    image: dbs2025,
+    title: "🚌 Dhaka Bus Service",
+    date: "Nov 2024 - Jan 2025",
+    description: "Modern transportation management system for Dhaka city. Features multi-role authentication (passengers, drivers, admins), real-time bus tracking with GPS, smart ticket booking system, interactive route maps, and comprehensive dashboards. Built with Next.js, NestJS, TypeScript, and Tailwind CSS for seamless urban mobility.",
+    github: "https://github.com/raihanulislam00/Dhaka_Bus_Service",
+    demo: "https://dhaka-bus-service.vercel.app",
+    skills: ['nextjs', 'typescript', 'tailwind', 'node', 'express', 'postgres', 'react'],
+    category: 'web',
+    featured: true
+  },
   {
     id: 51,
     image: t2025,
