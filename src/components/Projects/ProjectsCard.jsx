@@ -15,7 +15,7 @@ const ProjectsCard = ({ image, title, date, description, github, demo, skills })
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="h-full flex flex-col"
     >
-      <div className="relative flex flex-col h-full bg-gray-900/50 rounded-3xl overflow-hidden border border-gray-800/50 backdrop-blur-sm group hover:border-gray-700/50 transition-all duration-500">
+      <div className="relative flex flex-col h-full card-unique card-shimmer group">
         {/* Image Section */}
         <div className="relative h-64 overflow-hidden">
           <img

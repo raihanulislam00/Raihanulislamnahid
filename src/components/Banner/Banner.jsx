@@ -32,16 +32,32 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f]">
-      {/* Modern minimalist background */}
+    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0f]">
+      {/* Background Image Layer - More Clear and Visible */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={backgroundImage} 
+          alt="Background" 
+          className="w-full h-full object-cover object-center"
+          style={{
+            filter: 'brightness(0.6) contrast(1.15) saturate(1.1)',
+          }}
+        />
+        {/* Lighter gradient overlay to keep background clear */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/60 via-[#0a0a0f]/40 to-[#0a0a0f]/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0f]/30 via-transparent to-[#0a0a0f]/30" />
+      </div>
+
+      {/* Accent overlays and effects */}
       <div className="absolute inset-0 z-0">
         {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.01)_1px,transparent_1px)] bg-[size:64px_64px]" />
         
-        {/* Gradient orbs - more subtle and purple-focused */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-0 left-1/3 w-[350px] h-[350px] bg-violet-500/10 rounded-full blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Subtle gradient orbs */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-0 left-1/3 w-[350px] h-[350px] bg-violet-500/5 rounded-full blur-[90px] animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Navbar */}
@@ -100,12 +116,12 @@ const Banner = () => {
             <motion.a
               key={index}
               href={button.href}
-              whileHover={{ scale: 1.05, y: -2 }}
+              whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 ${
+              className={`px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 btn-glow ${
                 button.primary
-                  ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40"
-                  : "bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:border-purple-500/30 backdrop-blur-sm"
+                  ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/50"
+                  : "bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:border-purple-500/40 backdrop-blur-sm"
               }`}
             >
               {button.text}

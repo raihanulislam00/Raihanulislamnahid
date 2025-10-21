@@ -38,22 +38,7 @@ const ProblemSolving = () => {
 
 
   return (
-    <section className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
-
-      {/* Glowing orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
+    <section className="min-h-screen py-20 relative overflow-hidden">
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
@@ -80,22 +65,22 @@ const ProblemSolving = () => {
             className="mt-12 max-w-4xl mx-auto"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+              <div className="card-unique card-glow p-5 text-center">
                 <FiActivity className="text-cyan-400 text-2xl mb-2 mx-auto" />
                 <div className="text-3xl font-bold text-white mb-1">{problemSolvingData.statistics?.totalProblems || '2448'}</div>
                 <div className="text-sm text-gray-400">Total Problems</div>
               </div>
-              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+              <div className="card-unique card-glow p-5 text-center">
                 <FiTrendingUp className="text-green-400 text-2xl mb-2 mx-auto" />
                 <div className="text-3xl font-bold text-white mb-1">{problemSolvingData.statistics?.totalContests || '144'}</div>
                 <div className="text-sm text-gray-400">Contests</div>
               </div>
-              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+              <div className="card-unique card-glow p-5 text-center">
                 <FiAward className="text-yellow-400 text-2xl mb-2 mx-auto" />
                 <div className="text-3xl font-bold text-white mb-1">4</div>
                 <div className="text-sm text-gray-400">Platforms</div>
               </div>
-              <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-5">
+              <div className="card-unique card-glow p-5 text-center">
                 <FiCode className="text-purple-400 text-2xl mb-2 mx-auto" />
                 <div className="text-3xl font-bold text-white mb-1">{problemSolvingData.statistics?.averageRating || '1569'}</div>
                 <div className="text-sm text-gray-400">Avg Rating</div>

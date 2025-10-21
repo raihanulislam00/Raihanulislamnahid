@@ -60,25 +60,7 @@ const Blog = () => {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
-      {/* Animated Background with Grid Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-          animation: 'gridMove 20s linear infinite'
-        }} />
-      </div>
-
-      {/* Floating Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-16 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-      </div>
+    <div className="min-h-screen py-20 relative overflow-hidden">
 
       <div className="container px-4 mx-auto relative z-10">
         {/* Modern Header with Stats */}
@@ -229,10 +211,10 @@ const Blog = () => {
                   className="group relative"
                 >
                   {/* Animated Border Gradient */}
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-60 transition duration-500`}></div>
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-70 transition duration-500`}></div>
                   
                   {/* Main Card */}
-                  <div className="relative h-full bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-cyan-500/30">
+                  <div className="relative h-full card-unique card-shimmer">
                     {/* Image Section with Overlay */}
                     <div className="relative h-52 overflow-hidden">
                       <motion.img
