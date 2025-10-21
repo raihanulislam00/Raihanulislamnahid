@@ -64,17 +64,6 @@ const ProblemSolving = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 mb-8 backdrop-blur-sm"
-          >
-            <FiCode className="text-cyan-400 text-xl" />
-            <span className="text-cyan-400 font-semibold text-lg">Competitive Programming</span>
-          </motion.div>
-          
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Problem Solving Journey
           </h2>
