@@ -115,12 +115,12 @@ function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="fixed z-50 flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-2xl bottom-8 right-8 bg-gradient-to-br from-blue-500 to-cyan-500 hover:scale-110 border-2 border-cyan-400/30"
+                className="fixed z-50 flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-2xl bottom-8 right-8 bg-gradient-to-br from-blue-500 to-cyan-500 hover:scale-110 border border-cyan-400/30"
                 whileHover={{ y: -5, boxShadow: "0 25px 50px rgba(6, 182, 212, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

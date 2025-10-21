@@ -73,9 +73,9 @@ const FloatingActions = () => {
                     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-3 px-5 py-3.5 text-white rounded-full shadow-2xl bg-gradient-to-br ${action.color} group border-2 border-white/20 backdrop-blur-sm`}
+                  className={`flex items-center gap-2 px-3 py-2 text-white rounded-full shadow-2xl bg-gradient-to-br ${action.color} group border-2 border-white/20 backdrop-blur-sm`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                   <motion.span
                     initial={{ width: 0, opacity: 0 }}
                     animate={{ width: "auto", opacity: 1 }}
@@ -100,16 +100,16 @@ const FloatingActions = () => {
           boxShadow: "0 25px 50px rgba(6, 182, 212, 0.4)"
         }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-2xl bg-gradient-to-br from-cyan-500 to-blue-500 border-2 border-cyan-400/30"
+        className="flex items-center justify-center w-10 h-10 text-white transition-all duration-300 rounded-full shadow-2xl bg-gradient-to-br from-cyan-500 to-blue-500 border border-cyan-400/30"
       >
         <motion.div
           animate={{ rotate: isOpen ? 90 : 0 }}
           transition={{ duration: 0.3 }}
         >
           {isOpen ? (
-            <FiX className="w-6 h-6" />
+            <FiX className="w-4 h-4" />
           ) : (
-            <FiMenu className="w-6 h-6" />
+            <FiMenu className="w-4 h-4" />
           )}
         </motion.div>
       </motion.button>
