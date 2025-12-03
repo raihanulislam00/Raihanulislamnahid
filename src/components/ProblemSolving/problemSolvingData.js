@@ -82,7 +82,7 @@ export const problemSolvingData = {
       id: 4,
       name: "AtCoder",
       username: "raihanulislam00",
-      profileUrl: "https://atcoder.jp/users/raihanulislam00",
+      profileUrl: "https://atcoder.jp/users/raihanulislam0",
       stats: {
         rating: 1526,
         maxRating: 1710,

@@ -2,8 +2,7 @@ export const bannerData = {
   title: "Hi! I am",
   name: "Raihanul Islam",
   roles: [
-    "Junior Software Engineer",
-    "💻 Full-Stack Web Developer",
+    "Trainee Software Engineerin @Deep Mind Labs",
     "🎓 B.Sc. in Computer science and engineering (AIUB)",
     "✍️ Blog Writer",
   ],
