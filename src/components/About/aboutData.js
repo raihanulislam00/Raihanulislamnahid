@@ -99,6 +99,24 @@ export const skills = [
 
 export const experience = [
   {
+    title: "Trainee Software Engineer",
+    company: "Deep Mind Labs",
+    duration: "Present",
+    type: "Full-time",
+    location: "On-site",
+    description: [
+      "⭐ Trainee Software Engineer at Deep Mind Labs",
+      "Working on software development projects and contributing to the engineering team",
+      "Gaining hands-on experience with modern development practices and tools",
+      "Collaborating with senior engineers on real-world applications",
+    ],
+    technologies: [
+      "Software Development",
+      "Problem Solving",
+      "Team Collaboration",
+    ],
+  },
+  {
     title: "Student Ambassador",
     company: "Microsoft",
     duration: "October 2023 – Present",
