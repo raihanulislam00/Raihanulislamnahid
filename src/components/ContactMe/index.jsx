@@ -45,7 +45,7 @@ const ContactMe = () => {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <motion.h2 className="mb-4 text-5xl md:text-6xl font-bold">
+          <motion.h2 className="mb-4 text-5xl md:text-6xl font-bold heading-3d">
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
               Let's Connect
             </span>

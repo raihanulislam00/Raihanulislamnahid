@@ -48,141 +48,131 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen px-4 py-20 relative overflow-hidden sm:px-6 lg:px-8">
-      {/* Header Section */}
+      {/* ── Section Header ── */}
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8 text-center relative z-10"
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-10 text-center relative z-10"
       >
-        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+        {/* Label pill */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold mb-5 backdrop-blur-sm"
+        >
+          <HiOutlineSparkles className="w-3.5 h-3.5" />
+          Portfolio Showcase
+        </motion.div>
+
+        <h1
+          className="mb-4 text-5xl md:text-6xl font-extrabold leading-tight tracking-tight"
+          style={{ background: 'linear-gradient(135deg,#e2d9f3 0%,#67e8f9 45%,#c084fc 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+        >
           Featured Projects
         </h1>
-        <p className="max-w-3xl mx-auto text-lg text-gray-300">
-          A collection of my recent work showcasing various technologies and creative solutions
+        <p className="max-w-xl mx-auto text-base text-gray-500 leading-relaxed">
+          A curated collection of my recent work showcasing various technologies and creative solutions.
         </p>
+
+        {/* Decorative divider */}
+        <div className="mt-7 flex items-center justify-center gap-3">
+          <motion.div
+            initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
+            style={{ originX: 1 }} transition={{ duration: 0.7, delay: 0.3 }}
+            className="h-px w-24 bg-gradient-to-r from-transparent via-cyan-500/70 to-cyan-500"
+          />
+          <div className="flex items-center gap-1.5">
+            <div className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <div className="w-2.5 h-2.5 rounded-full bg-cyan-500" style={{ boxShadow: '0 0 10px rgba(6,182,212,0.7)' }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+          </div>
+          <motion.div
+            initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
+            style={{ originX: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
+            className="h-px w-24 bg-gradient-to-l from-transparent via-cyan-500/70 to-cyan-500"
+          />
+        </div>
       </motion.div>
 
       {/* Enhanced Filters Section */}
       <div className="mx-auto mb-20 max-w-7xl relative z-10">
         <div className="flex flex-col items-center justify-between gap-12">
-          {/* Enhanced Search Input */}
+          {/* Search */}
           <motion.div
-            className="relative w-full md:max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
+            className="relative w-full md:max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.4 }}
           >
-            <div className="relative group">
-              <motion.div
-                className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
-                  isSearchFocused 
-                    ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 scale-105" 
-                    : "bg-gray-800/40"
-                }`}
-                animate={{
-                  boxShadow: isSearchFocused 
-                    ? "0 0 30px rgba(59, 130, 246, 0.3)" 
-                    : "0 0 0px rgba(59, 130, 246, 0)",
-                }}
-              />
-              
+            <motion.div
+              className="absolute -inset-px rounded-2xl bg-gradient-to-r from-violet-600/60 via-cyan-500/60 to-pink-500/60 blur-sm"
+              animate={{ opacity: isSearchFocused ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
+            <div className="relative">
+              <FaSearch className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
               <input
                 type="text"
-                placeholder="🔍 Search projects by name or technology..."
+                placeholder="Search projects by name or tech..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
-                className="relative w-full px-8 py-5 text-lg text-white placeholder-gray-400 transition-all duration-500 border-2 rounded-2xl bg-gray-800/60 focus:outline-none border-gray-700/50 backdrop-blur-xl hover:bg-gray-800/80 focus:border-blue-500/50"
+                className="w-full pl-12 pr-16 py-4 rounded-2xl text-white text-sm placeholder-gray-500 border border-white/8 focus:outline-none focus:border-violet-500/50 transition-all duration-300"
+                style={{ background: 'rgba(13,13,26,0.85)', backdropFilter: 'blur(16px)' }}
               />
-              
-              <motion.div
-                className="absolute right-6 top-1/2 transform -translate-y-1/2"
-                animate={{
-                  scale: isSearchFocused ? 1.2 : 1,
-                  rotate: isSearchFocused ? 360 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <FaSearch className="text-xl text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
-              </motion.div>
-              
-              {/* Search results indicator */}
               {searchQuery && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute right-16 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full"
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-cyan-500/15 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/25"
                 >
-                  {filteredProjects.length} found
-                </motion.div>
+                  {filteredProjects.length}
+                </motion.span>
               )}
             </div>
           </motion.div>
 
-          {/* Enhanced Category Filters */}
+          {/* Category filters */}
           <motion.div
             className="w-full"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.5 }}
           >
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-2.5">
               {categories.map((category, index) => {
-                const count = getCategoryCount(category.id);
+                const count   = getCategoryCount(category.id);
+                const active  = activeCategory === category.id;
                 return (
                   <motion.button
                     key={category.id}
                     onClick={() => setActiveCategory(category.id)}
-                    whileHover={{ 
-                      scale: 1.05,
-                      y: -3,
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`relative px-8 py-4 rounded-2xl text-base font-semibold transition-all duration-500 flex items-center gap-3 overflow-hidden group
-                      ${
-                        activeCategory === category.id
-                          ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-xl shadow-blue-500/30"
-                          : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70 hover:text-white border border-gray-700/50 backdrop-blur-sm"
-                      }`}
-                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileTap={{ scale: 0.96 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
+                    transition={{ delay: 0.08 * index }}
+                    className="relative px-5 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2.5 overflow-hidden transition-colors duration-300"
+                    style={{
+                      background:    active ? 'linear-gradient(135deg,#7c3aed,#0891b2)' : 'rgba(255,255,255,0.04)',
+                      color:         active ? '#fff' : '#9ca3af',
+                      border:        active ? '1px solid transparent' : '1px solid rgba(255,255,255,0.08)',
+                      boxShadow:     active ? '0 0 20px rgba(124,58,237,0.4)' : 'none',
+                    }}
                   >
-                    {/* Animated background for non-active buttons */}
-                    {activeCategory !== category.id && (
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={false}
-                      />
+                    {!active && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                     )}
-                    
-                    {/* Active button glow effect */}
-                    {activeCategory === category.id && (
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl"
-                        animate={{
-                          scale: [1, 1.05, 1],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                        }}
-                      />
-                    )}
-                    
-                    <span className="relative z-10 font-bold">{category.name}</span>
-                    <motion.span
-                      className={`relative z-10 inline-flex items-center justify-center w-8 h-8 text-sm rounded-xl font-bold transition-all duration-300
-                      ${
-                        activeCategory === category.id
-                          ? "bg-white/20 text-white"
-                          : "bg-gray-700/50 text-gray-400 group-hover:bg-gray-600/50 group-hover:text-white"
-                      }`}
-                      whileHover={{ scale: 1.1 }}
+                    <span className="relative z-10">{category.name}</span>
+                    <span
+                      className="relative z-10 inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold"
+                      style={{ background: active ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.07)', color: active ? '#fff' : '#6b7280' }}
                     >
                       {count}
-                    </motion.span>
+                    </span>
                   </motion.button>
                 );
               })}
@@ -207,35 +197,36 @@ const Projects = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {/* Projects count and sort info */}
+              {/* Results bar */}
               <motion.div
-                className="flex items-center justify-between mb-12 px-4"
-                initial={{ opacity: 0, y: 20 }}
+                className="flex items-center justify-between mb-8 px-1"
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
+                transition={{ delay: 0.6 }}
               >
-                <div className="flex items-center gap-4">
-                  <h3 className="text-2xl font-bold text-white">
-                    {filteredProjects.length > 1 ? 'Projects' : 'Project'} Found
-                  </h3>
-                  <div className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-xl font-semibold">
+                <div className="flex items-center gap-3">
+                  <span className="text-gray-400 text-sm font-medium">
+                    Showing
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/25 text-cyan-400 text-sm font-bold">
                     {filteredProjects.length}
-                  </div>
+                  </span>
+                  <span className="text-gray-400 text-sm font-medium">
+                    {filteredProjects.length === 1 ? 'project' : 'projects'}
+                  </span>
                 </div>
-                {activeCategory !== "all" && (
-                  <motion.div
-                    className="text-gray-400"
-                    initial={{ opacity: 0, x: 20 }}
+                {activeCategory !== 'all' && (
+                  <motion.span
+                    initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-violet-500/15 border border-violet-500/25 text-violet-400"
                   >
-                    Filtered by: <span className="text-blue-400 font-semibold">
-                      {categories.find(cat => cat.id === activeCategory)?.name}
-                    </span>
-                  </motion.div>
+                    {categories.find(c => c.id === activeCategory)?.name}
+                  </motion.span>
                 )}
               </motion.div>
 
-              <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 xl:gap-12">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 xl:gap-8">
                 {currentProjects.map((project, index) => (
                   <motion.div
                     key={`${project.id}-${activeCategory}`}
@@ -269,71 +260,62 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Enhanced Pagination */}
+              {/* Pagination */}
               {totalPages > 1 && (
                 <motion.div
-                  className="flex justify-center items-center gap-4 mt-20"
-                  initial={{ opacity: 0, y: 30 }}
+                  className="flex justify-center items-center gap-3 mt-16"
+                  initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 }}
+                  transition={{ delay: 0.8 }}
                 >
                   <motion.button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    whileHover={{ scale: currentPage > 1 ? 1.05 : 1 }}
-                    whileTap={{ scale: currentPage > 1 ? 0.95 : 1 }}
-                    className={`px-6 py-3 rounded-xl flex items-center gap-2 transition-all duration-300 ${
-                      currentPage === 1
-                        ? "bg-gray-800/30 text-gray-600 cursor-not-allowed"
-                        : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70 hover:text-white border border-gray-700/50"
-                    }`}
+                    whileHover={{ scale: currentPage > 1 ? 1.04 : 1 }}
+                    whileTap={{ scale: currentPage > 1 ? 0.96 : 1 }}
+                    className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
+                    style={{
+                      background: currentPage === 1 ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)',
+                      color:      currentPage === 1 ? '#374151' : '#d1d5db',
+                      border:     '1px solid rgba(255,255,255,0.08)',
+                      cursor:     currentPage === 1 ? 'not-allowed' : 'pointer',
+                    }}
                   >
-                    ← Previous
+                    ← Prev
                   </motion.button>
 
                   <div className="flex gap-2">
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                      (pageNum) => (
-                        <motion.button
-                          key={pageNum}
-                          onClick={() => setCurrentPage(pageNum)}
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          className={`w-14 h-14 rounded-xl flex items-center justify-center font-bold transition-all duration-300 relative overflow-hidden
-                          ${
-                            pageNum === currentPage
-                              ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-xl shadow-blue-500/30"
-                              : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70 hover:text-white border border-gray-700/50"
-                          }`}
-                        >
-                          {pageNum === currentPage && (
-                            <motion.div
-                              className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20"
-                              animate={{
-                                scale: [1, 1.2, 1],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                              }}
-                            />
-                          )}
-                          <span className="relative z-10">{pageNum}</span>
-                        </motion.button>
-                      )
-                    )}
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                      <motion.button
+                        key={pageNum}
+                        onClick={() => setCurrentPage(pageNum)}
+                        whileHover={{ scale: 1.08 }}
+                        whileTap={{ scale: 0.94 }}
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold transition-all duration-200"
+                        style={{
+                          background:  pageNum === currentPage ? 'linear-gradient(135deg,#7c3aed,#0891b2)' : 'rgba(255,255,255,0.05)',
+                          color:       pageNum === currentPage ? '#fff' : '#6b7280',
+                          border:      pageNum === currentPage ? '1px solid transparent' : '1px solid rgba(255,255,255,0.08)',
+                          boxShadow:   pageNum === currentPage ? '0 0 16px rgba(124,58,237,0.45)' : 'none',
+                        }}
+                      >
+                        {pageNum}
+                      </motion.button>
+                    ))}
                   </div>
 
                   <motion.button
                     onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                     disabled={currentPage === totalPages}
-                    whileHover={{ scale: currentPage < totalPages ? 1.05 : 1 }}
-                    whileTap={{ scale: currentPage < totalPages ? 0.95 : 1 }}
-                    className={`px-6 py-3 rounded-xl flex items-center gap-2 transition-all duration-300 ${
-                      currentPage === totalPages
-                        ? "bg-gray-800/30 text-gray-600 cursor-not-allowed"
-                        : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70 hover:text-white border border-gray-700/50"
-                    }`}
+                    whileHover={{ scale: currentPage < totalPages ? 1.04 : 1 }}
+                    whileTap={{ scale: currentPage < totalPages ? 0.96 : 1 }}
+                    className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
+                    style={{
+                      background: currentPage === totalPages ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)',
+                      color:      currentPage === totalPages ? '#374151' : '#d1d5db',
+                      border:     '1px solid rgba(255,255,255,0.08)',
+                      cursor:     currentPage === totalPages ? 'not-allowed' : 'pointer',
+                    }}
                   >
                     Next →
                   </motion.button>
@@ -343,42 +325,33 @@ const Projects = () => {
           ) : (
             <motion.div
               key="no-results"
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="py-32 text-center"
+              exit={{ opacity: 0, scale: 0.92 }}
+              className="py-28 text-center"
             >
-              <div className="inline-block p-12 border-2 border-dashed rounded-3xl bg-gray-800/30 border-gray-700/50 backdrop-blur-sm">
+              <div
+                className="inline-flex flex-col items-center gap-5 px-14 py-12 rounded-3xl border border-white/8"
+                style={{ background: 'rgba(13,13,26,0.7)', backdropFilter: 'blur(16px)' }}
+              >
                 <motion.div
-                  animate={{ 
-                    rotate: [0, 360],
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    rotate: { duration: 4, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 2, repeat: Infinity }
-                  }}
-                  className="mb-6"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
                 >
-                  <FaSearch className="mx-auto text-6xl text-gray-400" />
+                  <FaCode className="text-5xl text-violet-400" />
                 </motion.div>
-                <h3 className="text-3xl font-bold text-gray-300 mb-4">
-                  No projects found
-                </h3>
-                <p className="text-xl text-gray-500 mb-6 max-w-md mx-auto">
-                  {searchQuery 
-                    ? `No projects match "${searchQuery}". Try different keywords.`
-                    : "No projects found matching your current filter settings."
-                  }
+                <h3 className="text-2xl font-bold text-white">No projects found</h3>
+                <p className="text-gray-500 text-sm max-w-xs">
+                  {searchQuery
+                    ? `No results for “${searchQuery}”. Try different keywords.`
+                    : 'No projects match the current filter.'}
                 </p>
                 <motion.button
-                  onClick={() => {
-                    setSearchQuery("");
-                    setActiveCategory("all");
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
+                  onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="px-6 py-2.5 rounded-xl text-sm font-semibold text-white"
+                  style={{ background: 'linear-gradient(135deg,#7c3aed,#0891b2)', boxShadow: '0 0 18px rgba(124,58,237,0.35)' }}
                 >
                   Clear Filters
                 </motion.button>
