@@ -4,6 +4,7 @@ import roadmap3 from "./assets/img3.png";
 import roadmap4 from "./assets/img4.png";
 import roadmap5 from "./assets/img5.png";
 import roadmap6 from "./assets/img6.png";
+import roadmapRaihan from "./assets/imgraihan.png";
 
 
 export const roadmap = [
@@ -12,7 +13,7 @@ export const roadmap = [
     title: "Top 0.9% in Google Code Jam 2022",
     text: "International Rank of 920th in Google Code Jam, 2022 among 93,000+ registrants",
     date: "2022",
-    status: "API Hackathon",
+    status: "Google Coding Competition",
     category: "Competition",
     imageUrl: roadmap4,
     colorful: true,
@@ -24,11 +25,24 @@ export const roadmap = [
     title: "Top 2% in Meta Hacker Cup 2024",
     text: "International Rank of 1170th in Facebook Hacker Cup, 2024 among 35,000+ registrants",
     date: "May 2024",
-    status: "Competition",
+    status: "Meta Coding Competition",
     category: "Competition",
     imageUrl: roadmap1,
     colorful: true,
     link: "https://www.facebook.com/codingcompetitions/hacker-cup/2024/certificate/1122802128509450",
+    impactLevel: 5,
+    ranking: "#02",
+  },
+  {
+    id: "19",
+    title: "Top 2% in Meta Hacker Cup 2025",
+    text: "International Rank in Facebook Hacker Cup, 2025 — continuing consistent top performance among tens of thousands of global registrants.",
+    date: "2025",
+    status: "Meta Coding Competition",
+    category: "Competition",
+    imageUrl: roadmapRaihan,
+    colorful: true,
+    link: "https://www.facebook.com/codingcompetitions/hacker-cup/2025/certificate/1122802128509450",
     impactLevel: 5,
     ranking: "#02",
   },

@@ -6,7 +6,7 @@ import Banner from "./components/Banner/Banner";
 import Navbar from "./components/Navbar/Navbar";
 import CustomCursor from "./components/CustomCursor";
 import LoadingScreen from "./components/LoadingScreen";
-import AnimatedBackground from "./components/AnimatedBackground";
+import ThreeBackground from "./components/ThreeBackground";
 import FloatingActions from "./components/FloatingActions";
 const Project = lazy(() => import("./components/Projects/Projects.jsx"));
 const ProblemSolving = lazy(() => import("./components/ProblemSolving/ProblemSolving.jsx"));
@@ -43,8 +43,8 @@ function App() {
 
       {!isLoading && (
         <div className="bg-bodyColor">
-          {/* Animated Background */}
-          <AnimatedBackground />
+          {/* 3D Animated Background */}
+          <ThreeBackground />
 
           {/* Custom Cursor */}
           <CustomCursor />

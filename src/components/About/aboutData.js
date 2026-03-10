@@ -101,7 +101,7 @@ export const experience = [
   {
     title: "Trainee Software Engineer",
     company: "Deep Mind Labs",
-    duration: "Present",
+    duration: "November 2025 – February 2026",
     type: "Full-time",
     location: "On-site",
     description: [
@@ -119,7 +119,7 @@ export const experience = [
   {
     title: "Student Ambassador",
     company: "Microsoft",
-    duration: "October 2023 – Present",
+    duration: "October 2023 – June 2025",
     type: "Part-time",
     location: "Remote",
     description: [
@@ -142,7 +142,7 @@ export const experience = [
   {
     title: "Campus Ambassador",
     company: "Hackules Inc.",
-    duration: "Jan 2024 – Present",
+    duration: "January 2024 – January 2025",
     type: "Part-time",
     location: "Remote",
     description: [

@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.17.10",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "framer-motion": "^8.5.5",
@@ -22,7 +24,8 @@
     "react-scroll": "^1.8.9",
     "react-scroll-progress-bar": "^1.1.13",
     "react-type-animation": "^3.2.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

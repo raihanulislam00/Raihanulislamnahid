@@ -31,8 +31,8 @@ export const problemSolvingData = {
     {
       id: 2,
       name: "Codeforces",
-      username: "Roll_Num_44",
-      profileUrl: "https://codeforces.com/profile/Roll_Num_44",
+      username: "StillUnknown",
+      profileUrl: "https://codeforces.com/profile/StillUnknown",
       stats: {
         rating: 1751,
         maxRating: 1781,
@@ -81,8 +81,8 @@ export const problemSolvingData = {
     {
       id: 4,
       name: "AtCoder",
-      username: "raihanulislam00",
-      profileUrl: "https://atcoder.jp/users/raihanulislam0",
+      username: "StillUnknown",
+      profileUrl: "https://atcoder.jp/users/StillUnknown",
       stats: {
         rating: 1526,
         maxRating: 1710,
@@ -158,77 +158,141 @@ export const problemSolvingData = {
   ],
 
   recentProblems: [
+    /* ── Codeforces ── */
     {
       id: 1,
+      title: "Colorful Graph",
+      platform: "Codeforces",
+      difficulty: "Hard",
+      solved: true,
+      topics: ["Graph", "DSU", "Greedy"],
+      solutionUrl: "https://codeforces.com/profile/Roll_Num_44",
+      timeComplexity: "O(n α(n))",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-09"
+    },
+    {
+      id: 2,
+      title: "Segment Tree Beats",
+      platform: "Codeforces",
+      difficulty: "Hard",
+      solved: true,
+      topics: ["Segment Tree", "Range Update"],
+      solutionUrl: "https://codeforces.com/profile/Roll_Num_44",
+      timeComplexity: "O(n log² n)",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-08"
+    },
+    {
+      id: 3,
+      title: "K-Beautiful Strings",
+      platform: "Codeforces",
+      difficulty: "Medium",
+      solved: true,
+      topics: ["String", "Greedy", "Brute Force"],
+      solutionUrl: "https://codeforces.com/profile/Roll_Num_44",
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+      solvedDate: "2026-03-07"
+    },
+    /* ── CodeChef ── */
+    {
+      id: 4,
+      title: "Chef and Inversions",
+      platform: "CodeChef",
+      difficulty: "Hard",
+      solved: true,
+      topics: ["BIT", "Merge Sort", "Inversions"],
+      solutionUrl: "https://codechef.com/users/raihanulislam0",
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-09"
+    },
+    {
+      id: 5,
+      title: "Subtree Queries",
+      platform: "CodeChef",
+      difficulty: "Medium",
+      solved: true,
+      topics: ["Tree", "Euler Tour", "Segment Tree"],
+      solutionUrl: "https://codechef.com/users/raihanulislam0",
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-08"
+    },
+    {
+      id: 6,
+      title: "Chef and Primes",
+      platform: "CodeChef",
+      difficulty: "Medium",
+      solved: true,
+      topics: ["Number Theory", "Sieve", "DP"],
+      solutionUrl: "https://codechef.com/users/raihanulislam0",
+      timeComplexity: "O(n log log n)",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-06"
+    },
+    /* ── AtCoder ── */
+    {
+      id: 7,
+      title: "ABC 394 - E: Dice Product",
+      platform: "AtCoder",
+      difficulty: "Medium",
+      solved: true,
+      topics: ["DP", "Probability", "Math"],
+      solutionUrl: "https://atcoder.jp/users/raihanulislam0",
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-08"
+    },
+    {
+      id: 8,
+      title: "ABC 390 - D: Edge Deletion",
+      platform: "AtCoder",
+      difficulty: "Medium",
+      solved: true,
+      topics: ["Graph", "BFS", "Shortest Path"],
+      solutionUrl: "https://atcoder.jp/users/raihanulislam0",
+      timeComplexity: "O((V + E) log V)",
+      spaceComplexity: "O(V)",
+      solvedDate: "2026-03-07"
+    },
+    {
+      id: 9,
+      title: "ABC 388 - F: Preset Query",
+      platform: "AtCoder",
+      difficulty: "Hard",
+      solved: true,
+      topics: ["Offline Query", "Segment Tree", "Bitset"],
+      solutionUrl: "https://atcoder.jp/users/raihanulislam0",
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(n)",
+      solvedDate: "2026-03-05"
+    },
+    /* ── LeetCode ── */
+    {
+      id: 10,
       title: "Maximum Subarray Product",
       platform: "LeetCode",
       difficulty: "Medium",
       solved: true,
       topics: ["Dynamic Programming", "Array"],
-      solutionUrl: "#",
+      solutionUrl: "https://leetcode.com/raihanulislam00",
       timeComplexity: "O(n)",
       spaceComplexity: "O(1)",
-      solvedDate: "2025-07-01"
+      solvedDate: "2026-03-07"
     },
     {
-      id: 2,
-      title: "Longest Increasing Subsequence",
-      platform: "LeetCode", 
-      difficulty: "Medium",
-      solved: true,
-      topics: ["Dynamic Programming", "Binary Search"],
-      solutionUrl: "#",
-      timeComplexity: "O(n log n)",
-      spaceComplexity: "O(n)",
-      solvedDate: "2025-06-30"
-    },
-    {
-      id: 3,
-      title: "Chef and Polygon",
-      platform: "CodeChef",
-      difficulty: "Hard",
-      solved: true,
-      topics: ["Geometry", "Mathematics"],
-      solutionUrl: "#",
-      timeComplexity: "O(n²)",
-      spaceComplexity: "O(n)",
-      solvedDate: "2025-06-29"
-    },
-    {
-      id: 4,
-      title: "Network Flow Optimization",
-      platform: "Codeforces",
-      difficulty: "Hard",
-      solved: true,
-      topics: ["Graph", "Max Flow", "Min Cut"],
-      solutionUrl: "#",
-      timeComplexity: "O(V²E)",
-      spaceComplexity: "O(V²)",
-      solvedDate: "2025-06-28"
-    },
-    {
-      id: 5,
-      title: "Shortest Path Queries",
-      platform: "AtCoder",
-      difficulty: "Medium",
-      solved: true,
-      topics: ["Graph", "Dijkstra", "Preprocessing"],
-      solutionUrl: "#",
-      timeComplexity: "O((V + E) log V)",
-      spaceComplexity: "O(V)",
-      solvedDate: "2025-06-27"
-    },
-    {
-      id: 6,
+      id: 11,
       title: "Binary Tree Maximum Path Sum",
       platform: "LeetCode",
       difficulty: "Hard",
       solved: true,
-      topics: ["Tree", "Dynamic Programming", "Recursion"],
-      solutionUrl: "#",
+      topics: ["Tree", "DFS", "Recursion"],
+      solutionUrl: "https://leetcode.com/raihanulislam00",
       timeComplexity: "O(n)",
       spaceComplexity: "O(h)",
-      solvedDate: "2025-06-26"
+      solvedDate: "2026-03-06"
     }
   ],
 
