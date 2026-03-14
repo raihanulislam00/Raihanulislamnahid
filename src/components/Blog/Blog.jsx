@@ -14,6 +14,7 @@ import {
   FiUser,
   FiCalendar,
 } from "react-icons/fi";
+import { HiOutlineSparkles } from "react-icons/hi";
 import { blogs, categories } from "./blogData";
 
 const ITEMS_PER_PAGE = 6;
@@ -62,7 +63,14 @@ const Blog = () => {
   return (
     <div className="min-h-screen py-20 relative overflow-hidden">
 
-      <div className="container px-4 mx-auto relative z-10">
+      <div className="mx-auto max-w-[88rem] px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="section-shell p-5 sm:p-7 lg:p-10"
+        >
         {/* Modern Header with Stats */}
         <div className="mb-20">
           <motion.div
@@ -71,12 +79,43 @@ const Blog = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold mb-5 backdrop-blur-sm"
+            >
+              <HiOutlineSparkles className="w-3.5 h-3.5" />
+              Knowledge Hub
+            </motion.div>
+
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight"
+              style={{ background: "linear-gradient(135deg,#e2d9f3 0%,#67e8f9 45%,#c084fc 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+            >
               Latest Writings
             </h2>
-            <p className="max-w-2xl mx-auto text-lg text-gray-400 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-lg text-gray-500 leading-relaxed">
               Insights on algorithms, data structures, and competitive programming
             </p>
+
+            <div className="mt-7 flex items-center justify-center gap-3">
+              <motion.div
+                initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
+                style={{ originX: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
+                className="h-px w-24 bg-gradient-to-r from-transparent via-cyan-500/70 to-cyan-500"
+              />
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-cyan-500" style={{ boxShadow: "0 0 10px rgba(6,182,212,0.7)" }} />
+                <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+              </div>
+              <motion.div
+                initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
+                style={{ originX: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+                className="h-px w-24 bg-gradient-to-l from-transparent via-cyan-500/70 to-cyan-500"
+              />
+            </div>
           </motion.div>
         </div>
 
@@ -348,6 +387,7 @@ const Blog = () => {
             ))}
           </motion.div>
         )}
+        </motion.div>
       </div>
     </div>
   );

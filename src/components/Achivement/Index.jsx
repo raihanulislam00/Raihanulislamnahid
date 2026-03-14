@@ -265,7 +265,14 @@ const STATS = [
 /* ── Main component ───────────────────────────────────────── */
 const Achievement = () => (
   <div className="min-h-screen py-20 relative overflow-hidden">
-    <div className="container px-6 py-8 mx-auto relative z-10 max-w-6xl">
+    <div className="px-4 py-8 mx-auto relative z-10 max-w-[88rem] sm:px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="section-shell p-5 sm:p-7 lg:p-10"
+      >
 
       {/* ── Section header ── */}
       <motion.div
@@ -341,6 +348,7 @@ const Achievement = () => (
         </AnimatePresence>
       </div>
 
+      </motion.div>
     </div>
   </div>
 );

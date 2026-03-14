@@ -29,6 +29,9 @@
   --accent-primary: #a855f7;
   --accent-secondary: #6366f1;
   --accent-gradient: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  --shell-bg: linear-gradient(155deg, rgba(16, 20, 37, 0.88), rgba(11, 14, 28, 0.86));
+  --shell-border: rgba(255, 255, 255, 0.1);
+  --shell-highlight: rgba(34, 211, 238, 0.18);
 }
 
 body {
@@ -96,17 +99,6 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #ec4899, #a855f7, #6366f1);
   box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
-}
-
-/* Custom cursor styles */
-* {
-  cursor: none !important;
-}
-
-@media (max-width: 1024px) {
-  * {
-    cursor: auto !important;
-  }
 }
 
 /*------------global-----------*/
@@ -255,6 +247,27 @@ body::before {
   border-color: rgba(99, 102, 241, 0.4);
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+/* Shared section shell for consistent premium layout */
+.section-shell {
+  position: relative;
+  border: 1px solid var(--shell-border);
+  border-radius: 2rem;
+  background: var(--shell-bg);
+  box-shadow: 0 30px 90px rgba(2, 6, 23, 0.5);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(70rem 24rem at -10% -15%, rgba(167, 139, 250, 0.12), transparent 60%),
+    radial-gradient(60rem 22rem at 110% -20%, var(--shell-highlight), transparent 60%);
 }
 
 /* Custom button styles */

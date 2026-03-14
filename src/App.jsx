@@ -4,7 +4,6 @@ import ScrollProgressBar from "react-scroll-progress-bar";
 import "./app.css";
 import Banner from "./components/Banner/Banner";
 import Navbar from "./components/Navbar/Navbar";
-import CustomCursor from "./components/CustomCursor";
 import LoadingScreen from "./components/LoadingScreen";
 import ThreeBackground from "./components/ThreeBackground";
 import FloatingActions from "./components/FloatingActions";
@@ -45,9 +44,6 @@ function App() {
         <div className="bg-bodyColor">
           {/* 3D Animated Background */}
           <ThreeBackground />
-
-          {/* Custom Cursor */}
-          <CustomCursor />
 
           {/* Floating Actions */}
           <FloatingActions />

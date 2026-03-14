@@ -67,7 +67,7 @@ const TimelineCard = ({ index, colors, icon: Icon, label, sublabel, duration, lo
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ delay: index * 0.13, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative flex gap-6 md:gap-10"
+      className="relative flex gap-4 md:gap-12"
     >
       {/* Timeline stem + dot */}
       <div className="hidden md:flex flex-col items-center flex-shrink-0 mt-1" style={{ minWidth: 56 }}>
@@ -107,7 +107,7 @@ const TimelineCard = ({ index, colors, icon: Icon, label, sublabel, duration, lo
       {/* Card */}
       <motion.div
         ref={cardRef}
-        className="flex-1 mb-10 relative group cursor-default"
+        className="flex-1 mb-12 relative group cursor-default"
         onHoverStart={() => setHovered(true)}
         onHoverEnd={() => setHovered(false)}
         onMouseMove={handleMouseMove}
@@ -125,8 +125,13 @@ const TimelineCard = ({ index, colors, icon: Icon, label, sublabel, duration, lo
         <motion.div className="absolute inset-0 rounded-2xl pointer-events-none z-10" style={{ background: glowBg }} />
 
         {/* Card body */}
-        <div className="relative rounded-2xl border border-white/8 overflow-hidden"
+        <div className="relative rounded-2xl border border-white/10 overflow-hidden"
           style={{ background: "linear-gradient(145deg,#0d0d1a 0%,#0f1220 55%,#0a0c18 100%)" }}>
+
+          {/* Corner step marker */}
+          <div className="absolute top-3 right-3 z-20 rounded-lg border border-white/10 bg-black/25 px-2 py-1 font-mono text-[10px] text-gray-400">
+            #{stepNum}
+          </div>
 
           {/* Top gradient accent */}
           <div className={`h-[4px] w-full bg-gradient-to-r ${colors.glow} relative overflow-hidden`}>
@@ -246,6 +251,9 @@ const TimelineCard = ({ index, colors, icon: Icon, label, sublabel, duration, lo
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("experience");
+  const skillHighlights = Array.from(
+    new Set(skills.flatMap((skill) => skill.technologies))
+  ).slice(0, 16);
 
   return (
     <div className="min-h-screen py-20 overflow-hidden relative">
@@ -345,6 +353,24 @@ const About = () => {
                 <span className="text-purple-400">▶</span>
                 <span className="text-gray-500">Scanning services…</span>
                 <span className="ml-auto text-green-400">✓ {skills.length} loaded</span>
+              </div>
+
+              {/* Quick skill highlights */}
+              <div className="px-4 pt-3 pb-2 border-b border-white/5">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[10px] font-mono text-gray-500 uppercase tracking-[0.18em]">Skill Highlights</p>
+                  <p className="text-[10px] font-mono text-violet-400">top stack</p>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {skillHighlights.map((tech, i) => (
+                    <span
+                      key={`${tech}-${i}`}
+                      className="text-[10px] font-mono px-2 py-0.5 rounded-md border border-violet-500/25 text-violet-300 bg-violet-500/10"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Skill cards */}
@@ -455,158 +481,166 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* ── SECTION HEADER ─────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-14 relative"
-        >
-          {/* Label pill */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-xs font-semibold mb-5 backdrop-blur-sm"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-            Career &amp; Education Timeline
-          </motion.div>
+        {/* ── JOURNEY SHOWCASE ───────────────────────── */}
+        <section className="relative mb-10">
+          <div className="pointer-events-none absolute -top-12 left-1/2 h-64 w-[90%] -translate-x-1/2 rounded-[2.5rem] bg-gradient-to-r from-violet-600/15 via-fuchsia-500/10 to-sky-500/15 blur-3xl" />
 
-          {/* Main heading */}
-          <h2
-            className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight tracking-tight"
-            style={{ background: "linear-gradient(135deg,#e2d9f3 0%,#a78bfa 40%,#f472b6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-          >
-            My Journey
-          </h2>
+          <div className="section-shell relative px-4 py-10 md:px-8 md:py-14"
+            style={{ boxShadow: "0 30px 80px rgba(8,10,28,0.55), inset 0 1px 0 rgba(255,255,255,0.08)" }}>
 
-          <p className="text-gray-500 max-w-lg mx-auto text-base leading-relaxed">
-            A curated timeline of my professional experience, academic milestones, and the path I&apos;ve walked so far.
-          </p>
-
-          {/* Decorative divider */}
-          <div className="mt-7 flex items-center justify-center gap-3">
+            {/* ── SECTION HEADER ─────────────────────── */}
             <motion.div
-              initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
-              style={{ originX: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
-              className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/70 to-violet-500"
-            />
-            <div className="flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
-              <div className="w-2.5 h-2.5 rounded-full bg-violet-500 shadow-lg" style={{ boxShadow: "0 0 10px rgba(139,92,246,0.7)" }} />
-              <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="text-center mb-10 md:mb-12 relative"
+            >
+              {/* Label pill */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-xs font-semibold mb-5 backdrop-blur-sm"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                Career &amp; Education Timeline
+              </motion.div>
+
+              {/* Main heading */}
+              <h2
+                className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight tracking-tight"
+                style={{ background: "linear-gradient(135deg,#e2d9f3 0%,#a78bfa 40%,#f472b6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
+                My Journey
+              </h2>
+
+              <p className="text-gray-400 max-w-2xl mx-auto text-base leading-relaxed">
+                A curated timeline of professional growth and academic milestones, presented in an interactive story format.
+              </p>
+
+              {/* Decorative divider */}
+              <div className="mt-7 flex items-center justify-center gap-3">
+                <motion.div
+                  initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
+                  style={{ originX: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
+                  className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/70 to-violet-500"
+                />
+                <div className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-violet-500 shadow-lg" style={{ boxShadow: "0 0 10px rgba(139,92,246,0.7)" }} />
+                  <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+                </div>
+                <motion.div
+                  initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
+                  style={{ originX: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+                  className="h-px w-24 bg-gradient-to-l from-transparent via-violet-500/70 to-violet-500"
+                />
+              </div>
+            </motion.div>
+
+            {/* ── TAB SWITCHER ───────────────────────── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex justify-center mb-10 md:mb-12"
+            >
+              <div className="relative flex gap-2 p-2 rounded-2xl bg-black/25 border border-white/10 backdrop-blur-md"
+                style={{ boxShadow: "0 0 40px rgba(139,92,246,0.10), inset 0 1px 0 rgba(255,255,255,0.08)" }}>
+                {[
+                  { id: "experience", label: "Experience", icon: FiBriefcase, accent: "violet",
+                    grad: "from-violet-600 to-indigo-600", glow: "rgba(139,92,246,0.5)" },
+                  { id: "education",  label: "Education",  icon: HiAcademicCap, accent: "pink",
+                    grad: "from-pink-600 to-rose-600",     glow: "rgba(236,72,153,0.5)" },
+                ].map((tab) => {
+                  const active = activeTab === tab.id;
+                  const Icon   = tab.icon;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className="relative px-5 md:px-8 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2.5 transition-colors duration-300 z-10"
+                      style={{ color: active ? "#fff" : "#8b95a7" }}
+                    >
+                      {active && (
+                        <motion.div
+                          layoutId="tab-pill"
+                          className={`absolute inset-0 rounded-xl bg-gradient-to-r ${tab.grad}`}
+                          style={{ zIndex: -1, boxShadow: `0 0 22px ${tab.glow}` }}
+                          transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                        />
+                      )}
+                      <motion.span whileHover={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 0.4 }}>
+                        <Icon className={`w-4 h-4 ${active ? "text-white" : "text-gray-400"}`} />
+                      </motion.span>
+                      {tab.label}
+                      <span className={`ml-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${active ? "bg-white/25 text-white" : "bg-white/5 text-gray-400"}`}>
+                        {tab.id === "experience" ? experience.length : education.length}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+
+            {/* ── TIMELINE ───────────────────────────── */}
+            <div className="max-w-[92rem] mx-auto w-full px-0 md:px-3">
+              <AnimatePresence mode="wait">
+                {activeTab === "experience" ? (
+                  <motion.div
+                    key="experience"
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    {experience.map((job, index) => (
+                      <TimelineCard
+                        key={index}
+                        index={index}
+                        colors={expColors}
+                        icon={FiBriefcase}
+                        label={job.title}
+                        sublabel={job.company}
+                        duration={job.duration}
+                        location={job.location}
+                        type={job.type}
+                        bullets={job.description}
+                        chips={job.technologies}
+                      />
+                    ))}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="education"
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    {education.map((edu, index) => (
+                      <TimelineCard
+                        key={index}
+                        index={index}
+                        colors={eduColors}
+                        icon={HiAcademicCap}
+                        label={edu.degree}
+                        sublabel={edu.institution}
+                        duration={edu.duration}
+                        location={edu.location}
+                        type={null}
+                        bullets={edu.achievements}
+                        chips={null}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <motion.div
-              initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
-              style={{ originX: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
-              className="h-px w-24 bg-gradient-to-l from-transparent via-violet-500/70 to-violet-500"
-            />
           </div>
-        </motion.div>
-
-        {/* ── TAB SWITCHER ───────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-14"
-        >
-          <div className="relative flex gap-2 p-1.5 rounded-2xl bg-white/[0.03] border border-white/8 backdrop-blur-sm"
-            style={{ boxShadow: "0 0 40px rgba(139,92,246,0.08), inset 0 1px 0 rgba(255,255,255,0.05)" }}>
-            {[
-              { id: "experience", label: "Experience", icon: FiBriefcase, accent: "violet",
-                grad: "from-violet-600 to-indigo-600", glow: "rgba(139,92,246,0.5)" },
-              { id: "education",  label: "Education",  icon: HiAcademicCap, accent: "pink",
-                grad: "from-pink-600 to-rose-600",     glow: "rgba(236,72,153,0.5)" },
-            ].map((tab) => {
-              const active = activeTab === tab.id;
-              const Icon   = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className="relative px-7 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2.5 transition-colors duration-300 z-10"
-                  style={{ color: active ? "#fff" : "#6b7280" }}
-                >
-                  {active && (
-                    <motion.div
-                      layoutId="tab-pill"
-                      className={`absolute inset-0 rounded-xl bg-gradient-to-r ${tab.grad}`}
-                      style={{ zIndex: -1, boxShadow: `0 0 22px ${tab.glow}` }}
-                      transition={{ type: "spring", stiffness: 420, damping: 32 }}
-                    />
-                  )}
-                  <motion.span whileHover={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 0.4 }}>
-                    <Icon className={`w-4 h-4 ${active ? "text-white" : "text-gray-500"}`} />
-                  </motion.span>
-                  {tab.label}
-                  {/* count bubble */}
-                  <span className={`ml-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${active ? "bg-white/25 text-white" : "bg-white/5 text-gray-600"}`}>
-                    {tab.id === "experience" ? experience.length : education.length}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        {/* ── TIMELINE ───────────────────────────────── */}
-        <div className="max-w-4xl mx-auto">
-          <AnimatePresence mode="wait">
-            {activeTab === "experience" ? (
-              <motion.div
-                key="experience"
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.35 }}
-              >
-                {experience.map((job, index) => (
-                  <TimelineCard
-                    key={index}
-                    index={index}
-                    colors={expColors}
-                    icon={FiBriefcase}
-                    label={job.title}
-                    sublabel={job.company}
-                    duration={job.duration}
-                    location={job.location}
-                    type={job.type}
-                    bullets={job.description}
-                    chips={job.technologies}
-                  />
-                ))}
-              </motion.div>
-            ) : (
-              <motion.div
-                key="education"
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.35 }}
-              >
-                {education.map((edu, index) => (
-                  <TimelineCard
-                    key={index}
-                    index={index}
-                    colors={eduColors}
-                    icon={HiAcademicCap}
-                    label={edu.degree}
-                    sublabel={edu.institution}
-                    duration={edu.duration}
-                    location={edu.location}
-                    type={null}
-                    bullets={edu.achievements}
-                    chips={null}
-                  />
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        </section>
 
       </div>
     </div>

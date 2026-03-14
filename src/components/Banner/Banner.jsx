@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
 import { TypeAnimation } from "react-type-animation";
-import Navbar from "../Navbar/Navbar";
 import { bannerData } from "./bannerData";
 import CodingAvatar from "../CodingAvatar";
 
@@ -96,11 +95,6 @@ const Banner = () => {
 
         {/* Vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(5,5,16,0.8)_100%)]" />
-      </div>
-
-      {/* Navbar */}
-      <div className="relative z-20">
-        <Navbar />
       </div>
 
       {/* ── MAIN CONTENT ── */}
@@ -233,9 +227,9 @@ const Banner = () => {
             className="mt-12 flex gap-8 border-t border-white/5 pt-8 w-full"
           >
             {[
-              { label: "Years of Experience", value: "2+" },
+              { label: "Years of Experience", value: "1+" },
               { label: "Projects Completed", value: "25+" },
-              { label: "Problems Solved", value: "500+" },
+              { label: "Problems Solved", value: "1500+" },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col">
                 <span className="text-2xl font-bold text-white">{stat.value}</span>

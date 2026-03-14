@@ -48,6 +48,13 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen px-4 py-20 relative overflow-hidden sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="section-shell mx-auto w-full max-w-[88rem] p-5 sm:p-7 lg:p-10"
+      >
       {/* ── Section Header ── */}
       <motion.div
         initial={{ opacity: 0, y: 28 }}
@@ -359,6 +366,7 @@ const Projects = () => {
             </motion.div>
           )}
         </AnimatePresence>
+      </motion.div>
       </motion.div>
     </div>
   );

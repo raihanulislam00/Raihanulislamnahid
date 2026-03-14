@@ -181,7 +181,14 @@ const PlatformCard = ({ platform, index }) => {
 
 const ProblemSolving = () => (
   <section className="min-h-screen py-20 relative overflow-hidden">
-    <div className="container mx-auto px-4 relative z-10">
+    <div className="mx-auto max-w-[88rem] px-4 relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="section-shell p-5 sm:p-7 lg:p-10"
+      >
 
       {/* ── Section header ── */}
       <motion.div
@@ -231,7 +238,7 @@ const ProblemSolving = () => (
       {/* ── Stats banner ── */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-16">
         {[
-          { Icon: FiActivity,   value: problemSolvingData.statistics?.totalProblems || "2448", label: "Problems Solved",  glow: "rgba(6,182,212,0.35)",   accent: "#22d3ee", grad: "from-cyan-400 to-blue-400"     },
+          { Icon: FiActivity,   value: "1500+",                                         label: "Problems Solved",  glow: "rgba(6,182,212,0.35)",   accent: "#22d3ee", grad: "from-cyan-400 to-blue-400"     },
           { Icon: FiTrendingUp, value: problemSolvingData.statistics?.totalContests  || "144",  label: "Contests",         glow: "rgba(74,222,128,0.35)",  accent: "#4ade80", grad: "from-green-400 to-emerald-400" },
           { Icon: FiAward,      value: "4",                                                      label: "Platforms",        glow: "rgba(251,191,36,0.35)",  accent: "#fbbf24", grad: "from-yellow-400 to-amber-400"  },
           { Icon: FiCode,       value: problemSolvingData.statistics?.averageRating  || "1569", label: "Avg Rating",       glow: "rgba(167,139,250,0.35)", accent: "#c084fc", grad: "from-violet-400 to-purple-400" },
@@ -264,6 +271,7 @@ const ProblemSolving = () => (
         ))}
       </div>
 
+      </motion.div>
     </div>
   </section>
 );

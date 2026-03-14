@@ -18,12 +18,41 @@ const navItems = [
 const Navbar = () => {
   const [isOpen,         setIsOpen]         = useState(false);
   const [scrolled,       setScrolled]       = useState(false);
-  const [activeSection,  setActiveSection]  = useState("");
+  const [activeSection,  setActiveSection]  = useState("about");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setIsOpen(false);
+    };
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    window.addEventListener("resize", onResize);
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, []);
 
   return (
@@ -112,6 +141,9 @@ const Navbar = () => {
                   offset={-100}
                   duration={500}
                   onSetActive={() => setActiveSection(item.to)}
+                  role="button"
+                  aria-label={`Go to ${item.name}`}
+                  tabIndex={0}
                   className="relative px-3.5 py-2 cursor-pointer rounded-xl group flex items-center gap-1.5"
                 >
                   {/* Active sliding background */}
@@ -177,6 +209,9 @@ const Navbar = () => {
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2.5 rounded-xl border border-white/10 bg-white/[0.05] backdrop-blur-xl text-gray-300 hover:text-white hover:bg-white/10 hover:border-violet-400/30 transition-all duration-300 focus:outline-none"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -198,6 +233,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+            id="mobile-navigation"
             className="overflow-hidden lg:hidden border-t border-white/[0.07]"
           >
             <div className="px-4 pt-3 pb-6 bg-[#07070f]/95 backdrop-blur-3xl">
@@ -213,7 +249,14 @@ const Navbar = () => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    onClick={() => setIsOpen(false)}
+                    onSetActive={() => setActiveSection(item.to)}
+                    onClick={() => {
+                      setActiveSection(item.to);
+                      setIsOpen(false);
+                    }}
+                    role="button"
+                    aria-label={`Go to ${item.name}`}
+                    tabIndex={0}
                   >
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
